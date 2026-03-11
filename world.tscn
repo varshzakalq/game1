@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://iyhl0tuo5v2n"]
+
+[node name="world" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(8.5824, 0, 0, 0, 1, 0, 0, 0, 7.50565, 0, 0, 0)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSGBox3D"]
+transform = Transform3D(0.105546, 0, 0, 0, 0.105546, 0, 0, 0, 0.105546, 0, 0.616619, 0)
+sides = 30
