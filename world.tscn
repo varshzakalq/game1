@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://iyhl0tuo5v2n"]
 
-[ext_resource type="PackedScene" uid="uid://bthipw50rd40x" path="res://spider_bot_model.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://bwxx1pk15ki1x" path="res://node_3d.tscn" id="1_f3sb7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -31,8 +31,8 @@ transform = Transform3D(8.5824, 0, 0, 0, 1, 0, 0, 0, 7.50565, 0, 0, 0)
 transform = Transform3D(0.105546, 0, 0, 0, 0.105546, 0, 0, 0, 0.105546, 0, 0.616619, 0)
 sides = 30
 
-[node name="spider_bot_model" parent="." instance=ExtResource("1_f3sb7")]
-transform = Transform3D(0.116802, 0, 0, 0, 0.116802, 0, 0, 0, 0.116802, 0, 0.89502, 1.03612)
-
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.903485, 0, 0.42862, 0, 1, 0, -0.42862, 0, -0.903485, 0.38324, 0.900483, -0.314756)
+transform = Transform3D(-0.990158, -0.123674, 0.0655126, -0.076794, 0.871445, 0.484444, -0.117004, 0.474645, -0.872366, 0.38324, 3.38518, -4.64519)
+
+[node name="Node3D" parent="." instance=ExtResource("1_f3sb7")]
+transform = Transform3D(0.149403, 0, 0, 0, 0.149403, 0, 0, 0, 0.149403, 0.1541, 0.858292, 0.159444)

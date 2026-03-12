@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwxx1pk15ki1x"]
+
+[ext_resource type="Script" uid="uid://dmwag28y6ekle" path="res://anim.gd" id="1_a202f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+albedo_color = Color(1, 0.677579, 0.371162, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4xowi"]
+material = SubResource("StandardMaterial3D_noarx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0tk4"]
+albedo_color = Color(0.164706, 1, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r3fl7"]
+material = SubResource("StandardMaterial3D_a0tk4")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00985241, 0, 0)
+skeleton = NodePath("../MeshInstance3D")
+script = ExtResource("1_a202f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("BoxMesh_4xowi")
+
+[node name="cube3" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -2)
+skeleton = NodePath("../..")
+
+[node name="c3follower" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("BoxMesh_r3fl7")

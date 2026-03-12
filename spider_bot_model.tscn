@@ -48,17 +48,17 @@ target_node = NodePath("../../brt")
 script = ExtResource("2_n3wun")
 
 [node name="brt" type="Marker3D" parent="Armature" index="1"]
-transform = Transform3D(3.06884, 0, 0, 0, 3.06884, 0, 0, 0, 3.06884, -3.85743, -2.18259, 3.77418)
+transform = Transform3D(3.06884, 0, 0, 0, 3.06884, 0, 0, 0, 3.06884, -3.85743, -0.418007, 3.77418)
 top_level = true
 
 [node name="blt" type="Marker3D" parent="Armature" index="2"]
-transform = Transform3D(3.06884, 0, 0, 0, 3.06884, 0, 0, 0, 3.06884, 3.79183, -2.18259, 3.77418)
+transform = Transform3D(2.16207, -2.1779, 0, 2.1779, 2.16207, 0, 0, 0, 3.06884, 4.1765, -0.0779233, 1.85479)
 top_level = true
 
 [node name="flt" type="Marker3D" parent="Armature" index="3"]
-transform = Transform3D(3.06884, 0, 0, 0, 3.06884, 0, 0, 0, 3.06884, 3.79183, -2.18259, -3.7527)
+transform = Transform3D(3.06884, 0, 0, 0, 3.06884, 0, 0, 0, 3.06884, 3.79183, -0.125748, -3.7527)
 top_level = true
 
 [node name="frt" type="Marker3D" parent="Armature" index="4"]
-transform = Transform3D(3.06884, 0, 0, 0, 3.06884, 0, 0, 0, 3.06884, -3.75545, -2.18259, -3.7527)
+transform = Transform3D(3.06884, 0, 0, 0, 3.06884, 0, 0, 0, 3.06884, -3.87184, -0.538607, -2.63801)
 top_level = true
