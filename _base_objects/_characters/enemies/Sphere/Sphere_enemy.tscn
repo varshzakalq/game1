@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ccec6c80h1n8j"]
 
-[ext_resource type="Script" uid="uid://bn8hqme8kkcab" path="res://_base_objects/_characters/enemies/sphere_enemy.gd" id="1_irvwc"]
+[ext_resource type="Script" uid="uid://bn8hqme8kkcab" path="res://_base_objects/_characters/enemies/Sphere/sphere_enemy.gd" id="1_irvwc"]
 [ext_resource type="Shape3D" uid="uid://boo0skuvmmb3o" path="res://_assets/Sphere enemy/sphere_model.tres" id="2_2osio"]
+[ext_resource type="Script" uid="uid://cphht8sc010vf" path="res://_base_objects/_characters/enemies/Sphere/Components/Health_component.gd" id="3_t4gwm"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7rf87"]
 
@@ -12,7 +13,7 @@ albedo_color = Color(0.62, 0, 0, 1)
 resource_name = "Detection cone setter"
 script/source = "extends Node3D
 
-@onready var main_body : CharacterBody3D = $\"..\"
+@onready var main_body : CharacterBody3D = owner
 
 @onready var checking_area : CollisionObject3D = $Area3D/CollisionShape3D
 @onready var rays : Node3D = $Rays
@@ -74,7 +75,7 @@ radius = 5.0
 resource_name = "raycastscript"
 script/source = "extends RayCast3D
 
-@onready var main_body : CharacterBody3D = $\"../../../..\"
+@onready var main_body : CharacterBody3D = owner
 
 
 func _ready() -> void:
@@ -155,6 +156,13 @@ transform = Transform3D(0.99878204, 0.034878235, 0.034899496, -0.034899496, 0.99
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
 target_position = Vector3(10, 0, 0)
 script = SubResource("GDScript_caho6")
+
+[node name="Components" type="Node3D" parent="." unique_id=812439684]
+
+[node name="Health" type="Node3D" parent="Components" unique_id=880975555]
+script = ExtResource("3_t4gwm")
+
+[node name="AI" type="Node3D" parent="Components" unique_id=1122427724]
 
 [connection signal="body_entered" from="Detection/Area3D" to="Detection" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Detection/Area3D" to="Detection" method="_on_area_3d_body_exited"]
