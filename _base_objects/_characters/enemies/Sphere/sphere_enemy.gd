@@ -1,4 +1,3 @@
-@tool
 
 extends CharacterBody3D
 class_name Sphere_enemy
@@ -18,6 +17,7 @@ var Ranged_script_dir = "res://_base_objects/_characters/enemies/Sphere/Componen
 @export_subgroup("detection")
 @export var Detection_range : float = 10
 @export var Detection_angle : float = 30
+@export var Target_class : String = ""
 
 @export_subgroup("movement")
 @export var Speed : float = 1
@@ -72,7 +72,7 @@ func _play_ranged_attack_animation():
 #endregion
 
 func _handle_gravity():
-	get_gravity()
+	velocity += get_gravity()
 
 func _get_target_vector() -> Vector3 :
 	#return zero if player was not found

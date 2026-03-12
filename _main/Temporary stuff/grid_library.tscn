@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dtqvx3aj230c8"]
+
+[ext_resource type="Texture2D" uid="uid://ck4vp8cbjtose" path="res://_assets/textures/prototype textures/Vector/texture_09.svg" id="1_sp12r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_logkw"]
+albedo_texture = ExtResource("1_sp12r")
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_tceip"]
+material = SubResource("StandardMaterial3D_logkw")
+size = Vector3(2, 2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s6xgd"]
+size = Vector3(2, 2, 2)
+
+[node name="Grid_library" type="Node3D" unique_id=191439533]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=875413434]
+
+[node name="box" type="MeshInstance3D" parent="Node3D" unique_id=1341869488]
+mesh = SubResource("BoxMesh_tceip")
+skeleton = NodePath("box")
+
+[node name="box" type="StaticBody3D" parent="Node3D/box" unique_id=622342120]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/box/box" unique_id=2021864230]
+shape = SubResource("BoxShape3D_s6xgd")

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ck4rhlfugoumh"]
+
+[sub_resource type="GDScript" id="GDScript_23jqy"]
+resource_name = "test dummy"
+script/source = "extends CharacterBody3D
+class_name test_dummy
+
+func detected():
+	pass
+
+func _physics_process(_delta: float) -> void:
+	var input_dir = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+	
+	velocity = -Vector3(input_dir.x, 0, input_dir.y) * 5.0
+	
+	if not is_on_floor():
+		velocity += get_gravity()
+	
+	move_and_slide()
+"
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_q0sph"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_umo2w"]
+
+[node name="Test dummy" type="CharacterBody3D" unique_id=132961975]
+script = SubResource("GDScript_23jqy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1736960707]
+mesh = SubResource("CapsuleMesh_q0sph")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=633093328]
+shape = SubResource("CapsuleShape3D_umo2w")
