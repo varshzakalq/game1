@@ -1,0 +1,160 @@
+[gd_scene format=3 uid="uid://ccec6c80h1n8j"]
+
+[ext_resource type="Script" uid="uid://bn8hqme8kkcab" path="res://_base_objects/_characters/enemies/sphere_enemy.gd" id="1_irvwc"]
+[ext_resource type="Shape3D" uid="uid://boo0skuvmmb3o" path="res://_assets/Sphere enemy/sphere_model.tres" id="2_2osio"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_7rf87"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3mirc"]
+albedo_color = Color(0.62, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_irvwc"]
+resource_name = "Detection cone setter"
+script/source = "extends Node3D
+
+@onready var main_body : CharacterBody3D = $\"..\"
+
+@onready var checking_area : CollisionObject3D = $Area3D/CollisionShape3D
+@onready var rays : Node3D = $Rays
+
+var detection_cone_angle = main_body.Detection_angle
+var detection_range = main_body.Detection_range
+
+
+var target_body = null
+
+
+func _set_detection(val : bool):
+	set_process(false)
+	for node in rays.get_children():
+		var ray : RayCast3D = node.get_child(0)
+		ray.set_physics_process(val)
+		ray.enabled = val
+
+
+func _ready() -> void:
+	checking_area.radius = detection_range
+	_set_detection(false)
+
+
+func _process(_delta: float) -> void:
+	
+	if target_body != null and _check_line_of_sight():
+		main_body.Target = target_body
+		
+
+
+func _check_line_of_sight():
+	var rot_vector = (target_body.global_position - global_position).rotation
+	rays.global_rotation = rot_vector
+	for ray in rays:
+		if ray.get_collider is CharacterBody3D:
+			return true
+	
+	return false
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		
+		target_body = body
+		
+		_set_detection(true)
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		_set_detection(false)
+		main_body.Target = null
+		
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_irvwc"]
+radius = 5.0
+
+[sub_resource type="GDScript" id="GDScript_caho6"]
+resource_name = "raycastscript"
+script/source = "extends RayCast3D
+
+@onready var main_body : CharacterBody3D = $\"../../../..\"
+
+
+func _ready() -> void:
+	target_position.x = main_body.Detection_range
+"
+
+[node name="SphereEnemy" type="CharacterBody3D" unique_id=393057308]
+script = ExtResource("1_irvwc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=467563799]
+shape = ExtResource("2_2osio")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=82603897]
+mesh = SubResource("SphereMesh_7rf87")
+material = SubResource("StandardMaterial3D_3mirc")
+
+[node name="Detection" type="Node3D" parent="." unique_id=1448131318]
+script = SubResource("GDScript_irvwc")
+
+[node name="Area3D" type="Area3D" parent="Detection" unique_id=701788098]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Detection/Area3D" unique_id=190137874]
+shape = SubResource("SphereShape3D_irvwc")
+
+[node name="Rays" type="Node3D" parent="Detection" unique_id=1693590724]
+
+[node name="Ray1" type="Node3D" parent="Detection/Rays" unique_id=37285492]
+
+[node name="RayCast3D" type="RayCast3D" parent="Detection/Rays/Ray1" unique_id=573914207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
+target_position = Vector3(10, 0, 0)
+script = SubResource("GDScript_caho6")
+
+[node name="Ray2" type="Node3D" parent="Detection/Rays" unique_id=1891388403]
+transform = Transform3D(0.9986295, 0, 0.05233596, 0, 1, 0, -0.05233596, 0, 0.9986295, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Detection/Rays/Ray2" unique_id=1119862354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
+target_position = Vector3(10, 0, 0)
+script = SubResource("GDScript_caho6")
+
+[node name="Ray3" type="Node3D" parent="Detection/Rays" unique_id=1006717944]
+transform = Transform3D(0.9986295, 0, -0.05233596, 0, 1, 0, 0.05233596, 0, 0.9986295, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Detection/Rays/Ray3" unique_id=300436074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
+target_position = Vector3(10, 0, 0)
+script = SubResource("GDScript_caho6")
+
+[node name="Ray4" type="Node3D" parent="Detection/Rays" unique_id=1854239749]
+transform = Transform3D(0.99878204, -0.034878235, 0.034899496, 0.034899496, 0.99939084, 0, -0.034878235, 0.0012179748, 0.99939084, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Detection/Rays/Ray4" unique_id=1781738269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
+target_position = Vector3(10, 0, 0)
+script = SubResource("GDScript_caho6")
+
+[node name="Ray5" type="Node3D" parent="Detection/Rays" unique_id=812989962]
+transform = Transform3D(0.99878204, -0.034878235, -0.034899496, 0.034899496, 0.99939084, 0, 0.034878235, -0.0012179748, 0.99939084, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Detection/Rays/Ray5" unique_id=1294057239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
+target_position = Vector3(10, 0, 0)
+script = SubResource("GDScript_caho6")
+
+[node name="Ray6" type="Node3D" parent="Detection/Rays" unique_id=859316081]
+transform = Transform3D(0.99878204, 0.034878235, -0.034899496, -0.034899496, 0.99939084, 0, 0.034878235, 0.0012179748, 0.99939084, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Detection/Rays/Ray6" unique_id=936549372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
+target_position = Vector3(10, 0, 0)
+script = SubResource("GDScript_caho6")
+
+[node name="Ray7" type="Node3D" parent="Detection/Rays" unique_id=604305364]
+transform = Transform3D(0.99878204, 0.034878235, 0.034899496, -0.034899496, 0.99939084, 0, -0.034878235, -0.0012179748, 0.99939084, 0, 0, 0)
+
+[node name="RayCast3D" type="RayCast3D" parent="Detection/Rays/Ray7" unique_id=1191800846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5545227, 0, 0)
+target_position = Vector3(10, 0, 0)
+script = SubResource("GDScript_caho6")
+
+[connection signal="body_entered" from="Detection/Area3D" to="Detection" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Detection/Area3D" to="Detection" method="_on_area_3d_body_exited"]
