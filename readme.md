@@ -1,1 +1,4 @@
-# this is the first readme 
+_base_objects : Charaters, objects
+_engine : global functions, components
+_main : root nodes
+_assets : self explanatory

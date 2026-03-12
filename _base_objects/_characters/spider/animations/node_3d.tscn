@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwxx1pk15ki1x"]
+[gd_scene format=3 uid="uid://bwxx1pk15ki1x"]
 
-[ext_resource type="Script" uid="uid://dmwag28y6ekle" path="res://anim.gd" id="1_a202f"]
+[ext_resource type="Script" uid="uid://dmwag28y6ekle" path="res://_base_objects/_characters/spider/animations/anim.gd" id="1_a202f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
 albedo_color = Color(1, 0.677579, 0.371162, 1)
