@@ -36,6 +36,7 @@ enum Enemy_type{
 #region runtime_variables
 
 var Target = null
+var target_pos : Vector3
 
 
 #endregion
@@ -83,8 +84,9 @@ func _get_target_vector() -> Vector3 :
 	return displacement
 
 
-func _move_towards(pos : Vector3):
-	var disp = pos - global_position
+func _move_towards(pos : Vector3 = target_pos):
+	target_pos = pos
+	var disp = target_pos - global_position
 	var dir = disp.normalized()
 	
 	velocity = dir*Speed

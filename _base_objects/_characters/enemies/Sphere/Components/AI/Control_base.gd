@@ -12,3 +12,8 @@ class_name Sphere_control_base
 func _process(delta: float) -> void:
 	if main_body.Target != null:
 		_when_target_detected(delta)
+	
+	main_body._move_towards()
+
+func _ready() -> void:
+	main_body.target_pos = main_body.global_position
