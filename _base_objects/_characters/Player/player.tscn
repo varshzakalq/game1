@@ -21,17 +21,22 @@ func _ready() -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	
+	
+	
 	# --- NEW: Toggle Mouse Capture ---
 	if event.is_action_pressed(\"ui_cancel\"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			
+	
 	# Left-click to recapture the mouse if it was freed
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
+	if player._is_rewinding:
+		return		
 			
 	# --- EXISTING: Camera Rotation ---
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -49,8 +54,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 [node name="Player" type="CharacterBody3D" unique_id=1091194407]
 script = ExtResource("1_dmsef")
-SPEED = 3.0
-JUMP_HEIGHT = 8.0
+SPEED = 4.0
+GRAVITY = 20.0
+JUMP_FORCE = 8.0
 SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position", "camera_rotation", "global_rotation"])
 REWIND_ACCELERATION = 0.5
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"

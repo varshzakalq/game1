@@ -20,7 +20,7 @@ class_name Player
 
 var _input_direction : Vector2 = Vector2.ZERO
 var _input_jump_requested : bool = false
-var _input_rewind_held : bool = false
+var _input_sprint_held : bool = false
 
 # ==========================================
 # CORE LOOP
@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 	
 	_gather_inputs()
 	
-	_process_time_mechanics(delta)
 	
 	if not _is_rewinding:
 		_process_normal_movement(delta)
@@ -51,18 +50,13 @@ func _gather_inputs() -> void:
 	_input_jump_requested = Input.is_action_just_pressed("ui_accept")
 	
 	# Capture continuous actions
-	_input_rewind_held = Input.is_action_pressed("Rewind")
+	_input_sprint_held = Input.is_action_pressed("Sprint")
 
-func _process_time_mechanics(delta: float) -> void:
-	if _input_rewind_held:
-		_rollback(delta)
-	else:
-		# If the button is not held but we are currently marked as rewinding, stop it
-		if _is_rewinding:
-			_stop_rollback()
+
 
 func _process_normal_movement(delta: float) -> void:
 	# Apply standard directional movement
+	_is_sprinting = _input_sprint_held
 	_move_self(_input_direction, delta)
 	
 	# Apply jump logic
@@ -70,4 +64,3 @@ func _process_normal_movement(delta: float) -> void:
 		_attempt_jump()
 		
 	# Apply gravity (Make sure your base class _get_gravity accepts 'delta' as we updated earlier)
-	_get_gravity(delta)

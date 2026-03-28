@@ -4,7 +4,10 @@ class_name Time_Character
 @export_category("Movement")
 @export var SPEED : float = 2.0
 @export var GRAVITY : float = 10.0
-@export var JUMP_HEIGHT : float = 2.0
+@export var JUMP_FORCE : float = 2.0
+@export var SPRINT_MULTIPLIER : float = 1.5
+
+var _is_sprinting = false
 
 @export_category("Time Mechanics")
 @export var MAX_SNAPSHOT_COUNT : int = 10000
@@ -34,6 +37,7 @@ var _is_rewinding : bool = false
 func _ready() -> void:
 	for prop in SNAPSHOT_PROPERTY_LIST:
 		snapshots[prop] = []
+	EventBus.rewinding.connect(_on_rewind_state)
 
 func _rollback(delta: float) -> void:
 	if _reached_history_end or snapshots[SNAPSHOT_PROPERTY_LIST[0]].is_empty():
@@ -112,16 +116,19 @@ func _stop_rollback() -> void:
 func _move_self(direction: Vector2, delta: float) -> void:
 	if _is_rewinding: return 
 	
+	var speed = SPEED
+	if _is_sprinting: speed *= SPRINT_MULTIPLIER
+	
 	var movement_dir = Vector3(direction.y, 0, direction.x)
 	
 	var vertical_vel = velocity.y
-	velocity = lerp(velocity, SPEED*movement_dir.rotated(Vector3.UP, global_rotation.y), 5 * delta)
+	velocity = lerp(velocity, speed*movement_dir.rotated(Vector3.UP, global_rotation.y), 5 * delta)
 	velocity.y = vertical_vel
 
 func _attempt_jump() -> void:
 	if _is_rewinding: return
 	if is_on_floor():
-		velocity.y = JUMP_HEIGHT
+		velocity.y = JUMP_FORCE
 
 func _get_gravity(delta : float) -> void:
 	if _is_rewinding: return
@@ -130,11 +137,34 @@ func _get_gravity(delta : float) -> void:
 		velocity.y -= GRAVITY*delta
 
 
+#func _handle_stair_step_up(delta: float) -> void:
+	#pass
 
-func _handle_stair_step_up(delta: float) -> void:
-	pass
+
+
+
+
+
+func _on_rewind_state(value : bool):
+	_is_rewinding = value
+	if value == false:
+		_stop_rollback()
+	
+
+
+
+
+
+
+func _process_time_mechanics(delta: float) -> void:
+	if _is_rewinding: _rollback(delta)
+
+
+
+
 
 func _physics_process(delta: float) -> void:
+	_process_time_mechanics(delta)
 	_get_gravity(delta)
 	_take_snapshot(delta)
-	_handle_stair_step_up(delta)
+	#_handle_stair_step_up(delta)
