@@ -6,8 +6,8 @@ class_name Sphere_enemy
 @onready var controller = $Components/AI
 
 
-var Melee_script_dir = "res://_base_objects/_characters/enemies/Sphere/Components/AI/Melee.gd"
-var Ranged_script_dir = "res://_base_objects/_characters/enemies/Sphere/Components/AI/Ranged.gd"
+var Melee_script_dir = "res://_base_objects/_characters/old enemy(for reference)/Sphere/Components/AI/Melee.gd"
+var Ranged_script_dir = "res://_base_objects/_characters/old enemy(for reference)/Sphere/Components/AI/Ranged.gd"
 
 #endregion
 

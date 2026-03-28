@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cmm8t2vycvntl"]
+
+[ext_resource type="Script" uid="uid://buvtipramp20d" path="res://_base_objects/_characters/player/player.gd" id="1_8afob"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8afob"]
+rough = true
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x7p2l"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_8afob"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dovo2"]
+radius = 0.15
+height = 0.4
+
+[node name="Player" type="RigidBody3D" unique_id=1723265973]
+physics_material_override = SubResource("PhysicsMaterial_8afob")
+script = ExtResource("1_8afob")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=424747890]
+shape = SubResource("CapsuleShape3D_x7p2l")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=375442476]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D" unique_id=208486039]
+mesh = SubResource("CapsuleMesh_8afob")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D" unique_id=2097464503]
+transform = Transform3D(-4.3711385e-08, -0.99999994, 0, 0.99999994, -4.3711385e-08, 0, 0, 0, 1, 0, 0.688, -0.508)
+mesh = SubResource("CapsuleMesh_dovo2")
+
+[node name="Neck" type="Node3D" parent="." unique_id=574332274]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.9999999, 0, 0.66834736, -0.09470165)
+
+[node name="Neck2" type="Node3D" parent="Neck" unique_id=1516579694]
+
+[node name="Camera3D" type="Camera3D" parent="Neck/Neck2" unique_id=1286025198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000001, 0, 0, 0)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="Neck/Neck2/Camera3D" unique_id=2126626423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.537347)
+target_position = Vector3(0, 0, -20)
+debug_shape_custom_color = Color(1, 0.36778843, 0.3002166, 1)
