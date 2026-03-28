@@ -26,7 +26,7 @@ func _ready() -> void:
 # ==========================================
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://_main/Temporary stuff/temp_main.tscn")
+	get_tree().change_scene_to_file("res://_main/Starting scenes/Starting scene.tscn")
 
 func _on_how_to_play_pressed() -> void:
 	# Toggle your tutorial popup visibility here
