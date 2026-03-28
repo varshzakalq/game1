@@ -47,7 +47,7 @@ func _gather_inputs() -> void:
 	_input_direction = Input.get_vector("Forward", "Backward", "Left", "Right")
 	
 	# Capture discrete actions
-	_input_jump_requested = Input.is_action_just_pressed("ui_accept")
+	_input_jump_requested = Input.is_action_just_pressed("Jump")
 	
 	# Capture continuous actions
 	_input_sprint_held = Input.is_action_pressed("Sprint")
@@ -64,4 +64,3 @@ func _process_normal_movement(delta: float) -> void:
 	if _input_jump_requested:
 		_attempt_jump()
 		
-	# Apply gravity (Make sure your base class _get_gravity accepts 'delta' as we updated earlier)

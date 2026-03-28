@@ -15,8 +15,12 @@ signal max_age_reached()
 		if current_age > max_age:
 			current_age = max_age
 
+
+
 func increase_age(delta: float, multiplier : float = 1):
 	current_age += delta * multiplier * 0.01
+
+
 
 func _age_changed(value : float):
 	

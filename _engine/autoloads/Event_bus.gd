@@ -1,6 +1,9 @@
 extends Node
 
 signal rewinding(value : bool)
+signal sensitivity_changed(value : float)
+signal fov_changed(value : float)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Rewind"): rewinding.emit(true)
