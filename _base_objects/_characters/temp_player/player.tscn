@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cmm8t2vycvntl"]
 
-[ext_resource type="Script" uid="uid://buvtipramp20d" path="res://_base_objects/_characters/player/player.gd" id="1_8afob"]
+[ext_resource type="Script" uid="uid://buvtipramp20d" path="res://_base_objects/_characters/temp_player/player.gd" id="1_8afob"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8afob"]
 rough = true
