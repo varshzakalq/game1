@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://davbkw7rfn75x"
-path.s3tc="res://.godot/imported/scifi1_4.png-05cfe650052707f5aabba87d5983f8e2.s3tc.ctex"
+uid="uid://d34jpuedj3cpq"
+path="res://.godot/imported/scifi1_8.png-6647c7409dffc78829a6da0c00e7b7bb.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "5a17ea85d5a06e5fe642803e83ca00ed"
+"md5": "3ccfd0fc97133d61bcdd42a3e7adf5cb"
 }
 
 [deps]
 
-source_file="res://scifi1_4.png"
-dest_files=["res://.godot/imported/scifi1_4.png-05cfe650052707f5aabba87d5983f8e2.s3tc.ctex"]
+source_file="res://_assets/bigbuilding/scifi1_8.png"
+dest_files=["res://.godot/imported/scifi1_8.png-6647c7409dffc78829a6da0c00e7b7bb.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -41,4 +40,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
