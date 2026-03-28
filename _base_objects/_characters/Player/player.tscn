@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bp6wjeidcmh6x"]
+
+[ext_resource type="Script" uid="uid://cwjcjftukvpnn" path="res://_base_objects/_characters/Player/player.gd" id="1_dmsef"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dmsef"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uonmu"]
+
+[sub_resource type="GDScript" id="GDScript_x2vq2"]
+resource_name = "player_camera"
+script/source = "extends Camera3D
+
+@export var mouse_sensitivity : float = 0.002
+@export var min_pitch : float = -80.0 
+@export var max_pitch : float = 80.0  
+
+@onready var player : CharacterBody3D = get_parent()
+
+func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+func _unhandled_input(event: InputEvent) -> void:
+	
+	# --- NEW: Toggle Mouse Capture ---
+	if event.is_action_pressed(\"ui_cancel\"):
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
+	# Left-click to recapture the mouse if it was freed
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
+	# --- EXISTING: Camera Rotation ---
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		
+		# Rotate the parent body Left/Right
+		player.rotate_y(-event.relative.x * mouse_sensitivity)
+		
+		# Rotate ONLY the camera Up/Down
+		rotate_x(-event.relative.y * mouse_sensitivity)
+		
+		# Clamp the vertical look
+		rotation.x = clamp(rotation.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
+		player.camera_rotation = rotation.x
+"
+
+[node name="Player" type="CharacterBody3D" unique_id=1091194407]
+script = ExtResource("1_dmsef")
+SPEED = 3.0
+JUMP_HEIGHT = 8.0
+SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position", "camera_rotation", "global_rotation"])
+REWIND_ACCELERATION = 0.5
+metadata/_custom_type_script = "uid://b37pyy3cyklrv"
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=993622367]
+shape = SubResource("CapsuleShape3D_dmsef")
+
+[node name="Mesh" type="CSGMesh3D" parent="." unique_id=194374999]
+mesh = SubResource("CapsuleMesh_uonmu")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=2122543223]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58896637, 0)
+current = true
+script = SubResource("GDScript_x2vq2")

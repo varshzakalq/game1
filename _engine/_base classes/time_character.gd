@@ -58,6 +58,18 @@ func _rollback(delta: float) -> void:
 				break
 				
 			for key in snapshots:
+				
+				if key == "global_rotation":
+					var temp = snapshots[key].pop_back()
+					
+					if temp.y - global_rotation.y > PI:
+						temp.y -= 2*PI
+					elif temp.y - global_rotation.y < -PI:
+						temp.y += 2*PI
+					
+					target_values[key] = temp
+					continue
+				
 				target_values[key] = snapshots[key].pop_back()
 				
 		if not target_values.is_empty():
@@ -101,18 +113,22 @@ func _move_self(direction: Vector2, delta: float) -> void:
 	if _is_rewinding: return 
 	
 	var movement_dir = Vector3(direction.y, 0, direction.x)
-
+	
+	var vertical_vel = velocity.y
 	velocity = lerp(velocity, SPEED*movement_dir.rotated(Vector3.UP, global_rotation.y), 5 * delta)
+	velocity.y = vertical_vel
 
 func _attempt_jump() -> void:
 	if _is_rewinding: return
 	if is_on_floor():
-		velocity.y += JUMP_HEIGHT
+		velocity.y = JUMP_HEIGHT
 
 func _get_gravity(delta : float) -> void:
 	if _is_rewinding: return
+	
 	if not is_on_floor():
 		velocity.y -= GRAVITY*delta
+
 
 
 func _handle_stair_step_up(delta: float) -> void:

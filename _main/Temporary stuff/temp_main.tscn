@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ccec6c80h1n8j" path="res://_base_objects/_characters/old enemy(for reference)/Sphere/Sphere_enemy.tscn" id="2_yohdy"]
 [ext_resource type="PackedScene" uid="uid://ck4rhlfugoumh" path="res://_main/Temporary stuff/test_dummy.tscn" id="3_yohdy"]
 [ext_resource type="PackedScene" uid="uid://g60q1jol1hrc" path="res://_base_objects/_characters/temp_player/time_test.tscn" id="4_yh7ig"]
+[ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="5_lhv2y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -45,3 +46,6 @@ data = {
 
 [node name="time_test" parent="." unique_id=1916834120 instance=ExtResource("4_yh7ig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8057258, 2, -2)
+
+[node name="Player" parent="." unique_id=1091194407 instance=ExtResource("5_lhv2y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6726766, 2, 2.1131673)
