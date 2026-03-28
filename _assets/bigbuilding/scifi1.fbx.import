@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c8wylf6dab4oh"
-path="res://.godot/imported/scifi1.fbx-d83fc6e34e82a554f74893f3dd49e7d7.scn"
+path="res://.godot/imported/scifi1.fbx-3b33110873d9002e4bf13df4a45aeba0.scn"
 
 [deps]
 
-source_file="res://scifi1.fbx"
-dest_files=["res://.godot/imported/scifi1.fbx-d83fc6e34e82a554f74893f3dd49e7d7.scn"]
+source_file="res://_assets/bigbuilding/scifi1.fbx"
+dest_files=["res://.godot/imported/scifi1.fbx-3b33110873d9002e4bf13df4a45aeba0.scn"]
 
 [params]
 

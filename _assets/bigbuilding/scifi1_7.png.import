@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvtv8asauvolh"
-path="res://.godot/imported/scifi1_13.png-c6e2daf4fb2567c231da6654a9efb375.ctex"
+uid="uid://cliab5ko5g7ek"
+path="res://.godot/imported/scifi1_7.png-9a4b403169b5dd5b1b442c63d5330c76.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "4b39b6204867f70928d1195f99d2ec7a"
+"md5": "ff510ee2b678d27c8be2f5b0365dcd95"
 }
 
 [deps]
 
-source_file="res://scifi1_13.png"
-dest_files=["res://.godot/imported/scifi1_13.png-c6e2daf4fb2567c231da6654a9efb375.ctex"]
+source_file="res://_assets/bigbuilding/scifi1_7.png"
+dest_files=["res://.godot/imported/scifi1_7.png-9a4b403169b5dd5b1b442c63d5330c76.ctex"]
 
 [params]
 
