@@ -45,6 +45,7 @@ func _physics_process(delta: float) -> void:
 func _ready() -> void:
 	Globals.player = self
 	just_finished_rewinding.connect(_on_rollback_finish)
+	super._ready()
 
 func _gather_inputs() -> void:
 	# Capture movement vector (Normalized automatically by get_vector)

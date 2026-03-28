@@ -8,6 +8,8 @@ signal ambient_aging(value : float)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Rewind"): rewinding.emit(true)
+	if event.is_action_pressed("Rewind"):
+		rewinding.emit(true)
+		print("REWINDING")
 	if event.is_action_released("Rewind"): rewinding.emit(false)
 	
