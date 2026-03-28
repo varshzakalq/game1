@@ -55,8 +55,7 @@ func _unhandled_input(event: InputEvent) -> void:
 [node name="Player" type="CharacterBody3D" unique_id=1091194407]
 script = ExtResource("1_dmsef")
 SPEED = 4.0
-GRAVITY = 20.0
-JUMP_FORCE = 8.0
+GRAVITY = 25.0
 SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position", "camera_rotation", "global_rotation"])
 REWIND_ACCELERATION = 0.5
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"

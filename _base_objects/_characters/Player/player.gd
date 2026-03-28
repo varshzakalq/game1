@@ -55,6 +55,7 @@ func _gather_inputs() -> void:
 
 
 func _process_normal_movement(delta: float) -> void:
+	
 	# Apply standard directional movement
 	_is_sprinting = _input_sprint_held
 	_move_self(_input_direction, delta)
