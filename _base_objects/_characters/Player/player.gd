@@ -42,6 +42,9 @@ func _physics_process(delta: float) -> void:
 # FUNCTION BLOCKS
 # ==========================================
 
+func _ready() -> void:
+	just_finished_rewinding.connect(_on_rollback_finish)
+
 func _gather_inputs() -> void:
 	# Capture movement vector (Normalized automatically by get_vector)
 	_input_direction = Input.get_vector("Forward", "Backward", "Left", "Right")
@@ -52,8 +55,6 @@ func _gather_inputs() -> void:
 	# Capture continuous actions
 	_input_sprint_held = Input.is_action_pressed("Sprint")
 
-
-
 func _process_normal_movement(delta: float) -> void:
 	
 	# Apply standard directional movement
@@ -63,4 +64,11 @@ func _process_normal_movement(delta: float) -> void:
 	# Apply jump logic
 	if _input_jump_requested:
 		_attempt_jump()
-		
+
+func age_effects(age : float):
+	pass
+
+func _on_rollback_finish():
+	var age = aging_component.current_age
+	
+	

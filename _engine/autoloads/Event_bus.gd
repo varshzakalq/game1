@@ -1,8 +1,10 @@
 extends Node
 
-signal rewinding(value : bool)
 signal sensitivity_changed(value : float)
 signal fov_changed(value : float)
+
+signal rewinding(value : bool)
+signal ambient_aging(value : float)
 
 
 func _unhandled_input(event: InputEvent) -> void:

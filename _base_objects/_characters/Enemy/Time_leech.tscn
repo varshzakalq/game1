@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c2xk0wt3gl2er"]
+
+[ext_resource type="Script" uid="uid://7dqivf3ttfyv" path="res://_base_objects/_characters/Enemy/time_leech.gd" id="1_55nn3"]
+
+[node name="Time leech" type="CharacterBody3D" unique_id=1811181162]
+script = ExtResource("1_55nn3")
+metadata/_custom_type_script = "uid://dmouge7gwx0yx"

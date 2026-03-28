@@ -16,14 +16,26 @@ signal max_age_reached()
 			current_age = max_age
 
 
+var ambient_age_rate = 0
+
+
+func _ready() -> void:
+	EventBus.ambient_aging.connect(_handle_ambient_age)
+	
 
 func increase_age(delta: float, multiplier : float = 1):
 	current_age += delta * multiplier * 0.01
 
+func _handle_ambient_age(value: float):
+	ambient_age_rate = value
 
+func _process(delta: float) -> void:
+	current_age += ambient_age_rate*delta
 
 func _age_changed(value : float):
 	
 	#current_age variable in this func is the value before the change was made
 	
-	pass
+	if value > current_age:
+		age_increased.emit(value)
+	

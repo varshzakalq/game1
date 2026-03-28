@@ -1,0 +1,2 @@
+extends StandardEnemy
+class_name TimeLeech

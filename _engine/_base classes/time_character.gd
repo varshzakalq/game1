@@ -1,6 +1,12 @@
 extends CharacterBody3D
 class_name Time_Character
 
+
+
+signal just_finished_rewinding
+
+
+
 @export_category("Movement")
 @export var SPEED : float = 2.0
 @export var GRAVITY : float = 10.0
@@ -34,7 +40,18 @@ var _rewind_accumulator : float = 0.0
 var snapshots : Dictionary = {}
 var _is_rewinding : bool = false
 
+var movement_multiplier : float = 1.2
+var jump_multiplier : float = 1.2
+
+@onready var aging_component
+
+
 func _ready() -> void:
+	
+	aging_component = get_node("Aging Component")
+	if aging_component != null:
+		aging_component.age_increased.connect(_handle_age_increase)
+	
 	for prop in SNAPSHOT_PROPERTY_LIST:
 		snapshots[prop] = []
 	EventBus.rewinding.connect(_on_rewind_state)
@@ -112,11 +129,13 @@ func _stop_rollback() -> void:
 	_is_rewinding = false
 	_current_rewind_speed = MIN_REWIND_SPEED 
 	_rewind_accumulator = 0.0 
+	
+	just_finished_rewinding.emit()
 
 func _move_self(direction: Vector2, delta: float) -> void:
 	if _is_rewinding: return 
 	
-	var speed = SPEED
+	var speed = SPEED * movement_multiplier
 	if _is_sprinting: speed *= SPRINT_MULTIPLIER
 	
 	var movement_dir = Vector3(direction.y, 0, direction.x)
@@ -128,7 +147,7 @@ func _move_self(direction: Vector2, delta: float) -> void:
 func _attempt_jump() -> void:
 	if _is_rewinding: return
 	if is_on_floor():
-		velocity.y = JUMP_FORCE
+		velocity.y = JUMP_FORCE*jump_multiplier
 
 func _get_gravity(delta : float) -> void:
 	if _is_rewinding: return
@@ -159,8 +178,24 @@ func _on_rewind_state(value : bool):
 func _process_time_mechanics(delta: float) -> void:
 	if _is_rewinding: _rollback(delta)
 
+func _handle_age_increase(age : float):
+	if age < 20:
+		movement_multiplier = 1.2
+		jump_multiplier = 1.2
+	elif age < 50:
+		movement_multiplier = 1
+		jump_multiplier = 1
+	elif age < 70:
+		movement_multiplier = 0.9
+		jump_multiplier = 0.9
+	else:
+		movement_multiplier = 0.7
+		jump_multiplier = 0.7
+	
+	age_effects(age)
 
-
+func age_effects(_age : float):
+	pass
 
 
 func _physics_process(delta: float) -> void:
