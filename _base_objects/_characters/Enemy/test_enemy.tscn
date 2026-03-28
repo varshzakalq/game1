@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dgil4u0yl5ijm"]
+
+[sub_resource type="GDScript" id="GDScript_va3of"]
+script/source = "extends StandardEnemy
+
+# We just use the hooks! No _physics_process needed.
+
+func process_chase(delta, distance):
+	# Chase the global player
+	var direction = global_position.direction_to(Globals.player.global_position)
+	_move_self(Vector2(direction.x, direction.z), delta) 
+
+func launch_attack(age_component, age_damage):
+	# Do the actual damage
+	age_component.increase_age(age_damage)
+	print(\"Munch! Stole your time!\")
+	
+func on_player_detected():
+	print(\"I see you!\")
+
+func _physics_process(delta: float) -> void:
+	super._physics_process(delta)
+
+func _ready() -> void:
+	super._ready()
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_va3of"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lount"]
+
+[node name="test_enemy" type="CharacterBody3D" unique_id=1773575572]
+script = SubResource("GDScript_va3of")
+metadata/_custom_type_script = "uid://dmouge7gwx0yx"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2025605539]
+shape = SubResource("SphereShape3D_va3of")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=15294392]
+mesh = SubResource("SphereMesh_lount")

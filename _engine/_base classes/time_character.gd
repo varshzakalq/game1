@@ -57,6 +57,9 @@ func _ready() -> void:
 	EventBus.rewinding.connect(_on_rewind_state)
 
 func _rollback(delta: float) -> void:
+	
+	
+	
 	if _reached_history_end or snapshots[SNAPSHOT_PROPERTY_LIST[0]].is_empty():
 		_reached_history_end = true
 		return
@@ -120,6 +123,7 @@ func _take_snapshot(delta: float) -> void:
 			if value == null:
 				push_error("NON EXISTENT PROPERTY %s TO TAKE SNAPSHOT OF" % property)
 				continue
+			if not snapshots.has(property): snapshots[property] = []
 			snapshots[property].append(value)
 			
 			if MAX_SNAPSHOT_COUNT > 0 and snapshots[property].size() > MAX_SNAPSHOT_COUNT:
@@ -165,6 +169,7 @@ func _get_gravity(delta : float) -> void:
 
 
 func _on_rewind_state(value : bool):
+	print("RECEIVED SIGNAL")
 	_is_rewinding = value
 	if value == false:
 		_stop_rollback()
