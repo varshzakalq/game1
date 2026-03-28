@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://ccec6c80h1n8j"]
 
-[ext_resource type="Script" uid="uid://bn8hqme8kkcab" path="res://_base_objects/_characters/enemies/Sphere/sphere_enemy.gd" id="1_irvwc"]
+[ext_resource type="Script" uid="uid://bn8hqme8kkcab" path="res://_base_objects/_characters/old enemy(for reference)/Sphere/sphere_enemy.gd" id="1_irvwc"]
 [ext_resource type="Shape3D" uid="uid://boo0skuvmmb3o" path="res://_assets/Sphere enemy/sphere_model.tres" id="2_2osio"]
-[ext_resource type="Script" uid="uid://cphht8sc010vf" path="res://_base_objects/_characters/enemies/Sphere/Components/Health_component.gd" id="3_t4gwm"]
-[ext_resource type="Script" uid="uid://i631b8l5t8pg" path="res://_base_objects/_characters/enemies/Sphere/Components/AI/Melee.gd" id="4_bqp0q"]
+[ext_resource type="Script" uid="uid://cphht8sc010vf" path="res://_base_objects/_characters/old enemy(for reference)/Sphere/Components/Health_component.gd" id="3_t4gwm"]
+[ext_resource type="Script" uid="uid://i631b8l5t8pg" path="res://_base_objects/_characters/old enemy(for reference)/Sphere/Components/AI/Melee.gd" id="4_bqp0q"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_7rf87"]
 

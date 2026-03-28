@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://m3jnp605iluy"]
 
 [ext_resource type="PackedScene" uid="uid://cnuvmcnksbha1" path="res://_main/Temporary stuff/temp_gridmap.tscn" id="1_moldy"]
-[ext_resource type="PackedScene" uid="uid://ccec6c80h1n8j" path="res://_base_objects/_characters/enemies/Sphere/Sphere_enemy.tscn" id="2_yohdy"]
+[ext_resource type="PackedScene" uid="uid://ccec6c80h1n8j" path="res://_base_objects/_characters/old enemy(for reference)/Sphere/Sphere_enemy.tscn" id="2_yohdy"]
 [ext_resource type="PackedScene" uid="uid://ck4rhlfugoumh" path="res://_main/Temporary stuff/test_dummy.tscn" id="3_yohdy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
@@ -33,7 +33,8 @@ transform = Transform3D(-0.9999132, 0, -0.0131768, -0.008200952, 0.78271693, 0.6
 environment = SubResource("Environment_tlwt5")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1916152509]
-transform = Transform3D(1, 0, 0, 0, 0.86983097, 0.4933499, 0, -0.4933499, 0.86983097, 0, 12.51688, 8.217609)
+transform = Transform3D(1, 0, 0, 0, 0.86983097, 0.4933499, 0, -0.4933499, 0.86983097, -5.179097, 11.476511, 13.176506)
+shadow_enabled = true
 
 [node name="Temp_gridmap" parent="." unique_id=55927284 instance=ExtResource("1_moldy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
