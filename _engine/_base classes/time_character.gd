@@ -169,7 +169,6 @@ func _get_gravity(delta : float) -> void:
 
 
 func _on_rewind_state(value : bool):
-	print("RECEIVED SIGNAL")
 	_is_rewinding = value
 	if value == false:
 		_stop_rollback()
