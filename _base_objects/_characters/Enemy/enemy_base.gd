@@ -62,7 +62,6 @@ func _detect_player() -> void:
 			return
 			
 	has_detected_player = false
-	target_player = null
 
 func _has_line_of_sight(target: Node3D) -> bool:
 	var space_state = get_world_3d().direct_space_state
