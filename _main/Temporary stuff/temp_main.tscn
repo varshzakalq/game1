@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ck4rhlfugoumh" path="res://_main/Temporary stuff/test_dummy.tscn" id="3_yohdy"]
 [ext_resource type="PackedScene" uid="uid://g60q1jol1hrc" path="res://_base_objects/_characters/temp_player/time_test.tscn" id="4_yh7ig"]
 [ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="5_lhv2y"]
+[ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="6_f3aj7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f3sb7"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -49,7 +50,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8057258, 2, -2)
 
 [node name="Player" parent="." unique_id=1091194407 instance=ExtResource("5_lhv2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6726766, 2, 2.1131673)
+<<<<<<< HEAD
 SPEED = 2.0
 GRAVITY = 10.0
 SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position"])
 REWIND_ACCELERATION = 1.5
+=======
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1957650338]
+
+[node name="Pause menu" parent="CanvasLayer" unique_id=208691863 instance=ExtResource("6_f3aj7")]
+>>>>>>> 1a03434a7a519d462f3530402084db6bed99acfa

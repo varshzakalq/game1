@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bp6wjeidcmh6x"]
 
 [ext_resource type="Script" uid="uid://cwjcjftukvpnn" path="res://_base_objects/_characters/Player/player.gd" id="1_dmsef"]
+[ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_uonmu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dmsef"]
 
@@ -10,44 +11,64 @@
 resource_name = "player_camera"
 script/source = "extends Camera3D
 
+# We keep these as exports, but they will be overwritten by GlobalSettings in _ready
 @export var mouse_sensitivity : float = 0.002
 @export var min_pitch : float = -80.0 
 @export var max_pitch : float = 80.0  
 
 @onready var player : CharacterBody3D = get_parent()
 
+const SENS_MULTIPLIER : float = 0.0004
+
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	# 1. Sync with current global settings immediately on spawn
+	mouse_sensitivity = GlobalSettings.settings[\"sensitivity\"] * SENS_MULTIPLIER
+	fov = GlobalSettings.settings[\"fov\"]
+	
+	# 2. Connect to EventBus signals for real-time updates
+	EventBus.fov_changed.connect(_on_fov_updated)
+	EventBus.sensitivity_changed.connect(_on_sens_updated)
+
+# --- SIGNAL HANDLERS ---
+
+func _on_fov_updated(new_fov: float) -> void:
+	fov = new_fov
+
+
+func _on_sens_updated(new_sens: float) -> void:
+	# Convert the 0-10 scale to the 0.000 - 0.004 scale
+	mouse_sensitivity = new_sens * SENS_MULTIPLIER
+
+# --- INPUT HANDLING ---
 
 func _unhandled_input(event: InputEvent) -> void:
 	
+	if rotation.z != 0:
+		rotation.z = 0
+	#
+	#if event.is_action_pressed(\"ui_cancel\"):
+		#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		#else:
+			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	
-	# --- NEW: Toggle Mouse Capture ---
-	if event.is_action_pressed(\"ui_cancel\"):
-		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		else:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	# Left-click to recapture the mouse if it was freed
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+		# The math remains the same, but mouse_sensitivity is now correctly scaled
+		player.rotate_y(-event.relative.x * mouse_sensitivity)
+		rotate_x(-event.relative.y * mouse_sensitivity)
 			
 	if player._is_rewinding:
 		return		
 			
-	# --- EXISTING: Camera Rotation ---
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		
-		# Rotate the parent body Left/Right
+		# We multiply by mouse_sensitivity. 
+		# Since your slider is 0.001 to 0.01, this scales linearly.
 		player.rotate_y(-event.relative.x * mouse_sensitivity)
-		
-		# Rotate ONLY the camera Up/Down
 		rotate_x(-event.relative.y * mouse_sensitivity)
 		
-		# Clamp the vertical look
 		rotation.x = clamp(rotation.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
 		player.camera_rotation = rotation.x
 "
@@ -56,6 +77,7 @@ func _unhandled_input(event: InputEvent) -> void:
 script = ExtResource("1_dmsef")
 SPEED = 4.0
 GRAVITY = 25.0
+JUMP_FORCE = 7.0
 SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position", "camera_rotation", "global_rotation"])
 REWIND_ACCELERATION = 0.5
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"
@@ -71,3 +93,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58896637, 0)
 current = true
 script = SubResource("GDScript_x2vq2")
+
+[node name="Aging Component" type="Node" parent="." unique_id=1652178798]
+script = ExtResource("2_uonmu")

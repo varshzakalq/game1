@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bd07xgwt2qxtk"]
+
+[ext_resource type="PackedScene" uid="uid://fm6xusbk2i86" path="res://_base_objects/_UI/main_menu.tscn" id="1_3gxkp"]
+[ext_resource type="PackedScene" path="res://node.tscn" id="1_mnxpj"]
+
+[node name="StartMenu" type="Node3D" unique_id=770215100]
+
+[node name="Node" parent="." unique_id=729194707 instance=ExtResource("1_mnxpj")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=912033347]
+
+[node name="Main_menu" parent="CanvasLayer" unique_id=2028103142 instance=ExtResource("1_3gxkp")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1388232838]
+transform = Transform3D(0.91871506, -0.08882856, 0.38480157, -0.03247743, 0.9540811, 0.29778254, -0.39358345, -0.28607464, 0.87364376, 45.73259, 48.211838, 57.740623)
+current = true
