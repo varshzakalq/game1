@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dokepakn4owby"
-path.s3tc="res://.godot/imported/Screenshot 2026-03-28 152504.png-67438ee7463b0dba02ac84198c041fa6.s3tc.ctex"
+uid="uid://bcm7bn68gyedp"
+path.s3tc="res://.godot/imported/sci-fi_style_ceiling_light_0.jpg-769d0b9c89aa455555a625ee0aa7bff5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "cd9c72b5350ef3b58f87fc6a43398c52"
+}
 
 [deps]
 
-source_file="res://_assets/textures/Screenshot 2026-03-28 152504.png"
-dest_files=["res://.godot/imported/Screenshot 2026-03-28 152504.png-67438ee7463b0dba02ac84198c041fa6.s3tc.ctex"]
+source_file="res://_assets/sci-fi_style_ceiling_light_0.jpg"
+dest_files=["res://.godot/imported/sci-fi_style_ceiling_light_0.jpg-769d0b9c89aa455555a625ee0aa7bff5.s3tc.ctex"]
 
 [params]
 
@@ -22,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
-roughness/src_normal="res://_assets/textures/Screenshot 2026-03-28 152504.png"
+roughness/mode=0
+roughness/src_normal=""
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

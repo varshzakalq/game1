@@ -49,3 +49,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8057258, 2, -2)
 
 [node name="Player" parent="." unique_id=1091194407 instance=ExtResource("5_lhv2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6726766, 2, 2.1131673)
+SPEED = 2.0
+GRAVITY = 10.0
+SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position"])
+REWIND_ACCELERATION = 1.5

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dp1g4uysxdfs7"]
+
+[ext_resource type="PackedScene" uid="uid://c63n73qy7a67k" path="res://_assets/lift/door.blend" id="1_ba8gm"]
+[ext_resource type="AnimationLibrary" uid="uid://b13daovifp86t" path="res://door_open.res" id="2_v6xrn"]
+
+[node name="door" unique_id=18976931 instance=ExtResource("1_ba8gm")]
+
+[node name="Cube" parent="." index="0" unique_id=1909080826]
+transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.9793344)
+
+[node name="Cube_001" parent="." index="1" unique_id=206606727]
+transform = Transform3D(0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, -1, -0.0045388993, 0.011812102, -3.1895957)
+
+[node name="AnimationPlayer" parent="." index="2" unique_id=1038888936]
+libraries/ = ExtResource("2_v6xrn")
