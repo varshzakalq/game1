@@ -46,10 +46,6 @@ func _handle_detection_and_combat(delta: float) -> void:
 			has_detected_player = false
 			on_player_lost()
 			
-<<<<<<< HEAD
-	has_detected_player = false
-	target_player = null
-=======
 	# 2. State Execution
 	if has_detected_player:
 		process_chase(delta, distance_to_player)
@@ -61,7 +57,6 @@ func _handle_detection_and_combat(delta: float) -> void:
 				launch_attack(Globals.player.aging_component, age_damage_per_hit)
 	else:
 		process_idle(delta)
->>>>>>> c7450db1339faa75f4f1973649db524e5c693687
 
 func _has_line_of_sight(target: Node3D) -> bool:
 	var space_state = get_world_3d().direct_space_state
