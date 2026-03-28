@@ -1,7 +1,7 @@
-[gd_scene format=4 uid="uid://brgdlh475mrnk"]
+[gd_scene format=4 uid="uid://40rwcsi24o8l"]
 
 [ext_resource type="PackedScene" uid="uid://3tljg6wtyi87" path="res://industrial_robot.glb" id="1_i2041"]
-[ext_resource type="PackedScene" uid="uid://c63n73qy7a67k" path="res://_assets/lift/door.blend" id="2_xy4tn"]
+[ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="2_ootpb"]
 [ext_resource type="Texture2D" uid="uid://bsom8ekdqjw3n" path="res://_assets/textures/sci-fi_modular_floor_tiles_0.png" id="3_usj0q"]
 [ext_resource type="Texture2D" uid="uid://ddcovtcuvokvb" path="res://_assets/textures/concrete_barrier__drum_barrel__fences_1.jpg" id="4_5j5gb"]
 [ext_resource type="Texture2D" uid="uid://dokepakn4owby" path="res://_assets/textures/Screenshot 2026-03-28 152504.png" id="4_eqrsh"]
@@ -12,8 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://dwd8s37p1md7o" path="res://_assets/textures/Screenshot 2026-03-28 152443.png" id="7_n8vhr"]
 [ext_resource type="Texture2D" uid="uid://d1wn4okar5ikd" path="res://_assets/textures/Gemini_Generated_Image_y6yunhy6yunhy6yu.png" id="10_n8vhr"]
 [ext_resource type="Texture2D" uid="uid://bquxbnaaiyo4c" path="res://_assets/Gemini_Generated_Image_fqbw3qfqbw3qfqbw.png" id="11_eqrsh"]
-[ext_resource type="Script" uid="uid://bfhg7rjqx5ff3" path="res://_assets/lift/door_open.gd" id="12_hx44q"]
-[ext_resource type="AnimationLibrary" uid="uid://b13daovifp86t" path="res://door_open.res" id="13_n8vhr"]
+[ext_resource type="PackedScene" uid="uid://cvgwmjy4wccia" path="res://_base_objects/_worldbuilding/double_door.tscn" id="13_n8vhr"]
+[ext_resource type="PackedScene" uid="uid://i5l1ecsct7tj" path="res://_base_objects/_worldbuilding/Door.tscn" id="15_3l65w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n8vhr"]
 sky_top_color = Color(0.4527402, 0.45964837, 0.3422757, 1)
@@ -440,73 +440,23 @@ shape = SubResource("ConcavePolygonShape3D_mx85b")
 mesh = SubResource("ArrayMesh_hx44q")
 surface_material_override/0 = SubResource("StandardMaterial3D_3l65w")
 
-[node name="door" parent="." unique_id=18976931 instance=ExtResource("2_xy4tn")]
-transform = Transform3D(-6.38785e-08, 0, 1.4613699, 0, 1.4613699, 0, -1.4613699, 0, -6.38785e-08, -24.4283, 3.457708, 19.080235)
-script = ExtResource("12_hx44q")
+[node name="doors" type="Node3D" parent="." unique_id=842733751]
 
-[node name="Cube" parent="door" index="0" unique_id=1909080826]
-transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.0052155675)
+[node name="Door" parent="doors" unique_id=363720575 instance=ExtResource("15_3l65w")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -21.867569, 3.727336, 48.767056)
 
-[node name="Cube_001" parent="door" index="1" unique_id=206606727]
-transform = Transform3D(0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, -1, -0.0045388993, 0.011812102, -2.0452428)
+[node name="DoubleDoor" parent="doors" unique_id=299376815 instance=ExtResource("13_n8vhr")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -26.20339, 2.5000005, 19.086533)
 
-[node name="AnimationPlayer" parent="door" index="2" unique_id=1038888936]
-libraries/door_open = ExtResource("13_n8vhr")
+[node name="DoubleDoor2" parent="doors" unique_id=1172928182 instance=ExtResource("13_n8vhr")]
+transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 25.943739, 2.5000005, -11.849744)
 
-[node name="door5" parent="." unique_id=2124873933 instance=ExtResource("2_xy4tn")]
-transform = Transform3D(1.461249, 0, -0.01879714, 0, 1.4613699, 0, 0.01879714, 0, 1.461249, -21.870707, 3.457708, 48.408924)
-script = ExtResource("12_hx44q")
+[node name="DoubleDoor3" parent="doors" unique_id=1377711221 instance=ExtResource("13_n8vhr")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.8524456, 2.5000005, -23.6411)
 
-[node name="Cube" parent="door5" index="0" unique_id=1909080826]
-transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.0052155675)
+[node name="DoubleDoor4" parent="doors" unique_id=92908096 instance=ExtResource("13_n8vhr")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.8524456, 2.5000005, -46.681717)
 
-[node name="Cube_001" parent="door5" index="1" unique_id=206606727]
-transform = Transform3D(0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, -1, -0.0045388993, 0.011812102, -2.0452428)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1756447756]
 
-[node name="AnimationPlayer" parent="door5" index="2" unique_id=1038888936]
-libraries/door_open = ExtResource("13_n8vhr")
-
-[node name="door2" parent="." unique_id=301937446 instance=ExtResource("2_xy4tn")]
-transform = Transform3D(-6.38785e-08, 0, 1.4613699, 0, 1.4613699, 0, -1.4613699, 0, -6.38785e-08, 26.906574, 3.457708, -11.249108)
-script = ExtResource("12_hx44q")
-
-[node name="Cube" parent="door2" index="0" unique_id=1909080826]
-transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.0052155675)
-
-[node name="Cube_001" parent="door2" index="1" unique_id=206606727]
-transform = Transform3D(0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, -1, -0.0045388993, 0.011812102, -2.0452428)
-
-[node name="AnimationPlayer" parent="door2" index="2" unique_id=1038888936]
-libraries/door_open = ExtResource("13_n8vhr")
-
-[node name="door3" parent="." unique_id=2092847774 instance=ExtResource("2_xy4tn")]
-transform = Transform3D(-1.4612288, 0, -0.02030195, 0, 1.4613699, 0, 0.02030195, 0, -1.4612288, -4.1878686, 3.457708, -25.00558)
-script = ExtResource("12_hx44q")
-
-[node name="Cube" parent="door3" index="0" unique_id=1909080826]
-transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.0052155675)
-
-[node name="Cube_001" parent="door3" index="1" unique_id=206606727]
-transform = Transform3D(0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, -1, -0.0045388993, 0.011812102, -2.0452428)
-
-[node name="AnimationPlayer" parent="door3" index="2" unique_id=1038888936]
-libraries/door_open = ExtResource("13_n8vhr")
-
-[node name="door4" parent="." unique_id=1077029475 instance=ExtResource("2_xy4tn")]
-transform = Transform3D(-1.4612288, 0, -0.02030195, 0, 1.4613699, 0, 0.02030195, 0, -1.4612288, -4.1878686, 3.457708, -48.036076)
-script = ExtResource("12_hx44q")
-
-[node name="Cube" parent="door4" index="0" unique_id=1909080826]
-transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.0052155675)
-
-[node name="Cube_001" parent="door4" index="1" unique_id=206606727]
-transform = Transform3D(0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, -1, -0.0045388993, 0.011812102, -2.0452428)
-
-[node name="AnimationPlayer" parent="door4" index="2" unique_id=1038888936]
-libraries/door_open = ExtResource("13_n8vhr")
-
-[editable path="door"]
-[editable path="door5"]
-[editable path="door2"]
-[editable path="door3"]
-[editable path="door4"]
+[node name="Pause menu" parent="CanvasLayer" unique_id=208691863 instance=ExtResource("2_ootpb")]

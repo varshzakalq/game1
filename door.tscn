@@ -5,11 +5,11 @@
 
 [node name="door" unique_id=18976931 instance=ExtResource("1_ba8gm")]
 
-[node name="Cube" parent="." index="0" unique_id=1909080826]
-transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.9793344)
+[node name="Cube" parent="." index="0" unique_id=2066692058]
+transform = Transform3D(-0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, 1, 0, 0, 0.0052155675)
 
-[node name="Cube_001" parent="." index="1" unique_id=206606727]
+[node name="Cube_001" parent="." index="1" unique_id=973886691]
 transform = Transform3D(0.29791808, 0, 0, 0, 2.3595207, 0, 0, 0, -1, -0.0045388993, 0.011812102, -3.1895957)
 
-[node name="AnimationPlayer" parent="." index="2" unique_id=1038888936]
+[node name="AnimationPlayer" parent="." index="2" unique_id=1565366965]
 libraries/ = ExtResource("2_v6xrn")

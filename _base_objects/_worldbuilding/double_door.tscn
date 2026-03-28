@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cvgwmjy4wccia"]
+
+[ext_resource type="PackedScene" uid="uid://i5l1ecsct7tj" path="res://_base_objects/_worldbuilding/Door.tscn" id="1_etabv"]
+
+[node name="DoubleDoor" type="Node3D" unique_id=299376815]
+
+[node name="Door" parent="." unique_id=363720575 instance=ExtResource("1_etabv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="Door2" parent="." unique_id=1009933972 instance=ExtResource("1_etabv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+Open_direction = 1

@@ -78,11 +78,16 @@ func _rollback(delta: float) -> void:
 			_rewind_tween.set_parallel(true)
 			
 			var tween_duration = SNAPSHOT_INTERVAL / _current_rewind_speed
-			
+			print(target_values)
 			for key in target_values:
 				# Instantly set velocities to preserve exact physical momentum
 				if key == "linear_velocity" or key == "angular_velocity":
 					set(key, target_values[key])
+				
+				elif key[0] == '$':
+					var temp = key.substr(1)
+					set(temp, target_values[key])
+				
 				else:
 					_rewind_tween.tween_property(self, key, target_values[key], tween_duration)
 
@@ -97,7 +102,15 @@ func _take_snapshot(delta: float) -> void:
 		_time_since_last_snapshot -= SNAPSHOT_INTERVAL 
 		
 		for property in SNAPSHOT_PROPERTY_LIST:
-			var value = get(property)
+			
+			var value
+			
+			if property[0] == '$':
+				var temp = property.substr(1)
+				value = get(temp)
+			
+			else: value = get(property)
+			
 			if value == null:
 				push_error("NON EXISTENT PROPERTY %s TO TAKE SNAPSHOT OF" % property)
 				continue

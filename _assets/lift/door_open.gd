@@ -11,9 +11,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var dis = player.position - position
-	print(dis.length())
 	
-	if dis.length() <7 and Input.is_action_just_pressed("interact ") and open == false:
+	if dis.length() <7 and Input.is_action_just_pressed("Interact") and open == false:
 		animation_player.play("door_open/Cube_001Action")
 		open = true
 		pass
