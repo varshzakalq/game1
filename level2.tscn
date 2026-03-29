@@ -1583,7 +1583,44 @@ transform = Transform3D(1, 0, 0, 0, 1.0000011, 0, 0, 0, 1, -0.1560669, 1.8816749
 mesh = SubResource("PlaneMesh_1i48b")
 initial_text = "Minor biological discrepancies observed in operators post test....
 
+issue: looping in a age
+
 Likely unrelated, monitoring ongoing...."
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+
+[node name="computer5" parent="NavigationRegion3D" unique_id=1401559601 instance=ExtResource("31_j3ey0")]
+transform = Transform3D(0.06776165, 0, -1.7124581, 0, 1.7137988, 0, 1.7124581, 0, 0.06776165, -8.848137, 2.0750346, 44.595592)
+
+[node name="Billboard" parent="NavigationRegion3D/computer5" unique_id=47329641 instance=ExtResource("31_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1.0000011, 0, 0, 0, 1, -0.1560669, 1.8816749, 1.9258804)
+mesh = SubResource("PlaneMesh_1i48b")
+initial_text = "Major biological 
+discrepency 
+subject 0354 got pushed outside of the feilds of tower
+"
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+
+[node name="computer6" parent="NavigationRegion3D" unique_id=804949111 instance=ExtResource("31_j3ey0")]
+transform = Transform3D(0.06776165, 0, -1.7124581, 0, 1.7137988, 0, 1.7124581, 0, 0.06776165, 0.11426592, 2.0750346, 44.595592)
+
+[node name="Billboard" parent="NavigationRegion3D/computer6" unique_id=1679529550 instance=ExtResource("31_wooj1")]
+transform = Transform3D(-0.049742498, 0.00359893, -2.1162124, -0.07717644, 1.6629033, 0.007517242, 1.6596577, 0.07743528, -0.06307654, 0.25094986, 2.0635958, -17.279924)
+mesh = SubResource("PlaneMesh_1i48b")
+initial_text = "FIELD SKIPPING
+
+SUBJECTS using too much of 
+REVISITNG
+exprerience fast aging and loss of controll over movement some of them also gets reseted to field boundary"
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+
+[node name="Billboard2" parent="NavigationRegion3D/computer6" unique_id=2051910844 instance=ExtResource("31_wooj1")]
+transform = Transform3D(0.9999997, 0, 7.450581e-09, 0, 1.0000007, 0, -7.450581e-09, 0, 0.9999997, -0.15649033, 1.8816746, 1.9366126)
+mesh = SubResource("PlaneMesh_1i48b")
+skeleton = NodePath("../../computer5")
+initial_text = "
+subject 0354: recovering
+showing signs of field sickness
+"
 background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
 [node name="computer2" parent="NavigationRegion3D" unique_id=330461385 instance=ExtResource("31_j3ey0")]
