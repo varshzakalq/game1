@@ -264,6 +264,14 @@ size = Vector3(1.4833984, 2.2631836, 9.740112)
 size = Vector2(1.4, 0.9)
 orientation = 0
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_wooj1"]
+size = Vector2(1.6, 0.9)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uhfm4"]
+size = Vector2(0.9, 0.55)
+orientation = 0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhfm4"]
 size = Vector3(2.546753, 1.3710327, 6.043812)
 
@@ -1569,6 +1577,9 @@ transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0
 [node name="Billboard" parent="NavigationRegion3D/computer1" unique_id=335272926 instance=ExtResource("31_wooj1")]
 transform = Transform3D(1, 0, 0, 0, 1.0000011, 0, 0, 0, 1, -0.1560669, 1.8816749, 1.9258804)
 mesh = SubResource("PlaneMesh_1i48b")
+initial_text = "Minor biological discrepancies observed in operators post test....
+
+Likely unrelated, monitoring ongoing...."
 background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
 [node name="computer2" parent="NavigationRegion3D" unique_id=330461385 instance=ExtResource("31_j3ey0")]
@@ -1578,28 +1589,49 @@ transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0
 transform = Transform3D(1, 0, 0, 0, 1.0000023, 0, 0, 0, 1, -0.14729881, 1.8816749, 1.9528046)
 mesh = SubResource("PlaneMesh_1i48b")
 skeleton = NodePath("../../computer1")
+initial_text = "Repeated use correlates with accelerated cellular degradation...
+
+Recommended limiting exposure until further analysis,,,"
 background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
 [node name="computer3" parent="NavigationRegion3D" unique_id=1582045775 instance=ExtResource("31_j3ey0")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.2673855, -13.654004)
 
 [node name="Billboard3" parent="NavigationRegion3D/computer3" unique_id=1730894746 instance=ExtResource("31_wooj1")]
-transform = Transform3D(1, 0, 0, 0, 1.0000013, 0, 0, 0, 1, -32.468193, 1.8816749, 11.807466)
+transform = Transform3D(1, 0, 0, 0, 1.0000018, 0, 0, 0, 1, -0.13880682, 1.8816749, 1.9519396)
 mesh = SubResource("PlaneMesh_1i48b")
 skeleton = NodePath("../../computer1")
+initial_text = "Suggestion put forward to pivot to alternate methods of reversal..
+
+Suggestion denies due to time constraints..."
 background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
 [node name="computer4" parent="NavigationRegion3D" unique_id=369441351 instance=ExtResource("31_j3ey0")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, 4.3335075, 2.2673855, -13.654004)
 
 [node name="Billboard4" parent="NavigationRegion3D/computer4" unique_id=1909181777 instance=ExtResource("31_wooj1")]
-transform = Transform3D(1, 0, 0, 0, 1.0000014, 0, 0, 0, 1, -32.62083, 1.8816749, 0.19380307)
+transform = Transform3D(1, 0, 0, 0, 1.0000018, 0, 0, 0, 1, -0.16475582, 1.8816749, 1.9416713)
 mesh = SubResource("PlaneMesh_1i48b")
 skeleton = NodePath("../../computer1")
+initial_text = "\"Project rewind\" to be haulted until further notice..."
 background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
 [node name="bigasscapsule" parent="NavigationRegion3D" unique_id=1470422774 instance=ExtResource("32_l15nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.716476, 3.7441268, -3.2615786)
+
+[node name="Billboard" parent="NavigationRegion3D/bigasscapsule" unique_id=1536156793 instance=ExtResource("31_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5905094, 0.40108395, -1.8962402)
+mesh = SubResource("PlaneMesh_wooj1")
+initial_text = "ATTEMPTS TO OBTAIN ALTERNATE SOURCE UNSUCCESSFUL....
+
+SOME MATERIALS NOT FULLY REVERSED...."
+
+[node name="Billboard2" parent="NavigationRegion3D/bigasscapsule" unique_id=340147882 instance=ExtResource("31_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6593304, -0.33056355, -1.8962402)
+mesh = SubResource("PlaneMesh_uhfm4")
+initial_text = "CRITICAL ERROR....
+
+UNIDENTIFIED ENTITIES IN TEST ZONE"
 
 [node name="asset6" parent="NavigationRegion3D" unique_id=1370549756 instance=ExtResource("33_1iy71")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 29.24524, 2.9659243, 6.9068413)
