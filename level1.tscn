@@ -51,6 +51,9 @@ ambient_light_energy = 0.0
 reflected_light_source = 2
 tonemap_mode = 2
 ssr_enabled = true
+ssr_fade_in = 0.8784516
+ssr_fade_out = 0.40612623
+ssr_depth_tolerance = 0.01
 sdfgi_read_sky_light = false
 glow_enabled = true
 fog_enabled = true
@@ -95,8 +98,10 @@ uv1_scale = Vector3(15.475, 15.475, 15.475)
 [sub_resource type="BoxMesh" id="BoxMesh_3l65w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_beq0j"]
-albedo_color = Color(0.14911404, 0.14911404, 0.14911404, 1)
-roughness = 0.0
+albedo_color = Color(0.23537064, 0.23537049, 0.23537052, 1)
+metallic = 0.16
+metallic_specular = 0.48
+roughness = 0.15
 normal_enabled = true
 normal_scale = 0.2
 normal_texture = ExtResource("7_n8vhr")
@@ -999,7 +1004,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006
 shape = SubResource("BoxShape3D_8652m")
 
 [node name="asset36" parent="NavigationRegion3D" unique_id=1397581416 instance=ExtResource("32_6wmxb")]
-transform = Transform3D(-7.2369595, 0, 0.38193297, 0, 7.2470303, 0, -0.38193297, 0, -7.2369595, 26.019934, 2.1162941, -14.406582)
+transform = Transform3D(-7.2369595, 0, 0.38193297, 0, 7.2470303, 0, -0.38193297, 0, -7.2369595, 24.369343, 2.1162941, -14.406582)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset36" unique_id=1058732628]
 
@@ -1057,7 +1062,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.
 shape = SubResource("BoxShape3D_jy3fw")
 
 [node name="asset21" parent="NavigationRegion3D" unique_id=1856557625 instance=ExtResource("22_uuy0h")]
-transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, 12.553337, 2.1106157, -28.453888)
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, 12.553337, 2.741547, -28.453888)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset21" unique_id=1540140392]
 
@@ -1204,6 +1209,81 @@ transform = Transform3D(1.2359432, 0, 0, 0, 1.2359432, 0, 0, 0, 1.2359432, -25.1
 [node name="Time leech" parent="." unique_id=1811181162 instance=ExtResource("14_1idop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 33.282326)
 
+[node name="Time leech2" parent="." unique_id=489850996 instance=ExtResource("14_1idop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.7187576, 2.4701824, 33.282326)
+
+[node name="Time leech3" parent="." unique_id=186554593 instance=ExtResource("14_1idop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.216106, 2.5301728, 27.084337)
+
+[node name="Time leech4" parent="." unique_id=1811426615 instance=ExtResource("14_1idop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.39832, 2.5301728, 27.084337)
+
+[node name="Time leech5" parent="." unique_id=88891326 instance=ExtResource("14_1idop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.39832, 2.5301728, 15.155386)
+
+[node name="Time leech6" parent="." unique_id=907398721 instance=ExtResource("14_1idop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.39832, 2.5301728, 10.779551)
+
+[node name="Time leech7" parent="." unique_id=1907284157 instance=ExtResource("14_1idop")]
+transform = Transform3D(1.2353138, 0, 0, 0, 1.2353138, 0, 0, 0, 1.2353138, -6.363554, 2.5301728, 14.9991865)
+
+[node name="Time leech9" parent="." unique_id=488889808 instance=ExtResource("14_1idop")]
+transform = Transform3D(1.2353138, 0, 0, 0, 1.2353138, 0, 0, 0, 1.2353138, 2.100935, 2.5301728, 14.9991865)
+
+[node name="Time leech10" parent="." unique_id=1648915144 instance=ExtResource("14_1idop")]
+transform = Transform3D(0.34813896, 0, 1.1852423, 0, 1.2353137, 0, -1.1852423, 0, 0.34813896, 10.184372, 2.5301728, 9.1794815)
+
+[node name="Time leech12" parent="." unique_id=1853847036 instance=ExtResource("14_1idop")]
+transform = Transform3D(-1.2304862, 0, 0.109103605, 0, 1.2353137, 0, -0.109103605, 0, -1.2304862, 10.184372, 2.5301728, 1.1181679)
+
+[node name="Time leech13" parent="." unique_id=1473319955 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.7550353, 0, 0.97771245, 0, 1.2353137, 0, -0.97771245, 0, -0.7550353, 10.184372, 2.5301728, -4.4480367)
+
+[node name="Time leech14" parent="." unique_id=1939181781 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.78010255, 0, 0.95783085, 0, 1.2353137, 0, -0.95783085, 0, -0.78010255, -1.4566565, 2.5301728, -4.4480367)
+
+[node name="Time leech15" parent="." unique_id=2032231618 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.78010255, 0, 0.95783085, 0, 1.2353137, 0, -0.95783085, 0, -0.78010255, 6.470805, 2.5301728, -26.70176)
+
+[node name="Time leech19" parent="." unique_id=555997761 instance=ExtResource("14_1idop")]
+transform = Transform3D(0.5896871, 0, 1.0854809, 0, 1.2353135, 0, -1.0854809, 0, 0.5896871, 6.470805, 2.5301728, -30.562073)
+
+[node name="Time leech20" parent="." unique_id=111563219 instance=ExtResource("14_1idop")]
+transform = Transform3D(0.5035418, 0, 0.9269069, 0, 1.0548509, 0, -0.9269069, 0, 0.5035418, -19.53429, 2.5301728, -30.562073)
+
+[node name="Time leech21" parent="." unique_id=585871470 instance=ExtResource("14_1idop")]
+transform = Transform3D(0.45655107, 0, 0.8404075, 0, 0.9564118, 0, -0.8404075, 0, 0.45655107, -23.267265, 2.5301728, -30.562073)
+
+[node name="Time leech22" parent="." unique_id=1936128138 instance=ExtResource("14_1idop")]
+transform = Transform3D(0.5896871, 0, 1.0854809, 0, 1.2353135, 0, -1.0854809, 0, 0.5896871, -23.267265, 2.5301728, -34.85269)
+
+[node name="Time leech23" parent="." unique_id=1798895644 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.60150194, 0, -0.23579852, 0, 0.64606935, 0, 0.23579852, 0, -0.60150194, -18.637434, 2.5301728, -38.908684)
+
+[node name="Time leech24" parent="." unique_id=1470259407 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.7198408, 0, -1.0039068, 0, 1.2353135, 0, 1.0039068, 0, -0.7198408, -18.637434, 2.5301728, -44.77237)
+
+[node name="Time leech25" parent="." unique_id=1731072516 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.4106084, 0, -0.57264405, 0, 0.70464206, 0, 0.57264405, 0, -0.4106084, -13.158055, 2.5301728, -44.77237)
+
+[node name="Time leech26" parent="." unique_id=875529014 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.6399665, 0, -0.8925122, 0, 1.0982417, 0, 0.8925122, 0, -0.6399665, -1.7474976, 2.5301728, -44.77237)
+
+[node name="Time leech16" parent="." unique_id=1331150110 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.6214364, 0, 0.76301634, 0, 0.98406154, 0, -0.76301634, 0, -0.6214364, 6.470805, 2.5301728, -21.845133)
+
+[node name="Time leech17" parent="." unique_id=55922769 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.6214364, 0, 0.76301634, 0, 0.98406154, 0, -0.76301634, 0, -0.6214364, 6.470805, 2.5301728, -24.45391)
+
+[node name="Time leech18" parent="." unique_id=793071142 instance=ExtResource("14_1idop")]
+transform = Transform3D(-0.6214364, 0, 0.76301634, 0, 0.98406154, 0, -0.76301634, 0, -0.6214364, 16.591705, 2.5301728, -21.02629)
+
+[node name="Time leech11" parent="." unique_id=364886768 instance=ExtResource("14_1idop")]
+transform = Transform3D(1.2353138, 0, 0, 0, 1.2353138, 0, 0, 0, 1.2353138, 8.546477, 2.5301728, 14.9991865)
+
+[node name="Time leech8" parent="." unique_id=1765164278 instance=ExtResource("14_1idop")]
+transform = Transform3D(1.2353138, 0, 0, 0, 1.2353138, 0, 0, 0, 1.2353138, -21.878822, 2.5301728, -4.424528)
+
 [node name="doors" type="Node3D" parent="." unique_id=842733751]
 
 [node name="DoubleDoor" parent="doors" unique_id=299376815 instance=ExtResource("13_n8vhr")]
@@ -1339,7 +1419,8 @@ transform = Transform3D(-1.1865091, 0, 0.074628025, 0, 1.188854, 0, -0.074628025
 [node name="Billboard" parent="computer5" unique_id=2145476204 instance=ExtResource("30_jy3fw")]
 transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1, -0.13561058, 1.8705821, 1.9428537)
 mesh = SubResource("PlaneMesh_jy3fw")
-initial_text = "interact??...."
+initial_text = "interact??....
+but.. where is the door..."
 background_color = Color(0, 0, 0, 1)
 text_color = Color(2.4065375e-06, 0.9147114, 0.23421153, 1)
 

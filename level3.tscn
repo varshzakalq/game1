@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://dgil4u0yl5ijm" path="res://_base_objects/_characters/Enemy/test_enemy.tscn" id="27_52kmu"]
 [ext_resource type="PackedScene" uid="uid://0exb67spbw5j" path="res://_base_objects/_worldbuilding/walls/asset3.glb" id="28_gsgxg"]
 [ext_resource type="PackedScene" uid="uid://ctncm243wkwha" path="res://_base_objects/harsh/asset4.1.glb" id="29_ctdyy"]
-[ext_resource type="PackedScene" uid="uid://cn3qlc1b2os2u" path="res://_base_objects/harsh/enemy1.glb" id="30_iuuom"]
 [ext_resource type="PackedScene" uid="uid://c2633wxhc4p7x" path="res://_base_objects/harsh/computer1.glb" id="31_2a3go"]
 [ext_resource type="PackedScene" uid="uid://ca67u4r353eh1" path="res://_base_objects/harsh/bigasscapsule.glb" id="32_i604k"]
 [ext_resource type="PackedScene" uid="uid://co8puvvoocrqj" path="res://_base_objects/harsh/asset5.glb" id="33_amagp"]
@@ -444,7 +443,7 @@ size = Vector3(60, 1, 100)
 material = SubResource("StandardMaterial3D_f5exq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=1135655326]
-transform = Transform3D(58.97075, 0, 0, 0, 1.2880392, 0, 0, 0, 24.280064, -2.820982, 38.390427, -37.992397)
+transform = Transform3D(58.97075, 0, 0, 0, 1.2880392, 0, 0, 0, 24.280064, -2.820982, 39.04511, -37.992397)
 mesh = SubResource("BoxMesh_3l65w")
 surface_material_override/0 = SubResource("StandardMaterial3D_beq0j")
 
@@ -455,6 +454,51 @@ surface_material_override/0 = SubResource("StandardMaterial3D_rjtee")
 
 [node name="Ranged_enemy" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=1126345886 instance=ExtResource("8_gfiq0")]
 transform = Transform3D(1.2282187, 0, 0, 0, 1.2282187, 0, 0, 0, 1.2282187, -8.31064, 34.409416, -74.31053)
+
+[node name="Ranged_enemy2" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=77090982 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(1.2282187, 0, 0, 0, 1.2282187, 0, 0, 0, 1.2282187, -8.31064, 34.409416, -65.46629)
+
+[node name="Ranged_enemy6" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=695643393 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(1.2282187, 0, 0, 0, 1.2282187, 0, 0, 0, 1.2282187, -8.31064, 34.409416, -35.41175)
+
+[node name="Ranged_enemy7" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=187592115 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(1.2282187, 0, 0, 0, 1.2282187, 0, 0, 0, 1.2282187, -18.01056, 34.409416, -35.41175)
+
+[node name="Ranged_enemy8" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=2075439320 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.88920486, 0, -0.8472519, 0, 1.2282187, 0, 0.8472519, 0, -0.88920486, -18.01056, 34.409416, -20.386301)
+
+[node name="Ranged_enemy9" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=1583694267 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.88920486, 0, -0.8472519, 0, 1.2282187, 0, 0.8472519, 0, -0.88920486, -18.01056, 34.409416, -2.2675781)
+
+[node name="Ranged_enemy10" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=627794311 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.88920486, 0, -0.8472519, 0, 1.2282187, 0, 0.8472519, 0, -0.88920486, 14.878987, 34.409416, -30.151585)
+
+[node name="Ranged_enemy15" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=1625508125 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(0.5718955, 0, -1.0869484, 0, 1.2282187, 0, 1.0869484, 0, 0.5718955, 5.6419683, 34.409416, -18.089367)
+
+[node name="Ranged_enemy16" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=166959302 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(0.5718955, 0, -1.0869484, 0, 1.2282187, 0, 1.0869484, 0, 0.5718955, 11.118349, 34.409416, -25.592873)
+
+[node name="Ranged_enemy11" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=341293318 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.88920486, 0, -0.8472519, 0, 1.2282187, 0, 0.8472519, 0, -0.88920486, -19.51524, 34.409416, 8.382256)
+
+[node name="Ranged_enemy12" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=1756081175 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.88920486, 0, -0.8472519, 0, 1.2282187, 0, 0.8472519, 0, -0.88920486, -8.762678, 34.409416, 26.5236)
+
+[node name="Ranged_enemy13" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=566458883 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.88920486, 0, -0.8472519, 0, 1.2282187, 0, 0.8472519, 0, -0.88920486, -14.478689, 34.409416, 23.552193)
+
+[node name="Ranged_enemy14" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=673577156 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.88920486, 0, -0.8472519, 0, 1.2282187, 0, 0.8472519, 0, -0.88920486, -19.51524, 33.008858, 34.202023)
+
+[node name="Ranged_enemy3" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=1262183315 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(1.2282187, 0, 0, 0, 1.2282187, 0, 0, 0, 1.2282187, 6.426553, 34.409416, -65.46629)
+
+[node name="Ranged_enemy4" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=1248242801 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(1.2282187, 0, 0, 0, 1.2282187, 0, 0, 0, 1.2282187, 6.426553, 34.409416, -77.23277)
+
+[node name="Ranged_enemy5" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D11" unique_id=901165749 instance=ExtResource("8_gfiq0")]
+transform = Transform3D(-0.393864, 0, 1.1633539, 0, 1.2282187, 0, -1.1633539, 0, -0.393864, 6.116966, 34.079636, -37.22889)
 
 [node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=477635710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013414383, 16.02261, 0.015693665)
@@ -1408,9 +1452,6 @@ transform = Transform3D(1, 0, 0, 0, 3.912713, 0, 0, 0, 2.8577936, 29.965935, 2.2
 [node name="asset4_4" parent="NavigationRegion3D" unique_id=1211941902 instance=ExtResource("29_ctdyy")]
 transform = Transform3D(1, 0, 0, 0, 3.912713, 0, 0, 0, 2.8577936, 29.030165, 2.2167506, -1.9645119)
 
-[node name="enemy1" parent="NavigationRegion3D" unique_id=1117981589 instance=ExtResource("30_iuuom")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37450695, 4.4281073, 36.152287)
-
 [node name="computer1" parent="NavigationRegion3D" unique_id=559007714 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, 0.6341419, 2.2673855, 41.94023)
 
@@ -2233,6 +2274,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.343687, 2.588217, -73.388
 
 [node name="Time leech" parent="." unique_id=1811181162 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 33.282326)
+
+[node name="Time leech2" parent="." unique_id=1246006326 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 28.852987)
+
+[node name="Time leech4" parent="." unique_id=1829931495 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5402665, 2.4701824, 8.12027)
+
+[node name="Time leech9" parent="." unique_id=572254305 instance=ExtResource("19_pletq")]
+transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, 15.910838, 2.4701824, 8.12027)
+
+[node name="Time leech6" parent="." unique_id=1994220989 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9206362, 2.4701824, -0.3667841)
+
+[node name="Time leech11" parent="." unique_id=1730908371 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.573412, 2.4701824, 3.9076805)
+
+[node name="Time leech12" parent="." unique_id=901836186 instance=ExtResource("19_pletq")]
+transform = Transform3D(-0.77789223, 0, -0.6283977, 0, 1, 0, 0.6283977, 0, -0.77789223, -16.660934, 2.4701824, 3.9076805)
+
+[node name="Time leech7" parent="." unique_id=1688926103 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.241911, 2.4701824, -0.3667841)
+
+[node name="Time leech13" parent="." unique_id=587610931 instance=ExtResource("19_pletq")]
+transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, -13.565242, 2.4701824, -34.36184)
+
+[node name="Time leech16" parent="." unique_id=407389305 instance=ExtResource("19_pletq")]
+transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, -13.565242, 2.4701824, -40.688553)
+
+[node name="Time leech17" parent="." unique_id=353133847 instance=ExtResource("19_pletq")]
+transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, -20.47446, 2.4701824, -28.284481)
+
+[node name="Time leech14" parent="." unique_id=128265754 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.555443, 2.4701824, -42.848892)
+
+[node name="Time leech15" parent="." unique_id=2001179167 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.619855, 2.4701824, -24.58506)
+
+[node name="Time leech8" parent="." unique_id=55496333 instance=ExtResource("19_pletq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.232853, 2.4701824, -0.3667841)
 
 [node name="doors" type="Node3D" parent="." unique_id=842733751]
 
