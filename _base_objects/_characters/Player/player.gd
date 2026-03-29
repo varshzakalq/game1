@@ -269,9 +269,12 @@ func _process(delta: float) -> void:
 # ==========================================
 
 func _ready() -> void:
+	
 	Globals.player = self
 	just_finished_rewinding.connect(_on_rollback_finish)
 	super._ready()
+	if Globals.player_age != -1:
+		aging_component.current_age = Globals.player_age
 
 func _gather_inputs() -> void:
 	# Capture movement vector (Normalized automatically by get_vector)
@@ -377,6 +380,8 @@ func _hard_reset_rewind_state() -> void:
 		rewind_sfx.volume_db = 0.0 # Reset the volume for the next time we rewind
 
 func age_effects(delta: float) -> void:
+	
+	Globals.player_age = aging_component.current_age
 	if aging_component == null: return
 	var age = aging_component.current_age
 	

@@ -11,6 +11,7 @@ bottom_radius = 0.05
 height = 0.52
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gjrlu"]
+albedo_color = Color(1, 1, 0, 1)
 emission_enabled = true
 emission = Color(0.77834916, 0.28338164, 0.013853185, 1)
 emission_energy_multiplier = 8.23
@@ -20,9 +21,12 @@ size = Vector3(0.1547699, 0.13305664, 1)
 
 [node name="Projectile" type="CharacterBody3D" unique_id=499678368]
 script = ExtResource("1_70x7f")
+proj_color = Color(1, 0.45490196, 0.20392157, 1)
+energy = 20.0
+volumetric_energy = 2.333
 damage = 1.0
 SPEED = 0.0
-SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "$global_position", "$_alive_timer"])
+SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "global_position", "$_alive_timer"])
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=961919256]

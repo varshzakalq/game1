@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://ctncm243wkwha" path="res://_base_objects/harsh/asset4.1.glb" id="29_8kqvw"]
 [ext_resource type="PackedScene" uid="uid://cn3qlc1b2os2u" path="res://_base_objects/harsh/enemy1.glb" id="30_ott7t"]
 [ext_resource type="PackedScene" uid="uid://c2633wxhc4p7x" path="res://_base_objects/harsh/computer1.glb" id="31_j3ey0"]
+[ext_resource type="PackedScene" uid="uid://bg5t4kuhaanqw" path="res://_base_objects/_worldbuilding/billboard.tscn" id="31_wooj1"]
 [ext_resource type="PackedScene" uid="uid://ca67u4r353eh1" path="res://_base_objects/harsh/bigasscapsule.glb" id="32_l15nt"]
 [ext_resource type="PackedScene" uid="uid://co8puvvoocrqj" path="res://_base_objects/harsh/asset5.glb" id="33_1iy71"]
 [ext_resource type="PackedScene" uid="uid://3hsbhd8rx2d2" path="res://light_on_ceiling.tscn" id="34_d4uwr"]
@@ -258,6 +259,10 @@ size = Vector3(1.7342224, 1.5043945, 3.503151)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2og7n"]
 size = Vector3(1.4833984, 2.2631836, 9.740112)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1i48b"]
+size = Vector2(1.4, 0.9)
+orientation = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhfm4"]
 size = Vector3(2.546753, 1.3710327, 6.043812)
@@ -1561,14 +1566,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37450695, 4.4281073, 36.152
 [node name="computer1" parent="NavigationRegion3D" unique_id=559007714 instance=ExtResource("31_j3ey0")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, 0.6341419, 2.2673855, 41.94023)
 
+[node name="Billboard" parent="NavigationRegion3D/computer1" unique_id=335272926 instance=ExtResource("31_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1.0000011, 0, 0, 0, 1, -0.1560669, 1.8816749, 1.9258804)
+mesh = SubResource("PlaneMesh_1i48b")
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+
 [node name="computer2" parent="NavigationRegion3D" unique_id=330461385 instance=ExtResource("31_j3ey0")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.2673855, 17.528276)
+
+[node name="Billboard2" parent="NavigationRegion3D/computer2" unique_id=32324810 instance=ExtResource("31_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1.0000023, 0, 0, 0, 1, -0.14729881, 1.8816749, 1.9528046)
+mesh = SubResource("PlaneMesh_1i48b")
+skeleton = NodePath("../../computer1")
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
 [node name="computer3" parent="NavigationRegion3D" unique_id=1582045775 instance=ExtResource("31_j3ey0")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.2673855, -13.654004)
 
+[node name="Billboard3" parent="NavigationRegion3D/computer3" unique_id=1730894746 instance=ExtResource("31_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1.0000013, 0, 0, 0, 1, -32.468193, 1.8816749, 11.807466)
+mesh = SubResource("PlaneMesh_1i48b")
+skeleton = NodePath("../../computer1")
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+
 [node name="computer4" parent="NavigationRegion3D" unique_id=369441351 instance=ExtResource("31_j3ey0")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, 4.3335075, 2.2673855, -13.654004)
+
+[node name="Billboard4" parent="NavigationRegion3D/computer4" unique_id=1909181777 instance=ExtResource("31_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1.0000014, 0, 0, 0, 1, -32.62083, 1.8816749, 0.19380307)
+mesh = SubResource("PlaneMesh_1i48b")
+skeleton = NodePath("../../computer1")
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 
 [node name="bigasscapsule" parent="NavigationRegion3D" unique_id=1470422774 instance=ExtResource("32_l15nt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.716476, 3.7441268, -3.2615786)

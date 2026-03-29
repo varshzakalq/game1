@@ -16,7 +16,7 @@ script/source = "extends Camera3D
 # We keep these as exports, but they will be overwritten by GlobalSettings in _ready
 @export var mouse_sensitivity : float = 0.002
 @export var min_pitch : float = -80.0 
-@export var max_pitch : float = 80.0  
+@export var max_pitch : float = 70.0  
 
 @onready var player : CharacterBody3D = get_parent()
 
@@ -250,6 +250,7 @@ script = SubResource("GDScript_x2vq2")
 
 [node name="gun" parent="Camera" unique_id=1988051927 instance=ExtResource("3_x2vq2")]
 transform = Transform3D(0.55662626, 0, 0, 0, 0.5557289, -0.0315955, 0, 0.0315955, 0.5557289, -0.190121, -0.24269146, -0.15977699)
+fire_rate = 1.0
 bullet_speed = 100.0
 
 [node name="Aging Component" type="Node" parent="." unique_id=1652178798]

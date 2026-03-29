@@ -9,6 +9,7 @@ var SNAPSHOT_INTERVAL : float = 0.05
 
 
 var player : Player = null
+var player_age : float = -1
 
 signal fade_complete
 signal level_change(trigger_id : String)

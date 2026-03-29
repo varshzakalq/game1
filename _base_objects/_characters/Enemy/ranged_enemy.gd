@@ -5,6 +5,11 @@ extends StandardEnemy
 
 @onready var target_dir = $Target_dir
 
+@export_category("Projectile Aesthetics")
+@export var proj_color : Color 
+@export var energy : float = 3.476
+@export var volumetric_energy : float = 2.333
+
 @export_category("Combat Setup")
 @export var projectile_scene: PackedScene
 @export var projectile_speed: float = 10
@@ -77,6 +82,12 @@ func launch_attack(age_component, age_damage: float) -> void:
 	
 	
 	if proj is TemporalProjectile:
+		
+		proj.proj_color = proj_color
+		proj.energy = energy
+		proj.volumetric_energy = volumetric_energy
+		
+		
 		proj.speed = projectile_speed
 		proj.target_dir = dir_vec
 		proj.damage = age_damage
