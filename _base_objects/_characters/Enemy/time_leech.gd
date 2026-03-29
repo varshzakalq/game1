@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 		var next_path_pos = navigation_agent_3d.get_next_path_position()
 		var direction = (next_path_pos - global_position).normalized()
 		
-		velocity = direction * 2.0
+		velocity = direction * SPEED
 
 		move_and_slide()
 	super._physics_process(delta)
