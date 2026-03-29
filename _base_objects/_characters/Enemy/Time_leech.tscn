@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_luwtv"]
 [ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://explosion.tscn" id="2_ppgfr"]
 [ext_resource type="Script" uid="uid://bkrjw4g0do2mr" path="res://_base_objects/_characters/Enemy/health.gd" id="3_hoct4"]
+[ext_resource type="PackedScene" uid="uid://cn3qlc1b2os2u" path="res://_base_objects/harsh/enemy1.glb" id="4_yg8ek"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_luwtv"]
 
@@ -18,6 +19,13 @@ metadata/_custom_type_script = "uid://dmouge7gwx0yx"
 script = ExtResource("2_luwtv")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=401482528]
+
+[node name="enemy1" parent="." unique_id=77251348 instance=ExtResource("4_yg8ek")]
+transform = Transform3D(-0.053956803, 0, 0.99854326, 0, 1, 0, -0.99854326, 0, -0.053956803, 0, 0, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="enemy1" unique_id=1886691997]
+light_color = Color(1, 0.05490196, 0, 1)
+light_energy = 3.539
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=402885002]
 shape = SubResource("CapsuleShape3D_luwtv")
