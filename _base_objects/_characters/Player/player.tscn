@@ -54,10 +54,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		#else:
 			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		# The math remains the same, but mouse_sensitivity is now correctly scaled
-		player.rotate_y(-event.relative.x * mouse_sensitivity)
-		rotate_x(-event.relative.y * mouse_sensitivity)
+
 			
 	if player._is_rewinding:
 		return		
@@ -65,12 +62,109 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		
 		# We multiply by mouse_sensitivity. 
-		# Since your slider is 0.001 to 0.01, this scales linearly.
 		player.rotate_y(-event.relative.x * mouse_sensitivity)
 		rotate_x(-event.relative.y * mouse_sensitivity)
 		
 		rotation.x = clamp(rotation.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
 		player.camera_rotation = rotation.x
+"
+
+[sub_resource type="GDScript" id="GDScript_uonmu"]
+resource_name = "hud_manager"
+script/source = "class_name HUDManager
+extends CanvasLayer
+
+# --- CONFIGURATION ---
+# Map your enums to the exact string name of the variable inside that component
+var component_variables: Dictionary = {
+	Component.Component_type.Aging: \"current_age\",
+	Component.Component_type.Health: \"current_health\" # Add future components here!
+}
+
+# --- INTERNAL TRACKING ---
+var _tracked_components: Array[Component] = []
+var _ui_labels: Array[Label] = []
+var _ui_container: VBoxContainer
+
+func _ready() -> void:
+	_build_ui_layout()
+	
+	# Wait one frame to ensure Globals.player is fully spawned and ready
+	call_deferred(\"_scan_player_components\")
+
+# ==========================================
+# 1. GENERATE THE UI NODES
+# ==========================================
+func _build_ui_layout() -> void:
+	# Create a margin so the text doesn't hug the absolute edge of the monitor
+	var margin = MarginContainer.new()
+	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
+	margin.add_theme_constant_override(\"margin_left\", 30)
+	margin.add_theme_constant_override(\"margin_top\", 30)
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(margin)
+	
+	# Create a vertical box to stack the component labels neatly
+	_ui_container = VBoxContainer.new()
+	_ui_container.add_theme_constant_override(\"separation\", 10)
+	margin.add_child(_ui_container)
+
+# ==========================================
+# 2. FIND THE COMPONENTS
+# ==========================================
+func _scan_player_components() -> void:
+	if Globals.player == null:
+		push_warning(\"HUD: Globals.player is null. Cannot track components.\")
+		return
+		
+	# Look at every direct child of the player
+	for child in Globals.player.get_children():
+		if child is Component:
+			_create_label_for_component(child)
+
+func _create_label_for_component(comp: Component) -> void:
+	# Check if we mapped this component type in our dictionary at the top
+	if not component_variables.has(comp.Component_Type):
+		return 
+		
+	# Create the text label
+	var label = Label.new()
+	
+	# Optional: Make the text bigger and give it an outline so it's readable against the 3D world
+	label.add_theme_font_size_override(\"font_size\", 24)
+	label.add_theme_color_override(\"font_outline_color\", Color.BLACK)
+	label.add_theme_constant_override(\"outline_size\", 6)
+	
+	_ui_container.add_child(label)
+	
+	# Store them in our arrays so _process can update them extremely fast
+	_tracked_components.append(comp)
+	_ui_labels.append(label)
+
+# ==========================================
+# 3. UPDATE THE VALUES
+# ==========================================
+func _process(_delta: float) -> void:
+	# Loop through every tracked component and update its corresponding label
+	for i in range(_tracked_components.size()):
+		var comp = _tracked_components[i]
+		var label = _ui_labels[i]
+		
+		var var_name = component_variables[comp.Component_Type]
+		var val = comp.get(var_name)
+		
+		# Get the human-readable string of the enum (e.g., \"Aging\" or \"Health\")
+		var type_string = Component.Component_type.keys()[comp.Component_Type]
+		match type_string:
+			\"Aging\" : type_string = \"Age\"
+			
+		
+		if val != null:
+			if val is float:
+				# Format floats to 1 decimal place so they don't look like \"Age: 24.183749\"
+				label.text = \"%s: %.1f\" % [type_string, val]
+			else:
+				label.text = \"%s: %s\" % [type_string, str(val)]
 "
 
 [node name="Player" type="CharacterBody3D" unique_id=1091194407]
@@ -96,3 +190,6 @@ script = SubResource("GDScript_x2vq2")
 
 [node name="Aging Component" type="Node" parent="." unique_id=1652178798]
 script = ExtResource("2_uonmu")
+
+[node name="UI part" type="CanvasLayer" parent="." unique_id=380399896]
+script = SubResource("GDScript_uonmu")

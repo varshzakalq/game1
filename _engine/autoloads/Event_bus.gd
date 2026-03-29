@@ -19,4 +19,5 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _process(delta: float) -> void:
 	if REWINDING:
-		Globals.player.aging_component.increase_age(delta)
+		if Globals.player != null:
+			Globals.player.aging_component.increase_age(delta, 500)
