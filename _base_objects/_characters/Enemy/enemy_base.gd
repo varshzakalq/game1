@@ -12,6 +12,14 @@ extends Time_Character
 var has_detected_player: bool = false
 var _time_since_last_attack: float = 0.0
 
+
+@onready var rot_control = get_node("rot_control")
+
+
+
+var rot_tween : Tween
+
+
 # ==========================================
 # CORE ENGINE LOGIC (Do not override in child classes)
 # ==========================================
@@ -88,4 +96,27 @@ func on_player_detected() -> void:
 ## Triggered once the moment the player escapes. Good for confusion animations.
 func on_player_lost() -> void:
 	pass
+
+func _turn_towards(some_pos):
 	
+	if not rot_control: return
+	
+	if rot_tween and rot_tween.is_running():
+		rot_tween.kill()
+	
+	rot_tween = create_tween()
+	rot_control.look_at(some_pos, Vector3.UP)
+	var rot = rot_control.global_rotation
+	_rotate_body_to(self, rot)
+	
+
+	
+	return false
+
+func _rotate_body_to(body, target_rotation : Vector3):
+	var rot = target_rotation
+	var current_rot = body.global_rotation
+	if rot.y - current_rot.y > PI: rot.y -= 2*PI 
+	if rot.y - current_rot.y < -PI: rot.y += 2*PI 
+	
+	rot_tween.tween_property(body, "global_rotation", rot, 0.2)
