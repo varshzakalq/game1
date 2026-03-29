@@ -9,7 +9,7 @@ class_name Time_Stationary
 ]
 
 #INTERVAL VARS
-@export var SNAPSHOT_INTERVAL : float = 0.05
+var SNAPSHOT_INTERVAL : float = Globals.SNAPSHOT_INTERVAL
 var _time_since_last_snapshot : float = 0.0
 
 #REWIND VARS

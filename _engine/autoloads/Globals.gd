@@ -4,6 +4,7 @@ extends Node
 var MIN_REWIND_SPEED : float = 0.25
 var MAX_REWIND_SPEED : float = 3.0
 var REWIND_ACCELERATION : float = 0.1
+var SNAPSHOT_INTERVAL : float = 0.05
 
 
 

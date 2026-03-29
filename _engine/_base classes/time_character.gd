@@ -23,7 +23,7 @@ var _is_sprinting = false
 ]
 
 #INTERVAL VARS
-@export var SNAPSHOT_INTERVAL : float = 0.05
+var SNAPSHOT_INTERVAL : float = Globals.SNAPSHOT_INTERVAL
 var _time_since_last_snapshot : float = 0.0
 
 #REWIND VARS
@@ -108,7 +108,12 @@ func _rollback(delta: float) -> void:
 			var tween_duration = SNAPSHOT_INTERVAL / _current_rewind_speed
 			
 			for key in target_values:
-				_rewind_tween.tween_property(self, key, target_values[key], tween_duration)
+				if key[0] == '$':
+					var temp = key.substr(1)
+					set(temp, target_values[key])
+				
+				else:
+					_rewind_tween.tween_property(self, key, target_values[key], tween_duration/2)
 
 func _take_snapshot(delta: float) -> void:
 	if _is_rewinding: return
@@ -122,6 +127,11 @@ func _take_snapshot(delta: float) -> void:
 		
 		for property in SNAPSHOT_PROPERTY_LIST:
 			var value = get(property)
+			
+			if property[0] == '$':
+				var temp = property.substr(1)
+				value = get(temp)
+				
 			if value == null:
 				push_error("NON EXISTENT PROPERTY %s TO TAKE SNAPSHOT OF" % property)
 				continue

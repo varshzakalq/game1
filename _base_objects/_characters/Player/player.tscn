@@ -233,7 +233,7 @@ script = ExtResource("1_dmsef")
 SPEED = 4.0
 GRAVITY = 25.0
 JUMP_FORCE = 7.0
-SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position", "camera_rotation", "global_rotation"])
+SNAPSHOT_PROPERTY_LIST = Array[String](["$velocity", "position", "camera_rotation", "global_rotation"])
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=993622367]

@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 	
 	if EventBus.REWINDING:
 		if _reached_history_end:
+			
 			queue_free()
 	
 	else:
