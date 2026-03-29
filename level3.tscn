@@ -1467,6 +1467,19 @@ Rapid testing is necessary.."
 background_color = Color(0, 0, 0, 1)
 text_color = Color(1, 0, 0, 1)
 
+[node name="computer18" parent="NavigationRegion3D" unique_id=1401559601 instance=ExtResource("31_2a3go")]
+transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, 8.10121, 2.2673855, 48.96184)
+
+[node name="Billboard" parent="NavigationRegion3D/computer18" unique_id=938121643 instance=ExtResource("23_kp2hi")]
+transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1, -0.13561058, 1.8705821, 1.9428537)
+mesh = SubResource("PlaneMesh_1qwjn")
+initial_text = "CRITICAL ERROR...
+
+ORBS IN FATAL CONDITION
+NEW SEARCHERS REQUIRED"
+background_color = Color(0, 0, 0, 1)
+text_color = Color(1, 0, 0, 1)
+
 [node name="computer2" parent="NavigationRegion3D" unique_id=330461385 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.2673855, 17.528276)
 
@@ -1474,7 +1487,7 @@ transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0
 transform = Transform3D(1, 0, 0, 0, 1.0000023, 0, 0, 0, 1, -0.14729881, 1.8816749, 1.9528046)
 mesh = SubResource("PlaneMesh_1vlh0")
 skeleton = NodePath("../../computer1")
-initial_text = "FAILED OPERATOR COUNT:  57
+initial_text = "FAILED OPERATOR COUNT:  0354
 
 ALTERNATE SOLUTION NEEDED..."
 background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
@@ -1493,7 +1506,7 @@ REQUESTING LAST RESORT..."
 background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
 text_color = Color(1, 0, 0, 1)
 
-[node name="computer6" parent="NavigationRegion3D" unique_id=1401559601 instance=ExtResource("31_2a3go")]
+[node name="computer6" parent="NavigationRegion3D" unique_id=350229164 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.8905263, -51.321583)
 
 [node name="computer7" parent="NavigationRegion3D" unique_id=1929748734 instance=ExtResource("31_2a3go")]

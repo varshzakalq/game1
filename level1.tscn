@@ -1457,7 +1457,10 @@ transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0
 transform = Transform3D(1, 0, 0, 0, 1.000002, 0, 0, 0, 1, -0.13435555, 1.8705821, 1.9104065)
 mesh = SubResource("PlaneMesh_jy3fw")
 skeleton = NodePath("../../computer1")
-initial_text = "Human operator required..."
+initial_text = "Human operator required...
+search for subject 0354 ....
+ongoing....
+facilty secured"
 background_color = Color(0, 0, 0, 1)
 text_color = Color(6.738305e-07, 0.72753006, 0.17838582, 1)
 
