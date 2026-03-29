@@ -23,9 +23,9 @@ func _physics_process(delta: float) -> void:
 		var direction = (next_path_pos - global_position).normalized()
 		
 		velocity = direction * 2.0
-<<<<<<< HEAD
-		move_and_slide()
 
+		move_and_slide()
+	super._physics_process(delta)
 
 
 func _ready() -> void:
@@ -53,7 +53,5 @@ func _on_death() -> void:
 	
 	# 4. Remove the object from the game
 	queue_free()
-=======
+
 	
-	super._physics_process(delta)
->>>>>>> 8ab8509858099fc62b18e7bef250b2dc3d895da3
