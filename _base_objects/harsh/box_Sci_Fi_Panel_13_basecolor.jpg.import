@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chplcm3622d6j"
-path.s3tc="res://.godot/imported/asset2_SciFi-Tile1_diffuse.jpg-21e51a69b27d9ac067abd0c007084257.s3tc.ctex"
+uid="uid://bl8pbtn51dhff"
+path.s3tc="res://.godot/imported/box_Sci_Fi_Panel_13_basecolor.jpg-81ae9546549bde7d46dbeff0edb6a7d4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "22bef3b8cdf06aef596390668dbe5f6d"
+"md5": "fea7e4d5439fc48b209bef0427da2104"
 }
 
 [deps]
 
-source_file="res://asset2_SciFi-Tile1_diffuse.jpg"
-dest_files=["res://.godot/imported/asset2_SciFi-Tile1_diffuse.jpg-21e51a69b27d9ac067abd0c007084257.s3tc.ctex"]
+source_file="res://_base_objects/harsh/box_Sci_Fi_Panel_13_basecolor.jpg"
+dest_files=["res://.godot/imported/box_Sci_Fi_Panel_13_basecolor.jpg-81ae9546549bde7d46dbeff0edb6a7d4.s3tc.ctex"]
 
 [params]
 

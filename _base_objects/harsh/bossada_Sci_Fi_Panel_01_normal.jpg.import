@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmv7beq3unmft"
-path.s3tc="res://.godot/imported/car_Rim_Roughness.png-324007b71d72b4e3b73cfd77c95a7667.s3tc.ctex"
+uid="uid://cu5nbitlvixe2"
+path.s3tc="res://.godot/imported/bossada_Sci_Fi_Panel_01_normal.jpg-4631408bc371bc1221009963090676b2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5318633d930b6cf2a8ed5ab8776394a3"
+"md5": "cd0f8221a7c0a357fd03b83a40191b25"
 }
 
 [deps]
 
-source_file="res://car_Rim_Roughness.png"
-dest_files=["res://.godot/imported/car_Rim_Roughness.png-324007b71d72b4e3b73cfd77c95a7667.s3tc.ctex"]
+source_file="res://_base_objects/harsh/bossada_Sci_Fi_Panel_01_normal.jpg"
+dest_files=["res://.godot/imported/bossada_Sci_Fi_Panel_01_normal.jpg-4631408bc371bc1221009963090676b2.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://bossada_Sci_Fi_Panel_01_normal.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

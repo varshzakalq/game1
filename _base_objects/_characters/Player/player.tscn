@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwjcjftukvpnn" path="res://_base_objects/_characters/Player/player.gd" id="1_dmsef"]
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_uonmu"]
-[ext_resource type="PackedScene" uid="uid://058h2skin3nh" path="res://gun1.glb" id="3_c2huh"]
+[ext_resource type="PackedScene" uid="uid://058h2skin3nh" path="res://_base_objects/harsh/gun1.glb" id="3_c2huh"]
 [ext_resource type="PackedScene" uid="uid://dgdauxu88wqm8" path="res://Gun.tscn" id="3_x2vq2"]
 [ext_resource type="Texture2D" uid="uid://bo0stprtfxuf6" path="res://_assets/sprites/human-heart-circulatory-system-3d-computer-graphics-visualization-heart-22c9f1989f97d7ff15afd8cc0957e8cd.png" id="4_f4rpb"]
 

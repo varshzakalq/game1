@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dp1g4uysxdfs7"]
 
 [ext_resource type="PackedScene" uid="uid://c63n73qy7a67k" path="res://_assets/lift/door.blend" id="1_ba8gm"]
-[ext_resource type="AnimationLibrary" uid="uid://b13daovifp86t" path="res://door_open.res" id="2_v6xrn"]
+[ext_resource type="AnimationLibrary" uid="uid://b13daovifp86t" path="res://_base_objects/harsh/door_open.res" id="2_v6xrn"]
 
 [node name="door" unique_id=18976931 instance=ExtResource("1_ba8gm")]
 

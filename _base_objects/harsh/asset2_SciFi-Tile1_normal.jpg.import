@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de5jbflvmjahb"
-path.s3tc="res://.godot/imported/conveyerbelt_Sci_Fi_Panel_01_metallic-Sci_Fi_Panel_01_roughness.png-d8468086857a4bb85ea9ec6ffd111952.s3tc.ctex"
+uid="uid://dcbdxiaqy0olk"
+path.s3tc="res://.godot/imported/asset2_SciFi-Tile1_normal.jpg-1e554a349c05d331496e564f0c426922.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d11adec1501ff376a9bd166fd90c4700"
+"md5": "07826d839af03be8bbda1b521910ab90"
 }
 
 [deps]
 
-source_file="res://conveyerbelt_Sci_Fi_Panel_01_metallic-Sci_Fi_Panel_01_roughness.png"
-dest_files=["res://.godot/imported/conveyerbelt_Sci_Fi_Panel_01_metallic-Sci_Fi_Panel_01_roughness.png-d8468086857a4bb85ea9ec6ffd111952.s3tc.ctex"]
+source_file="res://_base_objects/harsh/asset2_SciFi-Tile1_normal.jpg"
+dest_files=["res://.godot/imported/asset2_SciFi-Tile1_normal.jpg-1e554a349c05d331496e564f0c426922.s3tc.ctex"]
 
 [params]
 
@@ -25,12 +25,12 @@ compress/lossy_quality=0.7
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://asset2_SciFi-Tile1_normal.jpg"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

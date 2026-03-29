@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drkbqx21nyb4f"
-path.s3tc="res://.godot/imported/box_Sci_Fi_Panel_13_metallic-Sci_Fi_Panel_13_roughness.png-2fe7cc2ee244ea52896d058f77b1bfb5.s3tc.ctex"
+uid="uid://q0md1ou26x5d"
+path.s3tc="res://.godot/imported/gun1_Sci_Fi_Panel_01_basecolor.jpg-129578d8c4210f3cdc2bc02957795955.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b6be310e1aa3f7484ee8f629bbada280"
+"md5": "dc29e2fe7b814caab4b3ba8cbfdb4751"
 }
 
 [deps]
 
-source_file="res://box_Sci_Fi_Panel_13_metallic-Sci_Fi_Panel_13_roughness.png"
-dest_files=["res://.godot/imported/box_Sci_Fi_Panel_13_metallic-Sci_Fi_Panel_13_roughness.png-2fe7cc2ee244ea52896d058f77b1bfb5.s3tc.ctex"]
+source_file="res://_base_objects/harsh/gun1_Sci_Fi_Panel_01_basecolor.jpg"
+dest_files=["res://.godot/imported/gun1_Sci_Fi_Panel_01_basecolor.jpg-129578d8c4210f3cdc2bc02957795955.s3tc.ctex"]
 
 [params]
 

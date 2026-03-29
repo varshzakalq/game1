@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvw4umil60w3r" path="res://_base_objects/_characters/Enemy/ranged_enemy.gd" id="1_28yh6"]
 [ext_resource type="PackedScene" uid="uid://qscc3d23xe3g" path="res://_base_objects/_characters/Enemy/projectile/Projectile.tscn" id="2_nq3wi"]
-[ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://explosion.tscn" id="2_voep5"]
+[ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="2_voep5"]
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="3_nq3wi"]
 [ext_resource type="Script" uid="uid://bkrjw4g0do2mr" path="res://_base_objects/_characters/Enemy/health.gd" id="4_voep5"]
 
@@ -38,6 +38,3 @@ metadata/_custom_type_script = "uid://bkrjw4g0do2mr"
 
 [node name="Target_dir" type="Node3D" parent="." unique_id=108980937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7922618)
-
-[node name="RayCast3D" type="RayCast3D" parent="Target_dir" unique_id=1306820206]
-target_position = Vector3(0, 0, 1)

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b5xyrgbetoqxv"
-path="res://.godot/imported/conveyerbelt.glb-7b864a2894fd12682a343698726c2a38.scn"
+uid="uid://1yubdabjeolt"
+path="res://.godot/imported/bossada.glb-87ae15819dd890042241b46d367f1a44.scn"
 
 [deps]
 
-source_file="res://conveyerbelt.glb"
-dest_files=["res://.godot/imported/conveyerbelt.glb-7b864a2894fd12682a343698726c2a38.scn"]
+source_file="res://_base_objects/harsh/bossada.glb"
+dest_files=["res://.godot/imported/bossada.glb-87ae15819dd890042241b46d367f1a44.scn"]
 
 [params]
 

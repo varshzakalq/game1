@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7joqj7ft1vjs"
-path.s3tc="res://.godot/imported/bossada_Sci_Fi_Panel_13_emissive.jpg-8382790ae2f6b441d5f0b643e13a2a6f.s3tc.ctex"
+uid="uid://dmv7beq3unmft"
+path.s3tc="res://.godot/imported/car_Rim_Roughness.png-ba233862709e8c12d5c42fcf0cadbcad.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "f01cd1cffa5ae9e4153d09128cab96bf"
+"md5": "5318633d930b6cf2a8ed5ab8776394a3"
 }
 
 [deps]
 
-source_file="res://bossada_Sci_Fi_Panel_13_emissive.jpg"
-dest_files=["res://.godot/imported/bossada_Sci_Fi_Panel_13_emissive.jpg-8382790ae2f6b441d5f0b643e13a2a6f.s3tc.ctex"]
+source_file="res://_base_objects/harsh/car_Rim_Roughness.png"
+dest_files=["res://.godot/imported/car_Rim_Roughness.png-ba233862709e8c12d5c42fcf0cadbcad.s3tc.ctex"]
 
 [params]
 
