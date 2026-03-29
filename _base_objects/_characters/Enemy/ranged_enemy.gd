@@ -1,5 +1,5 @@
 extends StandardEnemy
-class_name Ranged_Enemy
+class_name RangedEnemy
 
 
 @export var explosion_scene: PackedScene
@@ -12,6 +12,15 @@ func _physics_process(delta: float) -> void:
 	if Globals.player == null:
 		return
 		
+
+	
+	
+	super._physics_process(delta)
+
+	move_and_slide()
+	
+
+func process_chase(delta: float, distance_to_player: float) -> void:
 	var dist = global_position.distance_to(Globals.player.global_position)
 
 	# Only track if within 20 units
@@ -24,14 +33,10 @@ func _physics_process(delta: float) -> void:
 			var direction = (next_path_pos - global_position).normalized()
 			
 			velocity = direction * SPEED
-		
-	
-	
-	
-	super._physics_process(delta)
 
-	move_and_slide()
-
+func launch_attack(age_component, age_damage: float) -> void:
+	
+	pass
 
 func _ready() -> void:
 	# 2. Connect the "died" signal to our local function
@@ -55,8 +60,9 @@ func _on_death() -> void:
 		# 6. If it's a particle system, ensure it starts emitting
 	if explosion is GPUParticles3D or explosion is CPUParticles3D:
 		explosion.emitting = true
-	if dist < 1: 
-		Globals.player.aging_component.increase_age(500)
+	if dist < 1.5: 
+		print("damaged")
+		Globals.player.aging_component.age_damage(200)
 	
 	
 	# 4. Remove the object from the game

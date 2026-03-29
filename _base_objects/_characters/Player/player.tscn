@@ -258,3 +258,7 @@ script = ExtResource("2_uonmu")
 script = SubResource("GDScript_f4rpb")
 player_portrait = ExtResource("4_f4rpb")
 hologram_opacity = 0.84
+
+[node name="RewindSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1562837906]
+
+[connection signal="took_age_damage" from="Aging Component" to="." method="_on_age_damage"]

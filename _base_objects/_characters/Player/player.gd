@@ -1,7 +1,7 @@
 extends Time_Character
 class_name Player
 
-@onready var rewind_sfx : AudioStreamPlayer3D = $RewindSoundPlayer 
+@onready var rewind_sfx : AudioStreamPlayer = $RewindSoundPlayer 
 
 
 @export_category("Rollback Penalty Settings")
@@ -13,7 +13,7 @@ var _penalty_tween : Tween
 # NODE REFERENCES
 # ==========================================
 @onready var mesh = $Mesh
-@onready var death_cam = $dead_cam
+#@onready var death_cam = $dead_cam
 @onready var camera = %Camera
 @onready var camera_rotation = camera.global_rotation.x :
 	set(value):
@@ -143,7 +143,30 @@ func _setup_age_ui() -> void:
 	_age_mat.shader = shader
 	_age_rect.material = _age_mat
 	
+# ===============================
+# DAMAGE EFFECTS VARIABLES
+# ===============================
+var _damage_rect : ColorRect
+var _damage_tween : Tween
 
+# Camera Shake
+var _camera_trauma : float = 0.0
+@export var max_shake_offset : float = 0.3 # How far the camera violently jerks (in meters)
+
+func _setup_damage_ui() -> void:
+	if _damage_rect != null: return
+	
+	var canvas = CanvasLayer.new()
+	canvas.layer = 12 # Put this above absolutely everything
+	add_child(canvas)
+	
+	_damage_rect = ColorRect.new()
+	canvas.add_child(_damage_rect)
+	_damage_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_damage_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	# Start completely transparent. (White with a hint of sickly cyan)
+	_damage_rect.color = Color(0.9, 1.0, 1.0, 0.0)
 
 # ===============================
 # ACTIVE REWIND EFFECTS
@@ -216,6 +239,24 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	age_effects(delta)
+	
+	# --- CAMERA SHAKE LOGIC ---
+	if _camera_trauma > 0.0:
+		# Decay the trauma over time (takes about 0.5 seconds to calm down completely)
+		_camera_trauma = move_toward(_camera_trauma, 0.0, delta * 2.0)
+		
+		# Squaring the trauma is the golden rule of screen shake: 
+		# It makes the camera snap violently at the start, then settle very smoothly.
+		var shake_power = _camera_trauma * _camera_trauma
+		
+		if camera != null:
+			camera.h_offset = randf_range(-1.0, 1.0) * max_shake_offset * shake_power
+			camera.v_offset = randf_range(-1.0, 1.0) * max_shake_offset * shake_power
+	else:
+		# Snap the camera back to perfectly dead-center once the shaking stops
+		if camera != null and (camera.h_offset != 0.0 or camera.v_offset != 0.0):
+			camera.h_offset = 0.0
+			camera.v_offset = 0.0
 	
 
 
@@ -353,6 +394,46 @@ func age_effects(delta: float) -> void:
 	_age_mat.set_shader_parameter("intensity", passive_intensity)
 	_age_mat.set_shader_parameter("blur_amount", blur_intensity/1.4)
 
+
+func _on_age_damage(amount: float) -> void:
+	# Ensure the rewind UI actually exists before we try to glitch it
+	if _active_rewind_rect == null:
+		_setup_active_rewind_ui()
+		
+	# 1. Calculate Severity
+	# 10 years of damage pushes the VHS glitch to a maximum 1.0 intensity
+	var hit_severity = clamp(amount / 10.0, 0.4, 1.0)
+	
+	# 2. The Time-Glitch Visual Spike
+	_active_rewind_rect.visible = true
+	
+	if _damage_tween and _damage_tween.is_valid():
+		_damage_tween.kill()
+		
+	_damage_tween = create_tween()
+	_damage_tween.set_parallel(true)
+	
+	# Instantly snap the VHS shader to a violent tear, then fade it out over 0.5s
+	_active_rewind_mat.set_shader_parameter("intensity", hit_severity)
+	_damage_tween.tween_property(_active_rewind_mat, "shader_parameter/intensity", 0.0, 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	
+	# Violently kick the camera FOV backwards to simulate a physical blow
+	if camera != null:
+		var target_fov = 75.0 + (30.0 * hit_severity)
+		camera.fov = target_fov
+		# Elastic ease makes the camera physically bounce back into place
+		_damage_tween.tween_property(camera, "fov", 75.0, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+		
+	# 3. Cleanup
+	# Only hide the VHS effect if the player isn't actively holding the rewind button!
+	_damage_tween.chain().tween_callback(func():
+		if not _is_rewinding:
+			_active_rewind_rect.visible = false
+	)
+	
+	# 4. Inject Camera Trauma (Screen Shake)
+	_camera_trauma = clamp(_camera_trauma + hit_severity, 0.0, 1.0)
+
 func apply_rollback_penalty(age : float) -> void:
 	if _penalty_rect == null:
 		_setup_penalty_ui()
@@ -384,8 +465,9 @@ func apply_rollback_penalty(age : float) -> void:
 
 
 
-func death_aniamtion():
-	
-	camera.current = false
-	death_cam.current = true
-	mesh.hide()
+#
+#func death_aniamtion():
+	#
+	#camera.current = false
+	#death_cam.current = true
+	#mesh.hide()

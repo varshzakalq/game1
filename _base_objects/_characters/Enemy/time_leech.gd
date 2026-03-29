@@ -12,6 +12,15 @@ func _physics_process(delta: float) -> void:
 	if Globals.player == null:
 		return
 		
+
+	
+	
+	super._physics_process(delta)
+
+	move_and_slide()
+	
+
+func process_chase(delta: float, distance_to_player: float) -> void:
 	var dist = global_position.distance_to(Globals.player.global_position)
 
 	# Only track if within 20 units
@@ -24,14 +33,6 @@ func _physics_process(delta: float) -> void:
 			var direction = (next_path_pos - global_position).normalized()
 			
 			velocity = direction * SPEED
-		
-	
-	
-	
-	super._physics_process(delta)
-
-	move_and_slide()
-
 
 func _ready() -> void:
 	# 2. Connect the "died" signal to our local function
@@ -57,7 +58,8 @@ func _on_death() -> void:
 		explosion.emitting = true
 	if dist < 2.: 
 		print("damaged")
-		Globals.player.aging_component.increase_age(500)
+		var damage = 100./(dist)
+		Globals.player.aging_component.age_damage(damage)
 	
 	
 	# 4. Remove the object from the game

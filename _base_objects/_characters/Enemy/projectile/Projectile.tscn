@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://qscc3d23xe3g"]
+
+[ext_resource type="Script" uid="uid://c1l78te4ybdn4" path="res://_base_objects/_characters/Enemy/projectile/projectile.gd" id="1_70x7f"]
+
+[node name="Projectile" type="CharacterBody3D" unique_id=499678368]
+script = ExtResource("1_70x7f")
+metadata/_custom_type_script = "uid://b37pyy3cyklrv"
