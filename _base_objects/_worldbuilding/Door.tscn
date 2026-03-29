@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://i5l1ecsct7tj"]
 
 [ext_resource type="Texture2D" uid="uid://m2rp1iaxqk82" path="res://_assets/textures/prototype textures/Vector/texture_08.svg" id="2_3pb50"]
+[ext_resource type="Material" uid="uid://bpbv0kvj1ndth" path="res://_assets/lift/MATCAP.tres" id="2_hlnp7"]
 
 [sub_resource type="GDScript" id="GDScript_l51hj"]
 script/source = "extends Time_Stationary
@@ -71,6 +72,7 @@ shape = SubResource("BoxShape3D_wswdr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=999207716]
 mesh = SubResource("BoxMesh_atq1g")
 skeleton = NodePath("")
+surface_material_override/0 = ExtResource("2_hlnp7")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=51410903]
 
