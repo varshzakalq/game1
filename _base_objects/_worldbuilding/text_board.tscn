@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dy7n06bsrtug6"]
+
+[ext_resource type="Script" uid="uid://wrb4wmwjoy0b" path="res://_engine/_base classes/rime_stationary.gd" id="1_1nxmb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1nxmb"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gplia"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_1nxmb")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pm2lj"]
+resource_local_to_scene = true
+material = SubResource("StandardMaterial3D_gplia")
+orientation = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhqwo"]
+size = Vector3(0.1, 2, 2)
+
+[node name="text board" type="StaticBody3D" unique_id=1210603191]
+script = ExtResource("1_1nxmb")
+metadata/_custom_type_script = "uid://wrb4wmwjoy0b"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1970649169]
+mesh = SubResource("PlaneMesh_pm2lj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1350353700]
+shape = SubResource("BoxShape3D_mhqwo")
+disabled = true
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1102201971]
