@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bses8r5qko2b3"]
+
+[ext_resource type="PackedScene" uid="uid://bjwyv3bvf8r2a" path="res://_base_objects/harsh/box.glb" id="1_i6tay"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c10y0"]
+size = Vector3(2.1687622, 2.0772095, 3.4318848)
+
+[node name="Node3D" type="Node3D" unique_id=1896679170]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=997939201]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=189818032]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00869751, -0.0101623535, -0.07141113)
+shape = SubResource("BoxShape3D_c10y0")
+
+[node name="box" parent="." unique_id=2140226179 instance=ExtResource("1_i6tay")]
