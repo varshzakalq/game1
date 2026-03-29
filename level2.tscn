@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="18_ymc6d"]
 [ext_resource type="PackedScene" uid="uid://c2xk0wt3gl2er" path="res://_base_objects/_characters/Enemy/Time_leech.tscn" id="19_lbg1p"]
 [ext_resource type="PackedScene" uid="uid://cvgwmjy4wccia" path="res://_base_objects/_worldbuilding/double_door.tscn" id="20_ia7d2"]
-[ext_resource type="PackedScene" path="res://explosion.tscn" id="21_vv254"]
+[ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="21_vv254"]
 [ext_resource type="PackedScene" uid="uid://brb3xap2p7ksy" path="res://mainlight.tscn" id="25_k4no8"]
 [ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="26_2og7n"]
 [ext_resource type="PackedScene" uid="uid://dgil4u0yl5ijm" path="res://_base_objects/_characters/Enemy/test_enemy.tscn" id="27_5dsv4"]
@@ -31,8 +31,9 @@
 [ext_resource type="PackedScene" uid="uid://ca67u4r353eh1" path="res://_base_objects/harsh/bigasscapsule.glb" id="32_l15nt"]
 [ext_resource type="PackedScene" uid="uid://co8puvvoocrqj" path="res://_base_objects/harsh/asset5.glb" id="33_1iy71"]
 [ext_resource type="PackedScene" uid="uid://3hsbhd8rx2d2" path="res://light_on_ceiling.tscn" id="34_d4uwr"]
-[ext_resource type="PackedScene" path="res://box.glb" id="35_wooj1"]
-[ext_resource type="PackedScene" path="res://conveyerbelt.glb" id="36_1i48b"]
+[ext_resource type="PackedScene" uid="uid://tkeurlyqe34q" path="res://_assets/lift/asset2.glb" id="34_nv8dg"]
+[ext_resource type="PackedScene" uid="uid://bjwyv3bvf8r2a" path="res://_base_objects/harsh/box.glb" id="35_wooj1"]
+[ext_resource type="PackedScene" uid="uid://b5xyrgbetoqxv" path="res://_base_objects/harsh/conveyerbelt.glb" id="36_1i48b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1i48b"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -75,11 +76,14 @@ volumetric_fog_anisotropy = -0.57
 volumetric_fog_detail_spread = 2.9281704
 volumetric_fog_ambient_inject = 1.11
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_beq0j"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_uhfm4"]
+size = Vector3(2.5339355, 1.7886963, 2.6010284)
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_wooj1"]
 vertices = PackedVector3Array(23.490206, 9.296166, -49.302574, 22.990206, 9.296166, -49.552574, 23.240206, 9.296166, -43.052574, 23.740206, 9.296166, -42.802574, -29.009794, 9.296166, -12.052574, -29.009794, 9.296166, -49.302574, -29.259794, 9.296166, -49.802574, -2.7597942, 9.296166, -42.802574, -3.0097942, 9.296166, -49.302574, -3.2597942, 9.296166, -49.302574, -3.0097942, 9.296166, -42.302574, 30.740206, 9.296166, -49.802574, 30.490206, 9.296166, -43.052574, 30.490206, 9.296166, -12.052574, 30.240206, 9.296166, -49.552574, -28.759794, 9.296166, 43.697426, -29.009794, 9.296166, 44.197426, -21.259794, 9.296166, 43.947426, -20.509794, 9.296166, 43.947426, 14.740206, 9.296166, 43.697426, 30.490206, 9.296166, 49.697426, 30.740206, 9.296166, 49.947426, 30.490206, 9.296166, 19.197426, 30.240206, 9.296166, 19.697426, -21.009794, 9.296166, 49.697426, -20.509794, 9.296166, 49.947426, -28.759794, 9.296166, 49.947426, -29.259794, 9.296166, 50.197426, -29.009794, 9.296166, 19.947426, -3.2597942, 9.296166, -12.052574, -29.009794, 9.296166, -11.302574, -2.7597942, 9.296166, -11.802574, 30.240206, 9.296166, -42.552574, -28.759794, 9.296166, 19.447426, 30.240206, 9.296166, -11.552574, -28.759794, 84.296165, -49.552574, -28.759794, 84.296165, 49.697426, 30.490206, 84.296165, 49.697426, 30.490206, 84.296165, -49.552574, -3.7597942, 2.546167, -22.052574, -3.5097942, 2.546167, -24.802574, -5.009794, 2.546167, -25.052574, -5.009794, 2.546167, -21.802574, -28.009794, 2.546167, -13.052574, -5.009794, 2.546167, -45.302574, -3.7597942, 2.546167, -45.552574, -3.5097942, 2.546167, -48.302574, -28.009794, 2.546167, -48.552574, -5.009794, 2.546167, -13.052574, -2.2597942, 2.546167, -45.302574, 21.490206, 2.546167, -48.552574, 28.740206, 2.546167, -48.552574, 24.490206, 2.546167, -48.552574, 24.240206, 2.546167, -48.052574, 28.740206, 2.546167, -44.052574, -2.0097942, 2.546167, -44.052574, 21.740206, 2.546167, -48.052574, 23.740206, 2.546167, -12.552574, 23.740206, 2.546167, -11.802574, 25.740206, 2.546167, -11.802574, 25.990206, 2.546167, -13.052574, 22.740206, 2.546167, -13.052574, 28.740206, 2.546167, -13.052574, 28.740206, 2.546167, -41.552574, -2.0097942, 2.546167, -25.052574, -2.0097942, 2.546167, -21.552574, -2.0097942, 2.546167, -41.552574, -2.0097942, 2.546167, -13.052574, 25.990206, 2.546167, -10.802574, 23.490206, 2.546167, -10.552574, 28.740206, 2.546167, -10.552574, 28.740206, 2.546167, 18.197426, -27.259794, 2.546167, 18.697426, -27.259794, 2.546167, 19.447426, -23.509794, 2.546167, 19.197426, -23.259794, 2.546167, 18.197426, -28.009794, 2.546167, -10.552574, -28.009794, 2.546167, 18.447426, -23.509794, 2.546167, 20.197426, -27.259794, 2.546167, 20.447426, 13.240206, 2.546167, 42.447426, 13.490206, 2.546167, 20.697426, -22.259794, 2.546167, 20.697426, -28.009794, 2.546167, 42.447426, -28.009794, 2.546167, 20.697426, 15.740206, 2.546167, 44.697426, 13.990206, 2.546167, 44.947426, 14.240206, 2.546167, 48.697426, 28.740206, 2.546167, 48.697426, 15.740206, 2.546167, 42.947426, 28.740206, 2.546167, 20.697426, -28.009794, 2.546167, 48.697426, -23.009794, 2.546167, 48.697426, -22.759794, 2.546167, 47.947426, -23.009794, 2.546167, 47.197426, -23.009794, 2.546167, 44.947426, -28.009794, 2.546167, 44.947426, -19.759794, 2.546167, 48.697426, -19.759794, 2.546167, 47.447426, -20.009794, 2.546167, 47.947426, -19.759794, 2.546167, 44.947426, -21.759794, 2.546167, 47.697426, -22.759794, 2.546167, 51.697426, -23.009794, 2.546167, 51.197426, -28.009794, 2.546167, 51.197426, -28.009794, 2.546167, 67.447426, 30.240206, 2.546167, 67.447426, 30.240206, 2.546167, 51.197426, -20.009794, 2.546167, 51.697426, -19.759794, 2.546167, 51.197426)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(4, 6, 5), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(13, 12, 11), PackedInt32Array(0, 1, 14), PackedInt32Array(14, 1, 11), PackedInt32Array(17, 16, 15), PackedInt32Array(17, 15, 18), PackedInt32Array(18, 15, 19), PackedInt32Array(20, 23, 21), PackedInt32Array(21, 23, 22), PackedInt32Array(17, 18, 24), PackedInt32Array(24, 18, 25), PackedInt32Array(12, 14, 11), PackedInt32Array(24, 25, 26), PackedInt32Array(26, 25, 27), PackedInt32Array(28, 15, 16), PackedInt32Array(4, 29, 30), PackedInt32Array(30, 29, 31), PackedInt32Array(9, 5, 6), PackedInt32Array(8, 9, 1), PackedInt32Array(1, 9, 11), PackedInt32Array(11, 9, 6), PackedInt32Array(7, 2, 10), PackedInt32Array(10, 2, 3), PackedInt32Array(22, 13, 21), PackedInt32Array(21, 13, 11), PackedInt32Array(10, 3, 32), PackedInt32Array(32, 3, 12), PackedInt32Array(31, 29, 10), PackedInt32Array(10, 29, 9), PackedInt32Array(27, 28, 16), PackedInt32Array(27, 16, 26), PackedInt32Array(13, 32, 12), PackedInt32Array(30, 33, 28), PackedInt32Array(13, 34, 31), PackedInt32Array(31, 34, 30), PackedInt32Array(22, 23, 33), PackedInt32Array(33, 23, 28), PackedInt32Array(22, 34, 13), PackedInt32Array(28, 27, 30), PackedInt32Array(30, 27, 6), PackedInt32Array(20, 21, 25), PackedInt32Array(25, 21, 27), PackedInt32Array(6, 4, 30), PackedInt32Array(38, 37, 35), PackedInt32Array(35, 37, 36), PackedInt32Array(39, 42, 40), PackedInt32Array(40, 42, 41), PackedInt32Array(41, 42, 43), PackedInt32Array(45, 44, 46), PackedInt32Array(46, 44, 47), PackedInt32Array(44, 41, 47), PackedInt32Array(47, 41, 43), PackedInt32Array(42, 48, 43), PackedInt32Array(45, 46, 49), PackedInt32Array(49, 46, 50), PackedInt32Array(52, 51, 53), PackedInt32Array(53, 51, 54), PackedInt32Array(56, 55, 50), PackedInt32Array(50, 55, 49), PackedInt32Array(53, 54, 56), PackedInt32Array(56, 54, 55), PackedInt32Array(59, 58, 57), PackedInt32Array(59, 57, 60), PackedInt32Array(60, 57, 61), PackedInt32Array(63, 62, 60), PackedInt32Array(40, 64, 39), PackedInt32Array(39, 64, 65), PackedInt32Array(60, 61, 63), PackedInt32Array(63, 61, 64), PackedInt32Array(63, 64, 66), PackedInt32Array(61, 67, 65), PackedInt32Array(61, 65, 64), PackedInt32Array(59, 68, 58), PackedInt32Array(58, 68, 69), PackedInt32Array(68, 70, 69), PackedInt32Array(69, 70, 71), PackedInt32Array(74, 73, 72), PackedInt32Array(74, 72, 75), PackedInt32Array(75, 72, 77), PackedInt32Array(75, 77, 76), PackedInt32Array(76, 69, 75), PackedInt32Array(75, 69, 71), PackedInt32Array(79, 73, 78), PackedInt32Array(78, 73, 74), PackedInt32Array(81, 80, 82), PackedInt32Array(82, 80, 83), PackedInt32Array(79, 78, 84), PackedInt32Array(84, 78, 82), PackedInt32Array(84, 82, 83), PackedInt32Array(86, 85, 87), PackedInt32Array(87, 85, 88), PackedInt32Array(81, 90, 89), PackedInt32Array(89, 90, 88), PackedInt32Array(88, 85, 89), PackedInt32Array(89, 80, 81), PackedInt32Array(93, 92, 94), PackedInt32Array(94, 92, 91), PackedInt32Array(95, 94, 96), PackedInt32Array(96, 94, 91), PackedInt32Array(99, 98, 97), PackedInt32Array(97, 98, 86), PackedInt32Array(97, 86, 87), PackedInt32Array(98, 100, 86), PackedInt32Array(93, 94, 101), PackedInt32Array(98, 99, 101), PackedInt32Array(101, 99, 93), PackedInt32Array(103, 102, 104), PackedInt32Array(104, 102, 105), PackedInt32Array(107, 106, 108), PackedInt32Array(108, 106, 105), PackedInt32Array(105, 102, 108), PackedInt32Array(107, 108, 109)]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhed0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1i48b"]
 albedo_texture = ExtResource("2_wooj1")
 metallic = 0.6
 roughness = 0.4
@@ -91,10 +95,10 @@ heightmap_scale = -0.143
 uv1_scale = Vector3(8.21, 9.41, 0.64)
 uv1_offset = Vector3(-1.27, 0, 0)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2xuas"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uhfm4"]
 albedo_texture = ExtResource("4_uhfm4")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f5exq"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_00gqm"]
 albedo_color = Color(0.6125778, 0.61257786, 0.6125778, 1)
 albedo_texture = ExtResource("5_00gqm")
 metallic = 1.0
@@ -107,9 +111,9 @@ heightmap_texture = ExtResource("6_ny7tr")
 heightmap_flip_texture = true
 uv1_scale = Vector3(15.475, 15.475, 15.475)
 
-[sub_resource type="BoxMesh" id="BoxMesh_3l65w"]
+[sub_resource type="BoxMesh" id="BoxMesh_ny7tr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_beq0j"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lphq7"]
 albedo_color = Color(0.14911404, 0.14911404, 0.14911404, 1)
 roughness = 0.0
 normal_enabled = true
@@ -118,7 +122,7 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("7_lphq7")
 uv1_scale = Vector3(63.83, 22.585, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rjtee"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttoml"]
 albedo_texture = ExtResource("4_uhfm4")
 metallic = 1.0
 metallic_texture = ExtResource("6_ny7tr")
@@ -128,9 +132,9 @@ normal_texture = ExtResource("6_ny7tr")
 uv1_scale = Vector3(34.765, -10.025, 1)
 uv1_offset = Vector3(0, -0.21, 0)
 
-[sub_resource type="BoxMesh" id="BoxMesh_pieet"]
+[sub_resource type="BoxMesh" id="BoxMesh_ocb40"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm42n"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86mrq"]
 albedo_texture = ExtResource("4_uhfm4")
 metallic = 0.47
 roughness = 0.15
@@ -140,10 +144,10 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("6_ny7tr")
 uv1_scale = Vector3(67.62, 73.335, 1)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5j5gb"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wrkgn"]
 data = PackedVector3Array(-30, -0.5, 50, -30, -0.5, -50, -30, 0.5, -50, 30, -0.5, -50, -30, -0.5, -50, -30, -0.5, 50, -30, 0.5, -50, -30, -0.5, -50, 30, -0.5, -50, -30, 0.5, -50, -30, 0.5, 50, -30, -0.5, 50, -30, -0.5, 50, -30, 0.5, 50, 30, 0.5, 50, 30, 0.5, 50, -30, 0.5, 50, -30, 0.5, -50, -30, -0.5, 50, 30, -0.5, 50, 30, -0.5, -50, 30, 0.5, 50, 30, -0.5, 50, -30, -0.5, 50, 30, -0.5, -50, 30, -0.5, 50, 30, 0.5, 50, 30, -0.5, -50, 30, 0.5, -50, -30, 0.5, -50, -30, 0.5, -50, 30, 0.5, -50, 30, 0.5, 50, 30, 0.5, 50, 30, 0.5, -50, 30, -0.5, -50)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nauge"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fbuj2"]
 albedo_texture = ExtResource("9_ocb40")
 normal_enabled = true
 normal_texture = ExtResource("10_86mrq")
@@ -155,7 +159,7 @@ heightmap_max_layers = 32
 heightmap_texture = ExtResource("10_86mrq")
 uv1_scale = Vector3(-3.325, 0.475, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycv2e"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dak4d"]
 albedo_texture = ExtResource("9_ocb40")
 metallic = 1.0
 metallic_texture = ExtResource("9_ocb40")
@@ -170,7 +174,7 @@ heightmap_flip_binormal = true
 heightmap_texture = ExtResource("10_86mrq")
 uv1_scale = Vector3(2.635, 0.615, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jy3fw"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1461n"]
 albedo_texture = ExtResource("11_wrkgn")
 metallic = 1.0
 metallic_texture = ExtResource("11_wrkgn")
@@ -181,7 +185,7 @@ normal_texture = ExtResource("12_fbuj2")
 heightmap_enabled = true
 uv1_scale = Vector3(4.575, 2.085, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qiqrj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mssxu"]
 albedo_texture = ExtResource("11_wrkgn")
 metallic = 0.34
 roughness = 0.25
@@ -190,7 +194,7 @@ normal_texture = ExtResource("12_fbuj2")
 heightmap_enabled = true
 uv1_scale = Vector3(3.72, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6wmxb"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1jrro"]
 albedo_texture = ExtResource("13_dak4d")
 metallic = 0.41
 metallic_specular = 0.14
@@ -201,7 +205,7 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("14_1461n")
 uv1_scale = Vector3(2.28, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8652m"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4e2kp"]
 albedo_texture = ExtResource("15_mssxu")
 metallic = 0.51
 roughness = 0.15
@@ -210,7 +214,7 @@ normal_texture = ExtResource("14_1461n")
 heightmap_enabled = true
 uv1_scale = Vector3(3.07, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t8chk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymc6d"]
 albedo_texture = ExtResource("13_dak4d")
 metallic = 1.0
 roughness = 0.35
@@ -221,7 +225,7 @@ heightmap_enabled = true
 heightmap_texture = ExtResource("14_1461n")
 uv1_scale = Vector3(7.54, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c5gc3"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbg1p"]
 albedo_texture = ExtResource("13_dak4d")
 metallic = 1.0
 metallic_texture = ExtResource("14_1461n")
@@ -233,21 +237,30 @@ heightmap_texture = ExtResource("14_1461n")
 heightmap_flip_texture = true
 uv1_scale = Vector3(4.78, -0.91, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arvy8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ia7d2"]
 albedo_texture = ExtResource("16_1jrro")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf678"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vv254"]
 albedo_texture = ExtResource("17_4e2kp")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3jjr"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0wnp"]
 albedo_texture = ExtResource("4_uhfm4")
 normal_enabled = true
 normal_texture = ExtResource("7_lphq7")
 heightmap_enabled = true
 uv1_scale = Vector3(2.265, 2.265, 2.265)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uhfm4"]
-size = Vector3(2.5339355, 1.7886963, 2.6010284)
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3v7k"]
+size = Vector3(0.18884277, 1, 0.53601074)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pq5yx"]
+size = Vector3(0.41674805, 1.9893799, 0.5437012)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k4no8"]
+size = Vector3(1.7342224, 1.5043945, 3.503151)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2og7n"]
+size = Vector3(1.4833984, 2.2631836, 9.740112)
 
 [node name="Node3D2" type="Node3D" unique_id=665478732]
 
@@ -265,626 +278,6 @@ transform = Transform3D(-0.106178306, 0, 4.542539, 0, 4.5437803, 0, -4.542539, 0
 
 [node name="Sketchfab_Scene4" parent="." unique_id=1509215271 instance=ExtResource("1_nv8dg")]
 transform = Transform3D(-0.24825579, 0, -4.5369925, 0, 4.54378, 0, 4.5369925, 0, -0.24825579, -4.332923, 0.1492424, -44.050365)
-
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=730344782]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0591812, -1.455407, -0.49607086)
-visible = false
-navigation_mesh = SubResource("NavigationMesh_beq0j")
-
-[node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D" unique_id=240682632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9428959, -14.433516, 0.088329315)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=1926036720]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.979845, 0)
-size = Vector3(60, 1, 100)
-material = SubResource("StandardMaterial3D_xhed0")
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=132924164]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013414383, 15.9163685, 0.015693665)
-material_override = SubResource("StandardMaterial3D_2xuas")
-size = Vector3(60, 1, 100)
-material = SubResource("StandardMaterial3D_f5exq")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D10" unique_id=1967170179]
-transform = Transform3D(58.97075, 0, 0, 0, 1.2880392, 0, 0, 0, 24.280064, 0, 0, 31.64483)
-mesh = SubResource("BoxMesh_3l65w")
-surface_material_override/0 = SubResource("StandardMaterial3D_beq0j")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D10" unique_id=1421240968]
-transform = Transform3D(58.97075, 0, 0, 0, 1.2880392, 0, 0, 0, 24.280064, 0.15606499, -0.03442478, 55.656364)
-mesh = SubResource("BoxMesh_3l65w")
-surface_material_override/0 = SubResource("StandardMaterial3D_rjtee")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D10" unique_id=1709723712]
-transform = Transform3D(76.70717, 0, 0, 0, 5.325869, 0, 0, 0, 125.62862, 0, -2.0973415, -44.575047)
-mesh = SubResource("BoxMesh_pieet")
-surface_material_override/0 = SubResource("StandardMaterial3D_xm42n")
-
-[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=477635710]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013414383, 16.02261, 0.015693665)
-shape = SubResource("ConcavePolygonShape3D_5j5gb")
-
-[node name="Sketchfab_Scene" parent="NavigationRegion3D/StaticBody3D2" unique_id=1365860855 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 13.020982, 19.647583, 49.374138)
-
-[node name="Sketchfab_Scene2" parent="NavigationRegion3D/StaticBody3D2" unique_id=1415816548 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 13.020982, 19.647583, 49.374138)
-
-[node name="Sketchfab_Scene8" parent="NavigationRegion3D/StaticBody3D2" unique_id=1957850150 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, 49.374138)
-
-[node name="Sketchfab_Scene9" parent="NavigationRegion3D/StaticBody3D2" unique_id=1824261527 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, 49.374138)
-
-[node name="Sketchfab_Scene4" parent="NavigationRegion3D/StaticBody3D2" unique_id=1043801976 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -4.015715, 19.479923, 49.374138)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene4" unique_id=588971412]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene6" parent="NavigationRegion3D/StaticBody3D2" unique_id=231205835 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 4.1513147, 19.479923, 49.374138)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene6" unique_id=566312046]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene7" parent="NavigationRegion3D/StaticBody3D2" unique_id=1171367426 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 7.718883, 19.479923, 49.374138)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene7" unique_id=124446233]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene11" parent="NavigationRegion3D/StaticBody3D2" unique_id=2143281285 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 18.668903, 19.479923, 49.374138)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene11" unique_id=278268751]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene10" parent="NavigationRegion3D/StaticBody3D2" unique_id=1000918819 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -9.882693, 19.479923, 49.374138)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene10" unique_id=1817068018]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene15" parent="NavigationRegion3D/StaticBody3D2" unique_id=736072683 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -18.214037, 19.479923, 49.374138)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene15" unique_id=1111893877]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene15" unique_id=382441182]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, -8.746715, 0.12633514, 0.0006945133)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene17" parent="NavigationRegion3D/StaticBody3D2" unique_id=1640138209 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -9.882693, 19.479923, 44.236782)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene17" unique_id=1413463745]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene37" parent="NavigationRegion3D/StaticBody3D2" unique_id=32938457 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.647851, 19.479923, 44.236782)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene37" unique_id=201104334]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene44" parent="NavigationRegion3D/StaticBody3D2" unique_id=947794963 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.603258, 19.479923, 44.236782)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene44" unique_id=47320646]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene38" parent="NavigationRegion3D/StaticBody3D2" unique_id=172115780 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.8572135, 19.479923, 44.26934)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene38" unique_id=816492466]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene39" parent="NavigationRegion3D/StaticBody3D2" unique_id=1553188226 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.747139, 19.479923, 44.26934)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene39" unique_id=1890478378]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene40" parent="NavigationRegion3D/StaticBody3D2" unique_id=795578731 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 3.1891034, 19.57786, 44.285084)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene40" unique_id=43315923]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene41" parent="NavigationRegion3D/StaticBody3D2" unique_id=1656935944 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 3.6585972, 19.57786, 44.285084)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene41" unique_id=585204677]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene42" parent="NavigationRegion3D/StaticBody3D2" unique_id=219006739 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 9.780526, 19.57786, 44.285084)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene42" unique_id=1396924395]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene43" parent="NavigationRegion3D/StaticBody3D2" unique_id=1365821611 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 9.486389, 19.57786, 44.285084)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene43" unique_id=2047506670]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene45" parent="NavigationRegion3D/StaticBody3D2" unique_id=204943425 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 24.238964, 19.57786, 20.007399)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene45" unique_id=415790325]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene46" parent="NavigationRegion3D/StaticBody3D2" unique_id=1892437103 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 23.944828, 19.57786, 20.007399)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene46" unique_id=526653107]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene47" parent="NavigationRegion3D/StaticBody3D2" unique_id=1704838075 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.530123, 19.57786, 20.007399)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene47" unique_id=1680155038]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene48" parent="NavigationRegion3D/StaticBody3D2" unique_id=97062643 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.235987, 19.57786, 20.007399)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene48" unique_id=1672779196]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene49" parent="NavigationRegion3D/StaticBody3D2" unique_id=3852988 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.530123, 19.57786, 20.007399)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene49" unique_id=1807633978]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene50" parent="NavigationRegion3D/StaticBody3D2" unique_id=719858842 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.235987, 19.57786, 20.007399)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene50" unique_id=1128023329]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene12" parent="NavigationRegion3D/StaticBody3D2" unique_id=477638535 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.245407, 19.528172, 44.18978)
-
-[node name="Sketchfab_Scene13" parent="NavigationRegion3D/StaticBody3D2" unique_id=2084362204 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.608361, 19.505512, 44.18978)
-
-[node name="Sketchfab_Scene14" parent="NavigationRegion3D/StaticBody3D2" unique_id=1592758940 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, 44.19629)
-
-[node name="Sketchfab_Scene19" parent="NavigationRegion3D/StaticBody3D2" unique_id=367223873 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, 20.077623)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene19" unique_id=1654710044]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.16547394, -0.00091028214)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene20" parent="NavigationRegion3D/StaticBody3D2" unique_id=222299507 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, 20.077623)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene20" unique_id=1584536109]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.0071525574, -3.9815903e-05)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene21" parent="NavigationRegion3D/StaticBody3D2" unique_id=1291247977 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, 20.084131)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene21" unique_id=1865678866]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.13271332, -0.0007300377)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene22" parent="NavigationRegion3D/StaticBody3D2" unique_id=652349744 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.753281, 19.479923, 20.093725)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene22" unique_id=1990789446]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.043201447, -0.00023794174)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene23" parent="NavigationRegion3D/StaticBody3D2" unique_id=1618274657 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.366986, 19.479923, 20.10573)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene23" unique_id=754314993]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10910034, -0.00060009956)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene24" parent="NavigationRegion3D/StaticBody3D2" unique_id=1716825980 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.952609, 19.479923, 20.083582)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene24" unique_id=1187206692]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10920715, -0.0006008148)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene25" parent="NavigationRegion3D/StaticBody3D2" unique_id=1407426839 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, -11.320454)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene25" unique_id=1830273]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.16547394, -0.00091028214)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene26" parent="NavigationRegion3D/StaticBody3D2" unique_id=111962088 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, -11.320454)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene26" unique_id=768293299]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.0071525574, -3.9815903e-05)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene27" parent="NavigationRegion3D/StaticBody3D2" unique_id=1929086251 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, -11.313946)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene27" unique_id=46241130]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.13271332, -0.0007300377)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene28" parent="NavigationRegion3D/StaticBody3D2" unique_id=27385347 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.753281, 19.479923, -11.304352)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene28" unique_id=1414590357]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.043201447, -0.00023794174)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene29" parent="NavigationRegion3D/StaticBody3D2" unique_id=447047725 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.366986, 19.479923, -11.292347)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene29" unique_id=1929582293]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10910034, -0.00060009956)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene30" parent="NavigationRegion3D/StaticBody3D2" unique_id=2035412048 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.952609, 19.479923, -11.314495)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene30" unique_id=2077083290]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10920715, -0.0006008148)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene31" parent="NavigationRegion3D/StaticBody3D2" unique_id=1667753966 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, -48.937122)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene31" unique_id=348199482]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.16547394, -0.00091028214)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene32" parent="NavigationRegion3D/StaticBody3D2" unique_id=1800284401 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, -48.937122)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene32" unique_id=1312651544]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.0071525574, -3.9815903e-05)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene33" parent="NavigationRegion3D/StaticBody3D2" unique_id=1547382735 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, -48.930614)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene33" unique_id=1442400484]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.13271332, -0.0007300377)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene34" parent="NavigationRegion3D/StaticBody3D2" unique_id=658700131 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.753281, 19.479923, -48.92102)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene34" unique_id=1313062942]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.043201447, -0.00023794174)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene35" parent="NavigationRegion3D/StaticBody3D2" unique_id=461273174 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.366986, 19.479923, -48.909016)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene35" unique_id=1290948093]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10910034, -0.00060009956)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene36" parent="NavigationRegion3D/StaticBody3D2" unique_id=84030648 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.952609, 19.479923, -48.931164)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene36" unique_id=1862176524]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10920715, -0.0006008148)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
-
-[node name="Sketchfab_Scene18" parent="NavigationRegion3D/StaticBody3D2" unique_id=1291405556 instance=ExtResource("8_ttoml")]
-transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.624866, 19.479923, 44.193344)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=136481335]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9294815, 1.4828528, 0.10402298)
-
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/StaticBody3D" unique_id=753079322]
-use_collision = true
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1706173561]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.962614, 3.8933234, 43.66206)
-size = Vector3(44.171875, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_nauge")
-
-[node name="CSGBox3D9" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=950177848]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22820091, 3.8933234, 49.88974)
-size = Vector3(60.01123, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_ycv2e")
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1470401344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35102463, 3.8933234, 19.432337)
-size = Vector3(59.7041, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_jy3fw")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D3" unique_id=381608168]
-transform = Transform3D(5.9871125, 0, 0, 0, 5.9871125, 0, 0, 0, 5.9871125, -26.257664, -0.33526516, 0.020601273)
-operation = 2
-size = Vector3(1, 1, 0.22901917)
-
-[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1604579512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12552643, 3.8933234, -11.860569)
-size = Vector3(60.13379, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_qiqrj")
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D4" unique_id=593300199]
-transform = Transform3D(5.9871125, 0, 0, 0, 5.9871125, 0, 0, 0, 5.9871125, 24.240704, -0.33526516, 0.006324768)
-operation = 2
-size = Vector3(0.69970703, 1, 0.33716583)
-
-[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=131671515]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12552643, 3.8933234, -49.449936)
-size = Vector3(60.13379, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_qiqrj")
-
-[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1907551512]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.039539, 3.8933234, -42.844772)
-size = Vector3(33.80591, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_6wmxb")
-
-[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1378405771]
-transform = Transform3D(8.7217486e-05, 0, 1, 0, 1, 0, -1, 0, 8.7217486e-05, -4.0010805, 3.8933234, -30.796143)
-size = Vector3(38.27545, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_8652m")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D11" unique_id=983355895]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.179142, -1.4857178, 0.47496057)
-operation = 2
-size = Vector3(4.184082, 6.816162, 1.9521484)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D11" unique_id=225001269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3937454, -1.4857178, -0.19613671)
-operation = 2
-size = Vector3(4.184082, 6.816162, 1.9521484)
-
-[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=998834217]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -30.009792, 3.8933234, -0.0069351196)
-size = Vector3(100.59128, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_t8chk")
-
-[node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=944935732]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.801037, 3.8933234, -0.0069351196)
-size = Vector3(100.59128, 6.9560547, 1)
-material = SubResource("StandardMaterial3D_c5gc3")
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1624319485]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.555521, 3.8933234, -46.12715)
-size = Vector3(7.358474, 6.9560547, 1)
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D16" unique_id=147214996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10478592, -0.4788208, 0)
-operation = 2
-size = Vector3(5.0553966, 5.998413, 1)
-
-[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=760881818]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.791668, 2.2428079, 45.380287)
-size = Vector3(1, 3.4701538, 3.0964355)
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=891281972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.791668, 5.637402, 46.643715)
-material_override = SubResource("StandardMaterial3D_arvy8")
-size = Vector3(1, 3.4227257, 5.623291)
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1019520751]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.799341, 2.1858907, 49.81301)
-material_override = SubResource("StandardMaterial3D_yf678")
-size = Vector3(1, 3.446228, 2.4582825)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=942488013]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3605131, -25.456022, 0.40766287, 46.78694)
-size = Vector3(8.295654, 0.22299194, 3.9163895)
-material = SubResource("StandardMaterial3D_u3jjr")
 
 [node name="Player" parent="." unique_id=1091194407 instance=ExtResource("18_ymc6d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.343687, 1.5625422, 46.215897)
@@ -1452,3 +845,1104 @@ transform = Transform3D(-0.012129769, 0, -0.99992645, 0, 1, 0, 0.99992645, 0, -0
 
 [node name="conveyerbelt" parent="." unique_id=1320910703 instance=ExtResource("36_1i48b")]
 transform = Transform3D(-0.012129769, 0, -0.99992645, 0, 1, 0, 0.99992645, 0, -0.012129769, 2.664956, 0.68493986, 35.369087)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=48358568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0591812, -1.455407, -0.49607086)
+navigation_mesh = SubResource("NavigationMesh_wooj1")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1942848013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9428959, -14.433516, 0.088329315)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=423371327]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 23.979845, 0)
+size = Vector3(60, 1, 100)
+material = SubResource("StandardMaterial3D_1i48b")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=674964857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013414383, 15.9163685, 0.015693665)
+material_override = SubResource("StandardMaterial3D_uhfm4")
+size = Vector3(60, 1, 100)
+material = SubResource("StandardMaterial3D_00gqm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D10" unique_id=665716142]
+transform = Transform3D(58.97075, 0, 0, 0, 1.2880392, 0, 0, 0, 24.280064, 0, 0, 31.64483)
+mesh = SubResource("BoxMesh_ny7tr")
+surface_material_override/0 = SubResource("StandardMaterial3D_lphq7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D10" unique_id=1074676894]
+transform = Transform3D(58.97075, 0, 0, 0, 1.2880392, 0, 0, 0, 24.280064, 0.15606499, -0.03442478, 55.656364)
+mesh = SubResource("BoxMesh_ny7tr")
+surface_material_override/0 = SubResource("StandardMaterial3D_ttoml")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/StaticBody3D2/CSGBox3D10" unique_id=1636224512]
+transform = Transform3D(76.70717, 0, 0, 0, 5.325869, 0, 0, 0, 125.62862, 0, -2.0973415, -44.575047)
+mesh = SubResource("BoxMesh_ocb40")
+surface_material_override/0 = SubResource("StandardMaterial3D_86mrq")
+
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=926111442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013414383, 16.02261, 0.015693665)
+shape = SubResource("ConcavePolygonShape3D_wrkgn")
+
+[node name="Sketchfab_Scene" parent="NavigationRegion3D/StaticBody3D2" unique_id=1441056085 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 13.020982, 19.647583, 49.374138)
+
+[node name="Sketchfab_Scene2" parent="NavigationRegion3D/StaticBody3D2" unique_id=1127744665 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 13.020982, 19.647583, 49.374138)
+
+[node name="Sketchfab_Scene8" parent="NavigationRegion3D/StaticBody3D2" unique_id=1791954692 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, 49.374138)
+
+[node name="Sketchfab_Scene9" parent="NavigationRegion3D/StaticBody3D2" unique_id=265024605 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, 49.374138)
+
+[node name="Sketchfab_Scene4" parent="NavigationRegion3D/StaticBody3D2" unique_id=2068331327 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -4.015715, 19.479923, 49.374138)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene4" unique_id=2080839063]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene6" parent="NavigationRegion3D/StaticBody3D2" unique_id=1253893831 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 4.1513147, 19.479923, 49.374138)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene6" unique_id=734556887]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene7" parent="NavigationRegion3D/StaticBody3D2" unique_id=63368818 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 7.718883, 19.479923, 49.374138)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene7" unique_id=1911134506]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene11" parent="NavigationRegion3D/StaticBody3D2" unique_id=204921674 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 18.668903, 19.479923, 49.374138)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene11" unique_id=1371218436]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene10" parent="NavigationRegion3D/StaticBody3D2" unique_id=1412880628 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -9.882693, 19.479923, 49.374138)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene10" unique_id=1281121802]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene15" parent="NavigationRegion3D/StaticBody3D2" unique_id=1081211880 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -18.214037, 19.479923, 49.374138)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene15" unique_id=540256285]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 1.8626451e-09, 0, -1.3969839e-09, 1.0000001, 0, 0.12633514, 0.0006940365)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene15" unique_id=1322708116]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, -8.746715, 0.12633514, 0.0006945133)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene17" parent="NavigationRegion3D/StaticBody3D2" unique_id=1907955093 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -9.882693, 19.479923, 44.236782)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene17" unique_id=815417249]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene37" parent="NavigationRegion3D/StaticBody3D2" unique_id=1021961320 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.647851, 19.479923, 44.236782)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene37" unique_id=1951564120]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene44" parent="NavigationRegion3D/StaticBody3D2" unique_id=2117952990 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.603258, 19.479923, 44.236782)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene44" unique_id=2033202984]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene38" parent="NavigationRegion3D/StaticBody3D2" unique_id=215562660 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.8572135, 19.479923, 44.26934)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene38" unique_id=1075057536]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene39" parent="NavigationRegion3D/StaticBody3D2" unique_id=1149978788 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.747139, 19.479923, 44.26934)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene39" unique_id=194787037]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene40" parent="NavigationRegion3D/StaticBody3D2" unique_id=809602043 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 3.1891034, 19.57786, 44.285084)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene40" unique_id=981627290]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene41" parent="NavigationRegion3D/StaticBody3D2" unique_id=16772084 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 3.6585972, 19.57786, 44.285084)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene41" unique_id=1423162039]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene42" parent="NavigationRegion3D/StaticBody3D2" unique_id=362255099 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 9.780526, 19.57786, 44.285084)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene42" unique_id=843526656]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene43" parent="NavigationRegion3D/StaticBody3D2" unique_id=2043114277 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 9.486389, 19.57786, 44.285084)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene43" unique_id=746782611]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene45" parent="NavigationRegion3D/StaticBody3D2" unique_id=1244044848 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 24.238964, 19.57786, 20.007399)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene45" unique_id=1108940818]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene46" parent="NavigationRegion3D/StaticBody3D2" unique_id=1511898396 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 23.944828, 19.57786, 20.007399)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene46" unique_id=2010596379]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene47" parent="NavigationRegion3D/StaticBody3D2" unique_id=1457796149 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.530123, 19.57786, 20.007399)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene47" unique_id=411989216]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene48" parent="NavigationRegion3D/StaticBody3D2" unique_id=703871756 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.235987, 19.57786, 20.007399)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene48" unique_id=1828366648]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene48" unique_id=1598623708]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, -29.627975, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene49" parent="NavigationRegion3D/StaticBody3D2" unique_id=160364796 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.530123, 19.57786, 20.007399)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene49" unique_id=473402005]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene50" parent="NavigationRegion3D/StaticBody3D2" unique_id=1538472302 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 14.235987, 19.57786, 20.007399)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene50" unique_id=1450808903]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.19799805, -0.0010890961)
+light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene12" parent="NavigationRegion3D/StaticBody3D2" unique_id=37352221 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.245407, 19.528172, 44.18978)
+
+[node name="Sketchfab_Scene13" parent="NavigationRegion3D/StaticBody3D2" unique_id=1716231457 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.608361, 19.505512, 44.18978)
+
+[node name="Sketchfab_Scene14" parent="NavigationRegion3D/StaticBody3D2" unique_id=59382923 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, 44.19629)
+
+[node name="Sketchfab_Scene19" parent="NavigationRegion3D/StaticBody3D2" unique_id=1053071762 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, 20.077623)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene19" unique_id=205615661]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.16547394, -0.00091028214)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene20" parent="NavigationRegion3D/StaticBody3D2" unique_id=1104024279 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, 20.077623)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene20" unique_id=1717468219]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.0071525574, -3.9815903e-05)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene21" parent="NavigationRegion3D/StaticBody3D2" unique_id=735534869 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, 20.084131)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene21" unique_id=648737360]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.13271332, -0.0007300377)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene22" parent="NavigationRegion3D/StaticBody3D2" unique_id=1289394693 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.753281, 19.479923, 20.093725)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene22" unique_id=1015058320]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.043201447, -0.00023794174)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene23" parent="NavigationRegion3D/StaticBody3D2" unique_id=26524097 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.366986, 19.479923, 20.10573)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene23" unique_id=1903853180]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10910034, -0.00060009956)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene24" parent="NavigationRegion3D/StaticBody3D2" unique_id=588251175 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.952609, 19.479923, 20.083582)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene24" unique_id=867433959]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10920715, -0.0006008148)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene25" parent="NavigationRegion3D/StaticBody3D2" unique_id=1864865297 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, -11.320454)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene25" unique_id=1785449867]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.16547394, -0.00091028214)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene26" parent="NavigationRegion3D/StaticBody3D2" unique_id=358465172 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, -11.320454)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene26" unique_id=1695211851]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.0071525574, -3.9815903e-05)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene27" parent="NavigationRegion3D/StaticBody3D2" unique_id=849998776 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, -11.313946)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene27" unique_id=1076093238]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.13271332, -0.0007300377)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene28" parent="NavigationRegion3D/StaticBody3D2" unique_id=901283098 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.753281, 19.479923, -11.304352)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene28" unique_id=726283305]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.043201447, -0.00023794174)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene29" parent="NavigationRegion3D/StaticBody3D2" unique_id=1569454895 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.366986, 19.479923, -11.292347)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene29" unique_id=1620327735]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10910034, -0.00060009956)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene30" parent="NavigationRegion3D/StaticBody3D2" unique_id=173512993 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.952609, 19.479923, -11.314495)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene30" unique_id=825808167]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10920715, -0.0006008148)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene31" parent="NavigationRegion3D/StaticBody3D2" unique_id=629317266 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.076947, 19.31976, -48.937122)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene31" unique_id=1194086041]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.3283064e-09, 0, -1.8626451e-09, 1.0000001, 0, -0.16547394, -0.00091028214)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene32" parent="NavigationRegion3D/StaticBody3D2" unique_id=472855951 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, 8.425781, 19.31976, -48.937122)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene32" unique_id=121323603]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.0071525574, -3.9815903e-05)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene33" parent="NavigationRegion3D/StaticBody3D2" unique_id=1188313774 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -1.2901089, 19.479923, -48.930614)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene33" unique_id=2066203984]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.13271332, -0.0007300377)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene34" parent="NavigationRegion3D/StaticBody3D2" unique_id=2001274099 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -5.753281, 19.479923, -48.92102)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene34" unique_id=1488330739]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.043201447, -0.00023794174)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene35" parent="NavigationRegion3D/StaticBody3D2" unique_id=2070003343 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -15.366986, 19.479923, -48.909016)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene35" unique_id=1955686002]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10910034, -0.00060009956)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene36" parent="NavigationRegion3D/StaticBody3D2" unique_id=122181366 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.952609, 19.479923, -48.931164)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene36" unique_id=2144418917]
+transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, 0, -0.10920715, -0.0006008148)
+light_energy = 16.0
+light_indirect_energy = 5.944
+light_volumetric_fog_energy = 7.562
+light_specular = 0.36
+shadow_enabled = true
+
+[node name="Sketchfab_Scene18" parent="NavigationRegion3D/StaticBody3D2" unique_id=700779079 instance=ExtResource("8_ttoml")]
+transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -10.624866, 19.479923, 44.193344)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=817403504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9294815, 1.4828528, 0.10402298)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/StaticBody3D" unique_id=391600665]
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=354109337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.962614, 3.8933234, 43.66206)
+size = Vector3(44.171875, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_fbuj2")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=561647975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22820091, 3.8933234, 49.88974)
+size = Vector3(60.01123, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_dak4d")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1954237227]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.35102463, 3.8933234, 19.432337)
+size = Vector3(59.7041, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_1461n")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D3" unique_id=328392244]
+transform = Transform3D(5.9871125, 0, 0, 0, 5.9871125, 0, 0, 0, 5.9871125, -26.257664, -0.33526516, 0.020601273)
+operation = 2
+size = Vector3(1, 1, 0.22901917)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1420580400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12552643, 3.8933234, -11.860569)
+size = Vector3(60.13379, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_mssxu")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D4" unique_id=657649264]
+transform = Transform3D(5.9871125, 0, 0, 0, 5.9871125, 0, 0, 0, 5.9871125, 24.240704, -0.33526516, 0.006324768)
+operation = 2
+size = Vector3(0.69970703, 1, 0.33716583)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=667695689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12552643, 3.8933234, -49.449936)
+size = Vector3(60.13379, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_mssxu")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1742914894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.039539, 3.8933234, -42.844772)
+size = Vector3(33.80591, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_1jrro")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1592483327]
+transform = Transform3D(8.7217486e-05, 0, 1, 0, 1, 0, -1, 0, 8.7217486e-05, -4.0010805, 3.8933234, -30.796143)
+size = Vector3(38.27545, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_4e2kp")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D11" unique_id=278706961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.179142, -1.4857178, 0.47496057)
+operation = 2
+size = Vector3(4.184082, 6.816162, 1.9521484)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D11" unique_id=1635017061]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3937454, -1.4857178, -0.19613671)
+operation = 2
+size = Vector3(4.184082, 6.816162, 1.9521484)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=616012273]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -30.009792, 3.8933234, -0.0069351196)
+size = Vector3(100.59128, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_ymc6d")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=823640713]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 29.801037, 3.8933234, -0.0069351196)
+size = Vector3(100.59128, 6.9560547, 1)
+material = SubResource("StandardMaterial3D_lbg1p")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=2099004551]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.555521, 3.8933234, -46.12715)
+size = Vector3(7.358474, 6.9560547, 1)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D16" unique_id=146457210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10478592, -0.4788208, 0)
+operation = 2
+size = Vector3(5.0553966, 5.998413, 1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1384576165]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.791668, 2.2428079, 45.380287)
+size = Vector3(1, 3.4701538, 3.0964355)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1906800359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.791668, 5.637402, 46.643715)
+material_override = SubResource("StandardMaterial3D_ia7d2")
+size = Vector3(1, 3.4227257, 5.623291)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=536996983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.799341, 2.1858907, 49.81301)
+material_override = SubResource("StandardMaterial3D_vv254")
+size = Vector3(1, 3.446228, 2.4582825)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1250672044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3605131, -25.456022, 0.40766287, 46.78694)
+size = Vector3(8.295654, 0.22299194, 3.9163895)
+material = SubResource("StandardMaterial3D_x0wnp")
+
+[node name="asset2" parent="NavigationRegion3D" unique_id=2084057196 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, -13.439083, 2.1162941, 23.146969)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset2" unique_id=1540859181]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset2/StaticBody3D" unique_id=150044733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset25" parent="NavigationRegion3D" unique_id=1226658861 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, -8.06656, 2.1162941, 23.146969)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset25" unique_id=760436844]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset25/StaticBody3D" unique_id=1485305718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset26" parent="NavigationRegion3D" unique_id=2139207620 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, -3.586358, 2.1162941, 23.146969)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset26" unique_id=2015252992]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset26/StaticBody3D" unique_id=408005942]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset27" parent="NavigationRegion3D" unique_id=1403811994 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, 2.3872213, 2.1162941, 23.146969)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset27" unique_id=1433961521]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset27/StaticBody3D" unique_id=2060643228]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset28" parent="NavigationRegion3D" unique_id=764780438 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, 2.3872213, 2.1162941, 9.098505)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset28" unique_id=1235410032]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset28/StaticBody3D" unique_id=2081161143]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset29" parent="NavigationRegion3D" unique_id=843379051 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, -2.5019865, 2.1162941, 9.098505)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset29" unique_id=289643471]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset29/StaticBody3D" unique_id=721417372]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset30" parent="NavigationRegion3D" unique_id=1450961979 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, -7.267518, 2.1162941, 9.098505)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset30" unique_id=565286584]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset30/StaticBody3D" unique_id=238290189]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset31" parent="NavigationRegion3D" unique_id=435925535 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(0.40997022, 0, 7.2354255, 0, 7.2470307, 0, -7.2354255, 0, 0.40997022, -27.814999, 2.1162941, -28.863798)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset31" unique_id=623658410]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset31/StaticBody3D" unique_id=1761823219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset32" parent="NavigationRegion3D" unique_id=402549030 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(0.40997022, 0, 7.2354255, 0, 7.2470307, 0, -7.2354255, 0, 0.40997022, -27.57127, 2.1162941, -24.09884)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset32" unique_id=1006686331]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset32/StaticBody3D" unique_id=221704203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset33" parent="NavigationRegion3D" unique_id=1693784758 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(0.40997022, 0, 7.2354255, 0, 7.2470307, 0, -7.2354255, 0, 0.40997022, -27.57127, 2.1162941, -19.400246)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset33" unique_id=2032526485]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset33/StaticBody3D" unique_id=795573426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset34" parent="NavigationRegion3D" unique_id=1908427677 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(0.40997022, 0, 7.2354255, 0, 7.2470307, 0, -7.2354255, 0, 0.40997022, -27.57127, 2.1162941, -32.433224)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset34" unique_id=1059499800]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset34/StaticBody3D" unique_id=1524304849]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset35" parent="NavigationRegion3D" unique_id=1416191417 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(-7.2369595, 0, 0.38193297, 0, 7.2470303, 0, -0.38193297, 0, -7.2369595, 21.255957, 2.1162941, -14.144394)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset35" unique_id=852472170]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset35/StaticBody3D" unique_id=555907752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset36" parent="NavigationRegion3D" unique_id=1075275924 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(-7.2369595, 0, 0.38193297, 0, 7.2470303, 0, -0.38193297, 0, -7.2369595, 26.019934, 2.1162941, -14.406582)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset36" unique_id=464051582]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset36/StaticBody3D" unique_id=1476498804]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset37" parent="NavigationRegion3D" unique_id=823770582 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(-7.2369595, 0, 0.38193297, 0, 7.2470303, 0, -0.38193297, 0, -7.2369595, 30.718494, 2.1162941, -14.4247875)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset37" unique_id=1613627585]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset37/StaticBody3D" unique_id=442248606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset38" parent="NavigationRegion3D" unique_id=2144135442 instance=ExtResource("34_nv8dg")]
+transform = Transform3D(-7.2369595, 0, 0.38193297, 0, 7.2470303, 0, -0.38193297, 0, -7.2369595, 17.685614, 2.1162941, -14.37429)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset38" unique_id=704971152]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset38/StaticBody3D" unique_id=1422634793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30621362, 0.2488043, -0.006864786)
+shape = SubResource("BoxShape3D_y3v7k")
+
+[node name="asset18" parent="NavigationRegion3D" unique_id=1523736044 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, -2.538807, 2.1106157, 4.73608)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset18" unique_id=16942164]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset18/StaticBody3D" unique_id=959389017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="asset19" parent="NavigationRegion3D" unique_id=49930634 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, -12.2925205, 2.1106157, 4.73608)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset19" unique_id=158945811]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset19/StaticBody3D" unique_id=1448447655]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="asset20" parent="NavigationRegion3D" unique_id=617538977 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, -20.585419, 2.1106157, 4.73608)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset20" unique_id=1835174806]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset20/StaticBody3D" unique_id=684850975]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="asset21" parent="NavigationRegion3D" unique_id=499259811 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, 12.553337, 2.1106157, -28.453888)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset21" unique_id=1698962523]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset21/StaticBody3D" unique_id=523142132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="asset22" parent="NavigationRegion3D" unique_id=618238847 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, 1.8196754, 2.1106157, -28.453888)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset22" unique_id=637646596]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset22/StaticBody3D" unique_id=394090158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="asset23" parent="NavigationRegion3D" unique_id=1877031565 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, -7.934038, 2.1106157, -28.453888)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset23" unique_id=200820390]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset23/StaticBody3D" unique_id=1961543828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="asset24" parent="NavigationRegion3D" unique_id=1942251086 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, -16.226936, 2.1106157, -28.453888)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset24" unique_id=382890261]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset24/StaticBody3D" unique_id=1837616455]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="asset4" parent="NavigationRegion3D" unique_id=881740999 instance=ExtResource("28_1wlbv")]
+transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, 14.4868355, 2.1106157, 43.819942)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/asset4" unique_id=780582355]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/asset4/StaticBody3D" unique_id=1005392841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014770627, 0.49468994, -0.020385742)
+shape = SubResource("BoxShape3D_pq5yx")
+
+[node name="box" parent="NavigationRegion3D" unique_id=1161483870 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.82493, 1.455407, -34.92638)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box" unique_id=1315381943]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box/StaticBody3D" unique_id=1273530658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box2" parent="NavigationRegion3D" unique_id=1910130246 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.82493, 3.642438, -34.92638)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box2" unique_id=78218256]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box2/StaticBody3D" unique_id=1277790903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box3" parent="NavigationRegion3D" unique_id=1847893789 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.82493, 2.7440715, -31.364065)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box3" unique_id=1385116479]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box3/StaticBody3D" unique_id=670404825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box4" parent="NavigationRegion3D" unique_id=938215905 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.44964644, 0, 0.89320666, 0, 1, 0, -0.89320666, 0, 0.44964644, 27.82493, 4.782374, -31.364065)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box4" unique_id=204917613]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box4/StaticBody3D" unique_id=1426613658]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box5" parent="NavigationRegion3D" unique_id=2091367107 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.82493, 3.642438, -27.898973)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box5" unique_id=787229216]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box5/StaticBody3D" unique_id=503979438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box6" parent="NavigationRegion3D" unique_id=64472655 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.82493, 2.7440715, -24.336658)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box6" unique_id=40290254]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box6/StaticBody3D" unique_id=894780709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box7" parent="NavigationRegion3D" unique_id=1141538721 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.44964644, 0, 0.89320666, 0, 1, 0, -0.89320666, 0, 0.44964644, 27.82493, 4.782374, -24.336658)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box7" unique_id=283051919]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box7/StaticBody3D" unique_id=1208953851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box8" parent="NavigationRegion3D" unique_id=128161340 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.929693, 3.0475006, -27.856396)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box8" unique_id=1892592837]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box8/StaticBody3D" unique_id=1268192597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box9" parent="NavigationRegion3D" unique_id=550080986 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.929693, 2.7440715, -24.336658)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box9" unique_id=1858368816]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box9/StaticBody3D" unique_id=1045177140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box10" parent="NavigationRegion3D" unique_id=2039108473 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, 14.929693, 4.782374, -24.336658)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box10" unique_id=126711430]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box10/StaticBody3D" unique_id=1906165172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box11" parent="NavigationRegion3D" unique_id=127402146 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5047436, 3.0475006, -27.856396)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box11" unique_id=869433843]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box11/StaticBody3D" unique_id=2016043979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box12" parent="NavigationRegion3D" unique_id=807279845 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5047436, 2.7440715, -24.336658)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box12" unique_id=1768264280]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box12/StaticBody3D" unique_id=850172598]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box13" parent="NavigationRegion3D" unique_id=1526990104 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, 4.5047436, 4.782374, -24.336658)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box13" unique_id=1973392603]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box13/StaticBody3D" unique_id=1403361210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box14" parent="NavigationRegion3D" unique_id=580763407 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.82493, 2.7440715, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box14" unique_id=560885249]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box14/StaticBody3D" unique_id=1388216979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box15" parent="NavigationRegion3D" unique_id=1843707891 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.44964644, 0, 0.89320666, 0, 1, 0, -0.89320666, 0, 0.44964644, 27.82493, 4.782374, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box15" unique_id=1861152687]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box15/StaticBody3D" unique_id=158301050]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/box15/StaticBody3D" unique_id=390479710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box16" parent="NavigationRegion3D" unique_id=54522924 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.929693, 3.0475006, 28.779451)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box16" unique_id=1956696029]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box16/StaticBody3D" unique_id=70241281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box17" parent="NavigationRegion3D" unique_id=1759699028 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.929693, 2.7440715, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box17" unique_id=36283009]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box17/StaticBody3D" unique_id=924980769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box18" parent="NavigationRegion3D" unique_id=566839217 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, 14.929693, 4.782374, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box18" unique_id=1339810178]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box18/StaticBody3D" unique_id=1008400101]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box19" parent="NavigationRegion3D" unique_id=272108485 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5047436, 3.0475006, 28.779451)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box19" unique_id=2018699748]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box19/StaticBody3D" unique_id=1754248809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box20" parent="NavigationRegion3D" unique_id=890739889 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5047436, 2.7440715, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box20" unique_id=489456576]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box20/StaticBody3D" unique_id=1128886634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box21" parent="NavigationRegion3D" unique_id=1135499430 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, 4.5047436, 4.782374, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box21" unique_id=801050020]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box21/StaticBody3D" unique_id=272303278]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box22" parent="NavigationRegion3D" unique_id=1542454378 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, 14.929693, 4.782374, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box22" unique_id=602753855]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box22/StaticBody3D" unique_id=1748602300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box24" parent="NavigationRegion3D" unique_id=309384127 instance=ExtResource("35_wooj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.212732, 2.7440715, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box24" unique_id=62746848]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box24/StaticBody3D" unique_id=433828883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box25" parent="NavigationRegion3D" unique_id=899702170 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, -22.212732, 4.782374, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box25" unique_id=1476232913]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box25/StaticBody3D" unique_id=242181994]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box26" parent="NavigationRegion3D" unique_id=1036676906 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, -18.222975, 3.140544, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box26" unique_id=430323709]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box26/StaticBody3D" unique_id=1353690956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="box23" parent="NavigationRegion3D" unique_id=480526967 instance=ExtResource("35_wooj1")]
+transform = Transform3D(0.771047, 0, -0.63677824, 0, 1, 0, 0.63677824, 0, 0.771047, 4.5047436, 4.782374, 32.299187)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/box23" unique_id=1161932854]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/box23/StaticBody3D" unique_id=1317768584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.26869202, 0.39396107, -0.016605377)
+shape = SubResource("BoxShape3D_k4no8")
+
+[node name="conveyerbelt" parent="NavigationRegion3D" unique_id=764792522 instance=ExtResource("36_1i48b")]
+transform = Transform3D(-0.019912878, 0, -0.9998017, 0, 1, 0, 0.9998017, 0, -0.019912878, -7.751419, 2.140347, 12.7842655)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/conveyerbelt" unique_id=1419206419]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/conveyerbelt/StaticBody3D" unique_id=1132472493]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6315918, -3.8560138)
+shape = SubResource("BoxShape3D_2og7n")
+
+[node name="conveyerbelt3" parent="NavigationRegion3D" unique_id=747145131 instance=ExtResource("36_1i48b")]
+transform = Transform3D(-0.9999195, 0, -0.012688249, 0, 1, 0, 0.012688249, 0, -0.9999195, -24.325901, 2.140347, -26.102224)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/conveyerbelt3" unique_id=353115467]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/conveyerbelt3/StaticBody3D" unique_id=1984594426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6315918, -3.8560138)
+shape = SubResource("BoxShape3D_2og7n")
+
+[node name="conveyerbelt2" parent="NavigationRegion3D" unique_id=444847591 instance=ExtResource("36_1i48b")]
+transform = Transform3D(-0.019912878, 0, -0.9998017, 0, 1, 0, 0.9998017, 0, -0.019912878, 1.9271832, 2.140347, 13.002609)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="NavigationRegion3D/conveyerbelt2" unique_id=999116285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.21059036, 0, 0.39140856)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/conveyerbelt2/StaticBody3D2" unique_id=470608397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24170113, 0.6315918, -3.8560138)
+shape = SubResource("BoxShape3D_2og7n")
