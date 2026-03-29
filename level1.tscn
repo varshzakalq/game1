@@ -21,9 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://cvgwmjy4wccia" path="res://_base_objects/_worldbuilding/double_door.tscn" id="13_n8vhr"]
 [ext_resource type="Texture2D" uid="uid://uf1jy6l3jqcw" path="res://_assets/textures/Gemini_Generated_Image_yskqrxyskqrxyskq.png" id="13_qiqrj"]
 [ext_resource type="PackedScene" uid="uid://c2xk0wt3gl2er" path="res://_base_objects/_characters/Enemy/Time_leech.tscn" id="14_1idop"]
-[ext_resource type="PackedScene" uid="uid://dgil4u0yl5ijm" path="res://_base_objects/_characters/Enemy/test_enemy.tscn" id="15_rjtee"]
-[ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="16_beq0j"]
-[ext_resource type="PackedScene" uid="uid://b5xyrgbetoqxv" path="res://_base_objects/harsh/conveyerbelt.glb" id="21_jy3fw"]
+[ext_resource type="PackedScene" path="res://explosion.tscn" id="16_beq0j"]
+[ext_resource type="PackedScene" path="res://conveyerbelt.glb" id="21_jy3fw"]
 [ext_resource type="PackedScene" uid="uid://0exb67spbw5j" path="res://_base_objects/_worldbuilding/walls/asset3.glb" id="22_uuy0h"]
 [ext_resource type="PackedScene" uid="uid://ctncm243wkwha" path="res://_base_objects/harsh/asset4.1.glb" id="23_52iny"]
 [ext_resource type="PackedScene" uid="uid://cn3qlc1b2os2u" path="res://_base_objects/harsh/enemy1.glb" id="24_52iny"]
@@ -32,7 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://ca67u4r353eh1" path="res://_base_objects/harsh/bigasscapsule.glb" id="28_6wmxb"]
 [ext_resource type="PackedScene" uid="uid://co8puvvoocrqj" path="res://_base_objects/harsh/asset5.glb" id="29_8652m"]
 [ext_resource type="PackedScene" uid="uid://tkeurlyqe34q" path="res://_assets/lift/asset2.glb" id="32_6wmxb"]
-[ext_resource type="PackedScene" uid="uid://bjwyv3bvf8r2a" path="res://_base_objects/harsh/box.glb" id="33_8652m"]
+[ext_resource type="PackedScene" path="res://box.glb" id="33_8652m"]
 [ext_resource type="PackedScene" uid="uid://3hsbhd8rx2d2" path="res://light_on_ceiling.tscn" id="33_t8chk"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_beq0j"]
@@ -218,7 +217,7 @@ size = Vector3(1.7342224, 1.5043945, 3.503151)
 [sub_resource type="BoxShape3D" id="BoxShape3D_xhed0"]
 size = Vector3(1.4833984, 2.2631836, 9.740112)
 
-[node name="Node3D" type="Node3D" unique_id=665478732]
+[node name="Node3D2" type="Node3D" unique_id=665478732]
 
 [node name="Sketchfab_Scene" parent="." unique_id=481057906 instance=ExtResource("1_i2041")]
 transform = Transform3D(5.2289877, 0, 0, 0, 5.2289877, 0, 0, 0, 5.2289877, -22.874687, 0.1492424, 19.115803)
@@ -1362,9 +1361,6 @@ transform = Transform3D(33.645, 0, 0, 0, 33.645, 0, 0, 0, 33.645, 0, 3.3266554, 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1756447756]
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=208691863 instance=ExtResource("2_ootpb")]
-
-[node name="test_enemy" parent="." unique_id=1773575572 instance=ExtResource("15_rjtee")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.201677, 3.0763388, 39.789566)
 
 [node name="asset3" parent="." unique_id=135006351 instance=ExtResource("22_uuy0h")]
 transform = Transform3D(3.447903, 0, 0, 0, 3.447903, 0, 0, 0, 3.447903, 27.776733, 0.6552086, 20.525194)

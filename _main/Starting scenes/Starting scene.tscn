@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="2_bi5l5"]
 [ext_resource type="PackedScene" uid="uid://bg5t4kuhaanqw" path="res://_base_objects/_worldbuilding/billboard.tscn" id="3_bi5l5"]
 [ext_resource type="PackedScene" uid="uid://ehywh0akeyo5" path="res://_base_objects/_characters/Enemy/ranged_enemy.tscn" id="4_pj1pp"]
+[ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="5_cry8n"]
 
 [node name="StartingScene" type="Node3D" unique_id=1998932854]
 
@@ -18,3 +19,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2051654, -4.0477266, 54.71
 
 [node name="Ranged_enemy" parent="." unique_id=1126345886 instance=ExtResource("4_pj1pp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7437588, -4.5477266, 50.154366)
+
+[node name="Player" parent="." unique_id=1091194407 instance=ExtResource("5_cry8n")]
+transform = Transform3D(0.64491284, 0, 0, 0, 0.64491284, 0, 0, 0, 0.64491284, -0.8708075, -4.395672, 46.25289)

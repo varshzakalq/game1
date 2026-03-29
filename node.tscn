@@ -13,7 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b2ec2wnt0vmjm" path="res://_assets/Untitled.obj" id="11_436f3"]
 [ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="12_wt6go"]
 [ext_resource type="PackedScene" uid="uid://cqm64nxyotapa" path="res://_base_objects/_worldbuilding/level_transition.tscn" id="13_436f3"]
-[ext_resource type="PackedScene" uid="uid://tsv3qs5gtj5" path="res://_base_objects/harsh/car.glb" id="14_bcos8"]
+[ext_resource type="PackedScene" path="res://car.glb" id="14_bcos8"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_feppd"]
 rayleigh_coefficient = 2.48
@@ -36,6 +36,8 @@ fog_light_color = Color(0.3334962, 0.3899633, 0.37434256, 1)
 fog_light_energy = 1.67
 fog_sun_scatter = 0.1
 fog_density = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oaeeq"]
 albedo_texture = ExtResource("4_jfkdj")
@@ -162,9 +164,6 @@ light_angular_distance = 25.79
 light_specular = 0.1
 light_bake_mode = 1
 shadow_enabled = true
-
-[node name="Player" parent="." unique_id=1091194407 instance=ExtResource("12_wt6go")]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -1.4867451, -4.1500797, 55.63995)
 
 [node name="Level_map" type="Node3D" parent="." unique_id=219036276]
 
@@ -547,6 +546,9 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.6185459, 1.7845885, 4.1017
 Target_scene_path = "res://level1.tscn"
 
 [node name="car" parent="." unique_id=90812018 instance=ExtResource("14_bcos8")]
-transform = Transform3D(1.1836079, 0, 0, 0, 1.1836079, 0, 0, 0, 1.1836079, 0.6166106, -4.992747, 61.841232)
+transform = Transform3D(1.1836079, 0, 0, 0, 1.1836079, 0, 0, 0, 1.1836079, 0.6166106, -4.9840074, 61.841232)
+
+[node name="Player" parent="." unique_id=1091194407 instance=ExtResource("12_wt6go")]
+transform = Transform3D(0.5847728, 0, 0, 0, 0.5847728, 0, 0, 0, 0.5847728, 0.16941017, -4.35449, 59.344826)
 
 [connection signal="body_entered" from="Level_map/StaticBody3D2/Area3D" to="Level_map/StaticBody3D2" method="_on_area_3d_body_entered"]
