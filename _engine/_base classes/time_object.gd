@@ -78,7 +78,6 @@ func _rollback(delta: float) -> void:
 			_rewind_tween.set_parallel(true)
 			
 			var tween_duration = SNAPSHOT_INTERVAL / _current_rewind_speed
-			print(target_values)
 			for key in target_values:
 				# Instantly set velocities to preserve exact physical momentum
 				if key == "linear_velocity" or key == "angular_velocity":

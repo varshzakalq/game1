@@ -1,4 +1,4 @@
-extends Node
+extends Component
 class_name AgingComponent
 
 signal age_increased(current_age: float)
@@ -20,17 +20,19 @@ var ambient_age_rate = 0
 
 
 func _ready() -> void:
-	EventBus.ambient_aging.connect(_handle_ambient_age)
+	EventBus.ambient_aging.connect(_set_ambient_age)
 	
 
 func increase_age(delta: float, multiplier : float = 1):
 	current_age += delta * multiplier * 0.01
 
-func _handle_ambient_age(value: float):
+func _set_ambient_age(value: float):
 	ambient_age_rate = value
 
 func _process(delta: float) -> void:
 	current_age += ambient_age_rate*delta
+	#print(current_age)
+	
 
 func _age_changed(value : float):
 	

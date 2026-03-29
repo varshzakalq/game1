@@ -3,7 +3,7 @@ class_name TimeLeech
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Safety check: if player isn't loaded, don't do anything
 	if Globals.player == null:
 		return
@@ -21,4 +21,5 @@ func _physics_process(_delta: float) -> void:
 		var direction = (next_path_pos - global_position).normalized()
 		
 		velocity = direction * 2.0
-		move_and_slide()
+	
+	super._physics_process(delta)

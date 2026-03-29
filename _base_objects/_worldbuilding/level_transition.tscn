@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cqm64nxyotapa"]
+
+[sub_resource type="GDScript" id="GDScript_qb43j"]
+resource_name = "level_transition"
+script/source = "extends Area3D
+
+enum Condition{
+	Unconditional,
+	Press_input,
+	On_signal
+}
+
+
+@export var Target_scene_path : String = \"\"
+@export var Trigger : Condition = Condition.Unconditional
+@export var Input_as_string : String = \"\"
+@export var Target_Signal_id : String = \"\"
+
+var transition_happening = false
+var signal_received = false
+
+func _ready() -> void:
+	if Trigger == Condition.On_signal:
+		Globals.level_change.connect(_on_signal_check)
+		
+
+func _process(_delta: float) -> void:
+	if not overlaps_body(Globals.player): return
+	if transition_happening: return
+	
+	
+	match Trigger:
+		Condition.Unconditional:
+			swap_to_level(Target_scene_path)
+		
+		Condition.Press_input:
+			if Input.is_action_just_pressed(Input_as_string):
+				swap_to_level(Target_scene_path)
+		
+		Condition.On_signal:
+			if signal_received: 
+				swap_to_level(Target_scene_path)
+			
+	
+func _on_signal_check(id: String):
+	if id == Target_Signal_id:
+		signal_received = true
+	
+
+func swap_to_level(level_str):
+	transition_happening = true
+	Globals.fade_to_black()
+	
+	await Globals.fade_complete
+
+	get_tree().change_scene_to_file(level_str)
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qb43j"]
+
+[node name="Level_transition" type="Area3D" unique_id=1313540812]
+script = SubResource("GDScript_qb43j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=105985911]
+shape = SubResource("BoxShape3D_qb43j")

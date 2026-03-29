@@ -58,8 +58,7 @@ func _ready() -> void:
 
 func _rollback(delta: float) -> void:
 	
-	
-	
+
 	if _reached_history_end or snapshots[SNAPSHOT_PROPERTY_LIST[0]].is_empty():
 		_reached_history_end = true
 		return
