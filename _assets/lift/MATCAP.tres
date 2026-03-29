@@ -9,5 +9,5 @@ metallic = 0.35
 roughness = 0.6
 normal_enabled = true
 normal_texture = ExtResource("2_7cqxm")
-uv1_scale = Vector3(-0.405, 0.825, 1)
+uv1_scale = Vector3(-0.405, 0.85, 1)
 uv1_offset = Vector3(0.01, 0, 0)

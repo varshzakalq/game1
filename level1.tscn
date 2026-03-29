@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ddcovtcuvokvb" path="res://_assets/textures/concrete_barrier__drum_barrel__fences_1.jpg" id="4_5j5gb"]
 [ext_resource type="Texture2D" uid="uid://dokepakn4owby" path="res://_assets/textures/Screenshot 2026-03-28 152504.png" id="4_eqrsh"]
 [ext_resource type="PackedScene" uid="uid://hdqv425hhlal" path="res://_assets/sci-fi_style_ceiling_light.glb" id="5_hx44q"]
-[ext_resource type="Texture2D" uid="uid://crdf8lg3qj01d" path="res://_assets/textures/concrete_barrier__drum_barrel__fences_5.jpg" id="5_mx85b"]
 [ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="5_xy4tn"]
-[ext_resource type="Texture2D" uid="uid://ihao20o1v118" path="res://_assets/textures/concrete_barrier__drum_barrel__fences_0.jpg" id="6_hx44q"]
 [ext_resource type="Texture2D" uid="uid://dwd8s37p1md7o" path="res://_assets/textures/Screenshot 2026-03-28 152443.png" id="7_n8vhr"]
 [ext_resource type="Texture2D" uid="uid://hjinfg2738e" path="res://_assets/textures/Gemini_Generated_Image_3ze5e3ze5e3ze5e3 (1).png" id="8_rjtee"]
 [ext_resource type="Texture2D" uid="uid://i1qcd0061c1" path="res://_assets/textures/Gemini_Generated_Image_kcgqekcgqekcgqek.png" id="9_1idop"]
@@ -22,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://uf1jy6l3jqcw" path="res://_assets/textures/Gemini_Generated_Image_yskqrxyskqrxyskq.png" id="13_qiqrj"]
 [ext_resource type="PackedScene" uid="uid://c2xk0wt3gl2er" path="res://_base_objects/_characters/Enemy/Time_leech.tscn" id="14_1idop"]
 [ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="16_beq0j"]
+[ext_resource type="Texture2D" uid="uid://qpg02tcows4o" path="res://_assets/textures/Screenshot 2026-03-28 152455.png" id="17_6wmxb"]
 [ext_resource type="PackedScene" uid="uid://b5xyrgbetoqxv" path="res://_base_objects/harsh/conveyerbelt.glb" id="21_jy3fw"]
 [ext_resource type="PackedScene" uid="uid://0exb67spbw5j" path="res://_base_objects/_worldbuilding/walls/asset3.glb" id="22_uuy0h"]
 [ext_resource type="PackedScene" uid="uid://ctncm243wkwha" path="res://_base_objects/harsh/asset4.1.glb" id="23_52iny"]
@@ -192,18 +191,18 @@ heightmap_texture = ExtResource("9_1idop")
 heightmap_flip_texture = true
 uv1_scale = Vector3(4.78, -0.91, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arvy8"]
-albedo_texture = ExtResource("5_mx85b")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf678"]
-albedo_texture = ExtResource("6_hx44q")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3jjr"]
 albedo_texture = ExtResource("3_usj0q")
 normal_enabled = true
 normal_texture = ExtResource("7_n8vhr")
 heightmap_enabled = true
 uv1_scale = Vector3(2.265, 2.265, 2.265)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6tyme"]
+albedo_texture = ExtResource("4_5j5gb")
+metallic = 0.25
+normal_enabled = true
+normal_texture = ExtResource("17_6wmxb")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8652m"]
 size = Vector3(0.18884277, 1, 0.53601074)
@@ -220,6 +219,8 @@ size = Vector3(1.4833984, 2.2631836, 9.740112)
 [sub_resource type="PlaneMesh" id="PlaneMesh_jy3fw"]
 size = Vector2(1.5, 0.9)
 orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jj8s7"]
 
 [node name="Node3D2" type="Node3D" unique_id=665478732]
 
@@ -356,14 +357,8 @@ light_volumetric_fog_energy = 7.562
 light_specular = 0.36
 shadow_enabled = true
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene15" unique_id=382441182]
-transform = Transform3D(1, 0, 0, 0, 1.0000001, 2.7939677e-09, 0, -2.3283064e-09, 1.0000001, -8.746715, 0.12633514, 0.0006945133)
-light_color = Color(0.8724301, 0.6088229, 0.22052905, 1)
-light_energy = 16.0
-light_indirect_energy = 5.944
-light_volumetric_fog_energy = 7.562
-light_specular = 0.36
-shadow_enabled = true
+[node name="light_on_ceiling" parent="NavigationRegion3D/StaticBody3D2/Sketchfab_Scene15" unique_id=1579965070 instance=ExtResource("33_t8chk")]
+transform = Transform3D(1, 0, 0, 0, 0.014834875, 0.99989027, 0, -0.99989027, 0.014834875, -7.6696777, 2.2160072, 4.0024805)
 
 [node name="Sketchfab_Scene17" parent="NavigationRegion3D/StaticBody3D2" unique_id=1640138209 instance=ExtResource("5_hx44q")]
 transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0.005497813, -9.882693, 19.479923, 44.236782)
@@ -844,24 +839,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10478592, -0.4788208, 0)
 operation = 2
 size = Vector3(5.0553966, 5.998413, 1)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=760881818]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.791668, 2.2428079, 45.380287)
-size = Vector3(1, 3.4701538, 3.0964355)
-
-[node name="CSGBox3D14" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=891281972]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.791668, 5.637402, 46.643715)
-material_override = SubResource("StandardMaterial3D_arvy8")
-size = Vector3(1, 3.4227257, 5.623291)
-
-[node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1019520751]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.799341, 2.1858907, 49.81301)
-material_override = SubResource("StandardMaterial3D_yf678")
-size = Vector3(1, 3.446228, 2.4582825)
-
 [node name="CSGBox3D15" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=942488013]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.3605131, -25.456022, 0.40766287, 46.78694)
 size = Vector3(8.295654, 0.22299194, 3.9163895)
 material = SubResource("StandardMaterial3D_u3jjr")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=620633756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.97715, 3.24469, 46.747063)
+size = Vector3(1.1459961, 7.48938, 6.9503174)
+material = SubResource("StandardMaterial3D_6tyme")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D" unique_id=1723680691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.17449951, -0.32022095, 1.0794144)
+operation = 2
+size = Vector3(1.9007568, 4.540222, 3.0234222)
 
 [node name="asset2" parent="NavigationRegion3D" unique_id=1772876307 instance=ExtResource("32_6wmxb")]
 transform = Transform3D(7.2470307, 0, 0, 0, 7.2470307, 0, 0, 0, 7.2470307, -13.439083, 2.1162941, 23.146969)
@@ -1337,7 +1328,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24170113, 0.6315918, -3.856
 shape = SubResource("BoxShape3D_xhed0")
 
 [node name="Player" parent="." unique_id=1091194407 instance=ExtResource("5_xy4tn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.343687, 1.5625422, 46.215897)
+transform = Transform3D(1.2359432, 0, 0, 0, 1.2359432, 0, 0, 0, 1.2359432, -25.10143, 1.5625422, 46.215897)
 
 [node name="Time leech" parent="." unique_id=1811181162 instance=ExtResource("14_1idop")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 33.282326)
@@ -1348,7 +1339,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 33.282
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -26.20339, 2.5000005, 19.086533)
 
 [node name="DoubleDoor5" parent="doors" unique_id=1095070557 instance=ExtResource("13_n8vhr")]
-transform = Transform3D(-1.9963648, 0, 0.120529115, 0, 2, 0, -0.120529115, 0, -1.9963648, -22.061968, 2.0985174, 48.529556)
+transform = Transform3D(-1.9963648, 0, 0.120529115, 0, 2, 0, -0.120529115, 0, -1.9963648, -22.064356, 1.3306341, 48.5352)
 
 [node name="DoubleDoor2" parent="doors" unique_id=1172928182 instance=ExtResource("13_n8vhr")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 25.943739, 2.5000005, -11.849744)
@@ -1471,6 +1462,16 @@ Moving backwards in time causes user to move forward in time?..."
 background_color = Color(0, 0, 0, 1)
 text_color = Color(2.4065375e-06, 0.9147114, 0.23421153, 1)
 
+[node name="computer5" parent="." unique_id=1401559601 instance=ExtResource("27_xm42n")]
+transform = Transform3D(-1.1865091, 0, 0.074628025, 0, 1.188854, 0, -0.074628025, 0, -1.1865091, -23.230762, 0.81197834, 47.061962)
+
+[node name="Billboard" parent="computer5" unique_id=2145476204 instance=ExtResource("30_jy3fw")]
+transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1, -0.13561058, 1.8705821, 1.9428537)
+mesh = SubResource("PlaneMesh_jy3fw")
+initial_text = "interact??...."
+background_color = Color(0, 0, 0, 1)
+text_color = Color(2.4065375e-06, 0.9147114, 0.23421153, 1)
+
 [node name="computer2" parent="." unique_id=330461385 instance=ExtResource("27_xm42n")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -16.630867, 0.81197834, 17.032206)
 
@@ -1544,92 +1545,121 @@ transform = Transform3D(0.2035904, 0, -1.7558218, 0, 1.7675858, 0, 1.7558218, 0,
 [node name="asset13" parent="." unique_id=211136179 instance=ExtResource("29_8652m")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, -29.473377, 1.5105174, -6.161704)
 
-[node name="light_on_ceiling" parent="." unique_id=1579965070 instance=ExtResource("33_t8chk")]
+[node name="light_on_ceiling" parent="." unique_id=756294211 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -11.351498, 7.510978, 25.877869)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling2" parent="." unique_id=946439258 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -3.5987425, 7.510978, 25.877869)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling3" parent="." unique_id=1512732862 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 4.7958655, 7.510978, 25.877869)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling4" parent="." unique_id=172422742 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 14.580652, 7.510978, 25.877869)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling5" parent="." unique_id=5236173 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 24.78976, 7.510978, 25.877869)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling6" parent="." unique_id=612346602 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 24.78976, 7.510978, 42.51031)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling7" parent="." unique_id=259175973 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 11.289112, 7.510978, 42.51031)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling8" parent="." unique_id=2030215678 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 0.60814, 7.510978, 42.51031)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling9" parent="." unique_id=2070803655 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -14.28033, 7.510978, 42.51031)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling10" parent="." unique_id=934762011 instance=ExtResource("33_t8chk")]
-transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -29.154812, 7.510978, 42.51031)
+transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -29.154812, 7.510978, 40.018593)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling11" parent="." unique_id=200966410 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -29.539806, 7.510978, 26.712456)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling12" parent="." unique_id=1798815795 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -26.053284, 7.510978, 20.31841)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling13" parent="." unique_id=1305445918 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -27.405594, 7.510978, 13.914852)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling15" parent="." unique_id=1185003754 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -27.405594, 7.510978, 4.6032124)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling16" parent="." unique_id=917811790 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -27.405594, 7.510978, -2.3986282)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling17" parent="." unique_id=468166308 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -27.405594, 7.510978, -8.555215)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling18" parent="." unique_id=1434514936 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -13.922992, 7.510978, -8.555215)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling19" parent="." unique_id=965432729 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -2.8114815, 7.510978, -8.555215)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling20" parent="." unique_id=152615133 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 6.9232883, 7.510978, -8.555215)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling21" parent="." unique_id=616054200 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 6.9232883, 7.510978, 0.92477894)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling22" parent="." unique_id=317475025 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 6.9232883, 7.510978, 10.43138)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling23" parent="." unique_id=1006236237 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 6.9232883, 7.510978, 17.375805)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling24" parent="." unique_id=526250815 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -2.958342, 7.510978, 17.375805)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling25" parent="." unique_id=2040490596 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -14.609846, 7.510978, 17.375805)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling26" parent="." unique_id=1624272415 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 18.697487, 7.510978, 17.375805)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling27" parent="." unique_id=2112644104 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 18.697487, 7.510978, 5.670891)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling28" parent="." unique_id=1525865946 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 18.697487, 7.510978, -1.5971131)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling29" parent="." unique_id=2119536620 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, 18.697487, 7.510978, -1.5971131)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="light_on_ceiling14" parent="." unique_id=654975585 instance=ExtResource("33_t8chk")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -25.788662, 7.510978, 17.635977)
+mesh = SubResource("PlaneMesh_jj8s7")
 
 [node name="Node3D2" parent="." unique_id=2037308985 instance=ExtResource("25_jy3fw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.164875, 2.5002556, -2.4611397)
