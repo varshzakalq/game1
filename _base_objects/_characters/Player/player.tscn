@@ -9,65 +9,6 @@
 
 [sub_resource type="GDScript" id="GDScript_x2vq2"]
 resource_name = "player_camera"
-script/source = "extends Camera3D
-
-# We keep these as exports, but they will be overwritten by GlobalSettings in _ready
-@export var mouse_sensitivity : float = 0.002
-@export var min_pitch : float = -80.0 
-@export var max_pitch : float = 80.0  
-
-@onready var player : CharacterBody3D = get_parent()
-
-const SENS_MULTIPLIER : float = 0.0004
-
-func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-	# 1. Sync with current global settings immediately on spawn
-	mouse_sensitivity = GlobalSettings.settings[\"sensitivity\"] * SENS_MULTIPLIER
-	fov = GlobalSettings.settings[\"fov\"]
-	
-	# 2. Connect to EventBus signals for real-time updates
-	EventBus.fov_changed.connect(_on_fov_updated)
-	EventBus.sensitivity_changed.connect(_on_sens_updated)
-
-# --- SIGNAL HANDLERS ---
-
-func _on_fov_updated(new_fov: float) -> void:
-	fov = new_fov
-
-
-func _on_sens_updated(new_sens: float) -> void:
-	# Convert the 0-10 scale to the 0.000 - 0.004 scale
-	mouse_sensitivity = new_sens * SENS_MULTIPLIER
-
-# --- INPUT HANDLING ---
-
-func _unhandled_input(event: InputEvent) -> void:
-	
-	if rotation.z != 0:
-		rotation.z = 0
-	#
-	#if event.is_action_pressed(\"ui_cancel\"):
-		#if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-		#else:
-			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
-
-			
-	if player._is_rewinding:
-		return		
-			
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		
-		# We multiply by mouse_sensitivity. 
-		player.rotate_y(-event.relative.x * mouse_sensitivity)
-		rotate_x(-event.relative.y * mouse_sensitivity)
-		
-		rotation.x = clamp(rotation.x, deg_to_rad(min_pitch), deg_to_rad(max_pitch))
-		player.camera_rotation = rotation.x
-"
 
 [sub_resource type="GDScript" id="GDScript_uonmu"]
 resource_name = "hud_manager"
@@ -184,6 +125,11 @@ mesh = SubResource("CapsuleMesh_uonmu")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=2122543223]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58896637, 0)
+current = true
+script = SubResource("GDScript_x2vq2")
+
+[node name="dead_cam" type="Camera3D" parent="." unique_id=738773812]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58896637, 0)
 current = true
 script = SubResource("GDScript_x2vq2")

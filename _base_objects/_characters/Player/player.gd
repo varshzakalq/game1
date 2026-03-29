@@ -12,6 +12,8 @@ var _penalty_tween : Tween
 # ==========================================
 # NODE REFERENCES
 # ==========================================
+@onready var mesh = $Mesh
+@onready var death_cam = $dead_cam
 @onready var camera = %Camera
 @onready var camera_rotation = camera.global_rotation.x :
 	set(value):
@@ -248,40 +250,47 @@ func _process_normal_movement(delta: float) -> void:
 
 
 func _rollback(delta: float) -> void:
-	# Run the actual timeline math from the parent class first
 	super._rollback(delta)
 	
-	# If we hit the end of our history, stop cranking up the effects
 	if _reached_history_end:
 		return
 		
 	if _active_rewind_rect == null:
 		_setup_active_rewind_ui()
 		
-	# 1. Calculate Intensity (0.0 to 1.0)
-	# We subtract MIN_REWIND_SPEED so it starts exactly at 0.0, and divide by MAX to get a clean percentage.
-	var rewind_percentage = (_current_rewind_speed - MIN_REWIND_SPEED) / (MAX_REWIND_SPEED - MIN_REWIND_SPEED)
-	var intensity = clamp(rewind_percentage, 0.0, 1.0)
+	# 1. Base rewind speed percentage (0.0 to 1.0)
+	var rewind_percentage = clamp((_current_rewind_speed - MIN_REWIND_SPEED) / (MAX_REWIND_SPEED - MIN_REWIND_SPEED), 0.0, 1.0)
 	
-	# 2. Camera FOV "Woosh" 
-	# Smoothly stretches FOV from 75 up to 105 as rewind accelerates
-	camera.fov = lerp(camera.fov, 75.0 + (30.0 * intensity), 10.0 * delta)
+	# 2. Calculate the exact severity the age penalty WILL be
+	var age = 0.0
+	if aging_component != null:
+		age = aging_component.current_age
+		
+	var normalized_age = clamp(age / 100.0, 0.0, 1.0)
+	var penalty_severity = pow(normalized_age, 1.5)
 	
-	# 3. Update the Shader
+	# 3. Set the ceiling for the visuals
+	# We use max(0.2, penalty_severity) so healthy players still get a *little* bit of visual feedback!
+	var target_max_intensity = max(0.2, penalty_severity)
+	
+	# 4. Final blended intensity
+	var intensity = rewind_percentage * target_max_intensity
+	
+	# --- APPLY EFFECTS ---
+	
+	# Camera FOV "Woosh" 
+	camera.fov = lerp(camera.fov, 120.0 + (90.0 * intensity), 10.0 * delta)
+	
+	# Update the Shader
 	_active_rewind_rect.visible = true
 	_active_rewind_mat.set_shader_parameter("intensity", intensity)
-	
-	# We pass in actual time so the VHS scanlines keep rolling while the game is frozen
 	_active_rewind_mat.set_shader_parameter("time", Time.get_ticks_msec() / 1000.0)
 	
-	# 4. AUDIO HOOK
+	# AUDIO HOOK
 	if rewind_sfx != null:
 		if not rewind_sfx.playing:
 			rewind_sfx.play()
-			
-		# Dynamic Pitch: The faster time reverses, the higher pitched the audio gets!
 		rewind_sfx.pitch_scale = 1.0 + (intensity * 0.8)
-
 func _on_rollback_finish() -> void:
 	# 1. Trigger the age penalty so it starts the exact frame the rewind ends
 	if aging_component != null:
@@ -371,3 +380,12 @@ func apply_rollback_penalty(age : float) -> void:
 	# Godot 4 allows us to tween shader parameters directly using this exact string path
 	_penalty_tween.tween_property(_penalty_mat, "shader_parameter/intensity", 0.0, penalty_fade_duration)
 	
+
+
+
+
+func death_aniamtion():
+	
+	camera.current = false
+	death_cam.current = true
+	mesh.hide()
