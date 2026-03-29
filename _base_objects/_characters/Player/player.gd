@@ -3,6 +3,9 @@ class_name Player
 
 @onready var rewind_sfx : AudioStreamPlayer = $RewindSoundPlayer 
 
+@export var DASH_MULTIPLIER : float = 4
+@export var DASH_COOLDOWN : float = 2
+var dash_cooldown : float = 0
 
 @export_category("Rollback Penalty Settings")
 @export var penalty_fade_duration : float = 2.5 # How many seconds it takes to clear
@@ -287,6 +290,17 @@ func _gather_inputs() -> void:
 	_input_sprint_held = Input.is_action_pressed("Sprint")
 
 func _process_normal_movement(delta: float) -> void:
+	
+	if dash_cooldown > 0:
+		dash_cooldown -= delta
+	
+	
+	if _input_sprint_held and (not _is_sprinting) and aging_component.current_age < 60 and dash_cooldown <= 0:
+		velocity.x *= DASH_MULTIPLIER
+		velocity.z *= DASH_MULTIPLIER
+		velocity.y *= DASH_MULTIPLIER*0.5
+		
+		dash_cooldown = DASH_COOLDOWN
 	
 	# Apply standard directional movement
 	_is_sprinting = _input_sprint_held

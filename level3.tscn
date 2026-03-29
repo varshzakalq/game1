@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://bg5t4kuhaanqw" path="res://_base_objects/_worldbuilding/billboard.tscn" id="23_kp2hi"]
 [ext_resource type="Texture2D" uid="uid://bx4hynr03jnwa" path="res://_assets/lift/asset2_SciFi-Tile1_metallic-SciFi-Tile1_roughness.png" id="23_qlbxx"]
 [ext_resource type="Texture2D" uid="uid://c3qhv7gv3cj4k" path="res://_assets/lift/asset2_SciFi-Tile1_normal.jpg" id="24_lwyuh"]
+[ext_resource type="PackedScene" uid="uid://bno1ropo2f72l" path="res://_base_objects/_characters/Enemy/bossada.tscn" id="25_1qwjn"]
 [ext_resource type="PackedScene" uid="uid://brb3xap2p7ksy" path="res://mainlight.tscn" id="25_cpy65"]
 [ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="26_78nq5"]
 [ext_resource type="PackedScene" uid="uid://dgil4u0yl5ijm" path="res://_base_objects/_characters/Enemy/test_enemy.tscn" id="27_52kmu"]
@@ -1521,6 +1522,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6593304, -0.33056355, -1.89
 mesh = SubResource("PlaneMesh_5hmwf")
 initial_text = "ERROR *&#@%&%$#&@*(#$^#)@*%^@#*&(%^#&*@%^@#*&(%^#@&^%*#!^&$*^#!^$)))#^%#!^%*&#%^*&)#!^%*&#@^%*&#$^%*$#@^%*#&%#%#%\":>\"#!<%\"#!>%:^#<\"!:>\"#$%#+%+["
 text_color = Color(1, 0, 0, 1)
+
+[node name="Bossada" parent="NavigationRegion3D/bigasscapsule" unique_id=2079433493 instance=ExtResource("25_1qwjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.830801, -1.4271102, -71.862885)
 
 [node name="asset5" parent="NavigationRegion3D" unique_id=1370549756 instance=ExtResource("33_amagp")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 29.24524, 2.9659243, 6.9068413)

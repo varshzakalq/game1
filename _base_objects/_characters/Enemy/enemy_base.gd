@@ -119,4 +119,4 @@ func _rotate_body_to(body, target_rotation : Vector3):
 	if rot.y - current_rot.y > PI: rot.y -= 2*PI 
 	if rot.y - current_rot.y < -PI: rot.y += 2*PI 
 	
-	rot_tween.tween_property(body, "global_rotation", rot, 0.2)
+	rot_tween.tween_property(body, "global_rotation", rot, 0.1)
