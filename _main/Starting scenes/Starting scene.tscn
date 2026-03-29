@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo4ewqutwn0bj" path="res://node.tscn" id="1_5she6"]
 [ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="2_bi5l5"]
+[ext_resource type="PackedScene" uid="uid://bg5t4kuhaanqw" path="res://_base_objects/_worldbuilding/billboard.tscn" id="3_bi5l5"]
 
 [node name="StartingScene" type="Node3D" unique_id=1998932854]
 
@@ -10,3 +11,6 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=250685517]
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=208691863 instance=ExtResource("2_bi5l5")]
+
+[node name="Billboard" parent="." unique_id=894905878 instance=ExtResource("3_bi5l5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2051654, -4.0477266, 54.715775)

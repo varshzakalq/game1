@@ -12,6 +12,10 @@
 [node name="Ranged_enemy" type="CharacterBody3D" unique_id=1126345886]
 script = ExtResource("1_28yh6")
 explosion_scene = ExtResource("2_voep5")
+age_damage_per_hit = 100.0
+attack_range = 20.0
+detection_radius = 40.0
+attack_cooldown = 4.0
 metadata/_custom_type_script = "uid://dmouge7gwx0yx"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=716656177]

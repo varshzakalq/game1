@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bg5t4kuhaanqw"]
+
+[ext_resource type="Script" uid="uid://b225tkl4td63l" path="res://_engine/_base classes/time_object.gd" id="1_m4mtc"]
+[ext_resource type="PackedScene" uid="uid://dy7n06bsrtug6" path="res://_base_objects/_worldbuilding/text_board.tscn" id="2_6q2n7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6q2n7"]
+size = Vector3(0.1, 2, 1.5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ycug4"]
+orientation = 0
+
+[node name="Billboard" type="RigidBody3D" unique_id=894905878]
+sleeping = true
+lock_rotation = true
+freeze = true
+script = ExtResource("1_m4mtc")
+metadata/_custom_type_script = "uid://b225tkl4td63l"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1441531546]
+shape = SubResource("BoxShape3D_6q2n7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=335272926]
+mesh = SubResource("PlaneMesh_ycug4")
+
+[node name="SubViewport" parent="MeshInstance3D" unique_id=1102201971 instance=ExtResource("2_6q2n7")]

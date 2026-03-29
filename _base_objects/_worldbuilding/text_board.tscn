@@ -1,31 +1,123 @@
 [gd_scene format=3 uid="uid://dy7n06bsrtug6"]
 
-[ext_resource type="Script" uid="uid://wrb4wmwjoy0b" path="res://_engine/_base classes/rime_stationary.gd" id="1_1nxmb"]
+[sub_resource type="GDScript" id="GDScript_1nxmb"]
+script/source = "class_name TerminalViewport
+extends SubViewport
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1nxmb"]
-viewport_path = NodePath("SubViewport")
+@export_category(\"Terminal Settings\")
+@export_multiline var initial_text: String = \"SYSTEM INITIALIZED...\"
+@export var background_color: Color = Color(0.05, 0.05, 0.05, 1.0)
+@export var text_color: Color = Color(0.0, 0.8, 0.2, 1.0) # Hacker Green
+@export var padding: int = 20
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gplia"]
-resource_local_to_scene = true
-albedo_texture = SubResource("ViewportTexture_1nxmb")
+# Internal Node Tracking
+var _bg_rect: ColorRect
+var _label: Label
+var _type_tween: Tween
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_pm2lj"]
-resource_local_to_scene = true
-material = SubResource("StandardMaterial3D_gplia")
-orientation = 0
+func _ready() -> void:
+	# 1. Optimize the SubViewport for pure 2D UI rendering
+	disable_3d = true
+	transparent_bg = false
+	render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	
+	# 2. Automatically hijack the parent mesh
+	_apply_to_parent_mesh()
+	
+	# 3. Build the UI
+	_spawn_ui()
+	
+	# 4. Boot it up
+	write_text(initial_text)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mhqwo"]
-size = Vector3(0.1, 2, 2)
+# ==========================================
+# PARENT HIJACKING LOGIC
+# ==========================================
+func _apply_to_parent_mesh() -> void:
+	var parent = get_parent()
+	
+	if not parent is MeshInstance3D:
+		push_warning(\"Terminal: Viewport must be a direct child of a MeshInstance3D!\")
+		return
+		
+	# Create a brand new material in code
+	var board_mat = StandardMaterial3D.new()
+	
+	# Grab the live feed from this exact SubViewport
+	board_mat.albedo_texture = self.get_texture()
+	
+	# Make the screen unshaded so it glows in the dark and acts like a real monitor
+	board_mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	
+	# Apply the material to the parent's surface
+	parent.set_surface_override_material(0, board_mat)
 
-[node name="text board" type="StaticBody3D" unique_id=1210603191]
-script = ExtResource("1_1nxmb")
-metadata/_custom_type_script = "uid://wrb4wmwjoy0b"
+# ==========================================
+# UI GENERATION
+# ==========================================
+func _spawn_ui() -> void:
+	_bg_rect = ColorRect.new()
+	_bg_rect.color = background_color
+	add_child(_bg_rect)
+	_bg_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_bg_rect.custom_minimum_size = Vector2(size) 
+	
+	var margin = MarginContainer.new()
+	add_child(margin)
+	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
+	margin.custom_minimum_size = Vector2(size)
+	margin.add_theme_constant_override(\"margin_left\", padding)
+	margin.add_theme_constant_override(\"margin_top\", padding)
+	margin.add_theme_constant_override(\"margin_right\", padding)
+	margin.add_theme_constant_override(\"margin_bottom\", padding)
+	
+	_label = Label.new()
+	_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_label.add_theme_color_override(\"font_color\", text_color)
+	_label.add_theme_font_size_override(\"font_size\", 24)
+	_label.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM 
+	margin.add_child(_label)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1970649169]
-mesh = SubResource("PlaneMesh_pm2lj")
+# ==========================================
+# PUBLIC FUNCTIONS
+# ==========================================
+func write_text(new_text: String) -> void:
+	if _label == null: return
+	_label.visible_characters = -1 
+	_label.text = new_text
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1350353700]
-shape = SubResource("BoxShape3D_mhqwo")
-disabled = true
+func append_text(added_text: String, new_line: bool = true) -> void:
+	if _label == null: return
+	_label.visible_characters = -1
+	
+	if new_line:
+		_label.text += \"\\n\" + added_text
+	else:
+		_label.text += added_text
 
-[node name="SubViewport" type="SubViewport" parent="." unique_id=1102201971]
+func type_text(new_text: String, characters_per_second: float = 30.0) -> void:
+	if _label == null: return
+	
+	_label.text = new_text
+	_label.visible_characters = 0
+	
+	var total_chars = new_text.length()
+	var duration = total_chars / characters_per_second
+	
+	if _type_tween and _type_tween.is_valid():
+		_type_tween.kill()
+		
+	_type_tween = create_tween()
+	_type_tween.tween_property(_label, \"visible_characters\", total_chars, duration)
+
+func clear_board() -> void:
+	if _label != null:
+		_label.text = \"\"
+"
+
+[node name="SubViewport" type="SubViewport" unique_id=1102201971]
+transparent_bg = true
+script = SubResource("GDScript_1nxmb")
+initial_text = "FUCK TIMMY"
+background_color = Color(0.39, 0.222235, 0.042900003, 0.92156863)
+text_color = Color(0.41165316, 0.7465303, 0.999999, 1)
