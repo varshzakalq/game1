@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dxljvv2r6eeya"]
+
+[ext_resource type="PackedScene" uid="uid://1yubdabjeolt" path="res://_base_objects/harsh/bossada.glb" id="1_ejj3g"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ejj3g"]
+radius = 0.82421875
+height = 2.3633423
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kal26"]
+height = 2.230713
+
+[node name="bossada" unique_id=880225823 instance=ExtResource("1_ejj3g")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1691251811]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=191953244]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7424645, 3.3952804)
+shape = SubResource("CapsuleShape3D_ejj3g")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=60671214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7424645, -3.2823162)
+shape = SubResource("CapsuleShape3D_ejj3g")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D" index="2" unique_id=592862353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.3680258, 1.7424645, 0.08599186)
+shape = SubResource("CapsuleShape3D_ejj3g")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D" index="3" unique_id=298855555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3287716, 1.7424645, 0.08599186)
+shape = SubResource("CapsuleShape3D_ejj3g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="4" unique_id=780314288]
+transform = Transform3D(3.2666566, 0, 0, 0, 3.2666566, 0, 0, 0, 3.2666566, 0, 4.454231, 0)
+shape = SubResource("CapsuleShape3D_kal26")

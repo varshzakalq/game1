@@ -4,11 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://qscc3d23xe3g" path="res://_base_objects/_characters/Enemy/projectile/Projectile.tscn" id="2_nq3wi"]
 [ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="2_voep5"]
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="3_nq3wi"]
+[ext_resource type="PackedScene" uid="uid://cyo1sutug3xk5" path="res://_base_objects/harsh/enemy2.glb" id="4_ld81g"]
 [ext_resource type="Script" uid="uid://bkrjw4g0do2mr" path="res://_base_objects/_characters/Enemy/health.gd" id="4_voep5"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ld81g"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mpj10"]
+radius = 0.84903586
 
 [node name="Ranged_enemy" type="CharacterBody3D" unique_id=1126345886]
 script = ExtResource("1_28yh6")
@@ -21,9 +23,14 @@ attack_cooldown = 4.0
 metadata/_custom_type_script = "uid://dmouge7gwx0yx"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=716656177]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.053917885, 0)
 mesh = SubResource("SphereMesh_ld81g")
 
+[node name="enemy2" parent="." unique_id=585038524 instance=ExtResource("4_ld81g")]
+transform = Transform3D(-0.04086429, 0, 0.99916476, 0, 1, 0, -0.99916476, 0, -0.04086429, 0, -1.6584604, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1719357084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.029933572, 0)
 shape = SubResource("SphereShape3D_mpj10")
 
 [node name="AgingComponent" type="Node" parent="." unique_id=131086571]
