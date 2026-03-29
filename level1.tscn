@@ -220,9 +220,17 @@ size = Vector3(1.4833984, 2.2631836, 9.740112)
 size = Vector2(1.5, 0.9)
 orientation = 0
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_6wmxb"]
+size = Vector2(1.5, 0.9)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_8652m"]
+size = Vector2(0.9, 0.55)
+orientation = 0
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_jj8s7"]
 
-[node name="Node3D2" type="Node3D" unique_id=665478732]
+[node name="Node3D3" type="Node3D" unique_id=665478732]
 
 [node name="Sketchfab_Scene" parent="." unique_id=481057906 instance=ExtResource("1_i2041")]
 transform = Transform3D(5.2289877, 0, 0, 0, 5.2289877, 0, 0, 0, 5.2289877, -22.874687, 0.1492424, 19.115803)
@@ -1511,6 +1519,25 @@ text_color = Color(6.738305e-07, 0.72753006, 0.17838582, 1)
 
 [node name="bigasscapsule" parent="." unique_id=1470422774 instance=ExtResource("28_6wmxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.657295, 2.2887197, -3.7576494)
+
+[node name="Billboard" parent="bigasscapsule" unique_id=1677650528 instance=ExtResource("30_jy3fw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5905094, 0.40108395, -1.8962402)
+mesh = SubResource("PlaneMesh_6wmxb")
+initial_text = "TESTING ALTERNATE WAYS TO TRIGGER EVENT:REWIND...
+
+ATTEMPS: 156
+SUCCESSFUL ATTEMPS: 0"
+
+[node name="Billboard2" parent="bigasscapsule" unique_id=589985056 instance=ExtResource("30_jy3fw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6593304, -0.33056355, -1.8962402)
+mesh = SubResource("PlaneMesh_8652m")
+initial_text = "ERROR: UNKNOWN
+ERROR: UNKNOWN
+ERROR: UNKNOWN
+ERROR: UNKNOWN
+ERROR: UNKNOWN
+ERROR: UNKNOWN
+ERROR: UNKNOWN"
 
 [node name="asset5" parent="." unique_id=1370549756 instance=ExtResource("29_8652m")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 28.186058, 1.5105174, 6.4107704)
