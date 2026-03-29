@@ -43,6 +43,8 @@ var _is_rewinding : bool = false
 var movement_multiplier : float = 1.2
 var jump_multiplier : float = 1.2
 
+var _gravity_affected = true
+
 @onready var aging_component
 
 
@@ -156,7 +158,7 @@ func _attempt_jump() -> void:
 func _get_gravity(delta : float) -> void:
 	if _is_rewinding: return
 	
-	if not is_on_floor():
+	if not is_on_floor() and _gravity_affected:
 		velocity.y -= GRAVITY*delta
 
 

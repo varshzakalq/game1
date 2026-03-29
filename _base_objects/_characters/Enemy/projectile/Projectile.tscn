@@ -5,20 +5,30 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_70x7f"]
 radius = 0.4037096
 
+[sub_resource type="BoxMesh" id="BoxMesh_70x7f"]
+size = Vector3(0.1, 0.1, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gjrlu"]
+size = Vector3(0.1547699, 0.13305664, 1)
 
 [node name="Projectile" type="CharacterBody3D" unique_id=499678368]
 script = ExtResource("1_70x7f")
+SPEED = 0.1
+SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "global_position", "_alive_timer"])
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=961919256]
 shape = SubResource("SphereShape3D_70x7f")
+disabled = true
+debug_fill = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=394922935]
+mesh = SubResource("BoxMesh_70x7f")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1800268020]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1997638053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0011825562, -0.00036621094, 0)
 shape = SubResource("BoxShape3D_gjrlu")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_hitbox_body_entered"]

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dgdauxu88wqm8"]
+
+[ext_resource type="Script" uid="uid://ndoku853oqe8" path="res://shoot.gd" id="1_fry05"]
+[ext_resource type="PackedScene" uid="uid://qscc3d23xe3g" path="res://_base_objects/_characters/Enemy/projectile/Projectile.tscn" id="2_7c1qe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+
+[node name="gun" type="Node3D" unique_id=1988051927]
+script = ExtResource("1_fry05")
+projectile_scene = ExtResource("2_7c1qe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=925327023]
+transform = Transform3D(0.067031994, 0, 0, 0, 0.08411576, 0, 0, 0, 0.9118499, 0, 0, 0)
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="Target" type="Node3D" parent="." unique_id=934546689]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)

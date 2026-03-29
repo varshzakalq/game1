@@ -1,25 +1,40 @@
 extends Node3D
-#for getting collison object and giving damage
-@onready var ray_cast_3d: RayCast3D = $RayCast3D
+
+@export_category("Weapon Setup")
+@export var projectile_scene: PackedScene
+@export var fire_rate: float = 0.2 # Cooldown between shots
+@export var damage: float = 25.0
 
 
-# Called when the node enters the scene tree for the first time.
-func _physics_process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Fire"):
+
+@onready var target : Node3D = $Target
+
+var _fire_timer: float = 0.0
+
+func _physics_process(delta: float) -> void:
+	_fire_timer -= delta
+	
+	# Prevent the player from shooting while time is actively rewinding!
+	if Globals.player != null and Globals.player.get("_is_rewinding") == true:
+		return
+		
+	# Using is_action_pressed allows for automatic fire if they hold the button
+	if Input.is_action_pressed("Fire") and _fire_timer <= 0.0:
 		shoot()
+		_fire_timer = fire_rate
 
 func shoot() -> void:
-	var ray = $RayCast3D 
+	if projectile_scene == null:
+		push_warning("PlayerWeapon: No projectile scene assigned in Inspector!")
+		return
+		
+	var proj = projectile_scene.instantiate()
+	if proj is TemporalProjectile:
+		
+		var diff = target.global_position - global_position
+		
+		proj.target_dir = diff
+		proj.damage = damage
+		proj.target = TemporalProjectile.targets.Enemy
+		add_child(proj)
 	
-	if ray.is_colliding():
-		var hit_object = ray.get_collider()
-		
-		# 1. Look for the child named "HealthComponent"
-		var health = hit_object.get_node_or_null("HealthComponent")
-		
-		# 2. If it exists, call the take_damage function
-		if health:
-			health.take_damage(25.0)
-			print("Hit a destructible object!")
-		else:
-			print("Hit something with no health component (like a wall).")
