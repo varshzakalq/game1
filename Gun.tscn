@@ -10,7 +10,7 @@ script = ExtResource("1_fry05")
 projectile_scene = ExtResource("2_7c1qe")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=925327023]
-transform = Transform3D(0.067031994, 0, 0, 0, 0.08411576, 0, 0, 0, 0.9118499, 0, 0, 0)
+transform = Transform3D(0.034722596, 0, 0, 0, 0.043571994, 0, 0, 0, 0.4723386, 0, 0, 0)
 mesh = SubResource("BoxMesh_noarx")
 
 [node name="Target" type="Node3D" parent="." unique_id=934546689]
