@@ -1,4 +1,4 @@
-extends Node
+extends Component
 class_name HealthComponent
 
 # Signals allow other nodes (like UI or the Enemy) to react

@@ -1,5 +1,5 @@
 extends StandardEnemy
-class_name TimeLeech
+class_name Ranged_Enemy
 
 
 @export var explosion_scene: PackedScene
@@ -55,8 +55,7 @@ func _on_death() -> void:
 		# 6. If it's a particle system, ensure it starts emitting
 	if explosion is GPUParticles3D or explosion is CPUParticles3D:
 		explosion.emitting = true
-	if dist < 2.: 
-		print("damaged")
+	if dist < 1: 
 		Globals.player.aging_component.increase_age(500)
 	
 	
