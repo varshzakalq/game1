@@ -272,8 +272,20 @@ orientation = 0
 size = Vector2(1.4, 0.9)
 orientation = 0
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_joel0"]
+size = Vector2(1.4, 0.9)
+orientation = 0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_gfiq0"]
 size = Vector3(1.1132813, 1, 1.559021)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5bamp"]
+size = Vector2(1.5, 0.9)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5hmwf"]
+size = Vector2(0.9, 0.55)
+orientation = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uhfm4"]
 size = Vector3(2.3220215, 2.0715332, 2.444458)
@@ -1479,6 +1491,16 @@ transform = Transform3D(-0.02033931, 0, -1.7136773, 0, 1.7137983, 0, 1.7136773, 
 [node name="computer4" parent="NavigationRegion3D" unique_id=369441351 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, 4.3335075, 2.2673855, -13.654004)
 
+[node name="Billboard4" parent="NavigationRegion3D/computer4" unique_id=280334765 instance=ExtResource("23_kp2hi")]
+transform = Transform3D(1, 0, 0, 0, 1.0000018, 0, 0, 0, 1, -0.16475582, 1.8816749, 1.9416713)
+mesh = SubResource("PlaneMesh_joel0")
+skeleton = NodePath("../../computer1")
+initial_text = "URGENT REBOOT OF PROJECT REWIND UNDERWAY...
+
+DATA MISSING..."
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+text_color = Color(1, 0, 0, 1)
+
 [node name="bigasscapsule" parent="NavigationRegion3D" unique_id=1470422774 instance=ExtResource("32_i604k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.716476, 3.7441268, -3.2615786)
 
@@ -1487,6 +1509,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.716476, 3.7441268, -3.2615
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/bigasscapsule/StaticBody3D" unique_id=1544472936]
 transform = Transform3D(5.589214, 0, 0, 0, 5.589214, 0, 0, 0, 5.589214, -0.31657696, 0, -3.0390244)
 shape = SubResource("BoxShape3D_gfiq0")
+
+[node name="Billboard" parent="NavigationRegion3D/bigasscapsule" unique_id=1787276184 instance=ExtResource("23_kp2hi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5905094, 0.40108395, -1.8962402)
+mesh = SubResource("PlaneMesh_5bamp")
+initial_text = "ERROR *&#@%&%$#&@*(#$^#)@*%^@#*&(%^#&*@%^@#*&(%^#@&^%*#!^&$*^#!^$)))#^%#!^%*&#%^*&)#!^%*&#@^%*&#$^%*$#@^%*#&%#%#%\":>\"#!<%\"#!>%:^#<\"!:>\"#$%#+%+["
+text_color = Color(1, 0, 0, 1)
+
+[node name="Billboard2" parent="NavigationRegion3D/bigasscapsule" unique_id=165430750 instance=ExtResource("23_kp2hi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6593304, -0.33056355, -1.8962402)
+mesh = SubResource("PlaneMesh_5hmwf")
+initial_text = "ERROR *&#@%&%$#&@*(#$^#)@*%^@#*&(%^#&*@%^@#*&(%^#@&^%*#!^&$*^#!^$)))#^%#!^%*&#%^*&)#!^%*&#@^%*&#$^%*$#@^%*#&%#%#%\":>\"#!<%\"#!>%:^#<\"!:>\"#$%#+%+["
+text_color = Color(1, 0, 0, 1)
 
 [node name="asset5" parent="NavigationRegion3D" unique_id=1370549756 instance=ExtResource("33_amagp")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 29.24524, 2.9659243, 6.9068413)
