@@ -98,6 +98,7 @@ uv1_scale = Vector3(15.475, 15.475, 15.475)
 albedo_color = Color(0.14911404, 0.14911404, 0.14911404, 1)
 roughness = 0.0
 normal_enabled = true
+normal_scale = 0.2
 normal_texture = ExtResource("7_n8vhr")
 heightmap_enabled = true
 heightmap_texture = ExtResource("7_n8vhr")
