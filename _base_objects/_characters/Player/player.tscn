@@ -250,7 +250,9 @@ script = SubResource("GDScript_x2vq2")
 
 [node name="gun" parent="Camera" unique_id=1988051927 instance=ExtResource("3_x2vq2")]
 transform = Transform3D(0.55662626, 0, 0, 0, 0.5557289, -0.0315955, 0, 0.0315955, 0.5557289, -0.190121, -0.24269146, -0.15977699)
-fire_rate = 2.0
+
+fire_rate = 0.5
+
 bullet_speed = 100.0
 
 [node name="Aging Component" type="Node" parent="." unique_id=1652178798]

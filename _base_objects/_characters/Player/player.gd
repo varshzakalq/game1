@@ -16,7 +16,6 @@ var _penalty_tween : Tween
 # NODE REFERENCES
 # ==========================================
 @onready var mesh = $Mesh
-#@onready var death_cam = $dead_cam
 @onready var camera = %Camera
 @onready var camera_rotation = camera.global_rotation.x :
 	set(value):
@@ -488,13 +487,3 @@ func apply_rollback_penalty(age : float) -> void:
 	# Godot 4 allows us to tween shader parameters directly using this exact string path
 	_penalty_tween.tween_property(_penalty_mat, "shader_parameter/intensity", 0.0, penalty_fade_duration)
 	
-
-
-
-
-
-#func death_aniamtion():
-	#
-	#camera.current = false
-	#death_cam.current = true
-	#mesh.hide()
