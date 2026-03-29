@@ -13,6 +13,7 @@ enum targets{
 @export var proj_color : Color 
 @export var energy : float 
 @export var volumetric_energy : float
+const audio= preload("uid://cs8fh57sreaa7")
 
 @export_category("Projectile Stats")
 @export var speed: float = 10.0
@@ -29,7 +30,7 @@ var _alive_timer: float = 0.0
 
 func _ready() -> void:
 	
-	
+	AudioManager.play_3d(audio,global_position)
 	
 	top_level = true
 	super._ready() 

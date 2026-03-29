@@ -308,6 +308,9 @@ func _process_normal_movement(delta: float) -> void:
 	
 	# Apply jump logic
 	if _input_jump_requested:
+		const jump_sound = preload("uid://2rdvnxtw0tky")
+		
+		AudioManager.play_2d(jump_sound,10)
 		_attempt_jump()
 
 

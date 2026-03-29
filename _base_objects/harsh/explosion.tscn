@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3bjs034bdhpo"]
 
-[ext_resource type="Script" path="res://_base_objects/harsh/explosion_cleaner.gd" id="1_q7epf"]
+[ext_resource type="Script" uid="uid://c48tt4tq8i7a8" path="res://_base_objects/harsh/explosion_cleaner.gd" id="1_q7epf"]
 
 [sub_resource type="Curve" id="Curve_7rj46"]
 _limits = [0.0, 1.0, 0.99, 1.0]

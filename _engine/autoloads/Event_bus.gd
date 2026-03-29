@@ -5,8 +5,8 @@ signal fov_changed(value : float)
 
 signal rewinding(value : bool)
 signal ambient_aging(value : float)
-
-
+var roll_back = preload("uid://bpeb1uwni7a0q")
+var time = 12.3
 var REWINDING = false
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -18,6 +18,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		REWINDING = false
 
 func _process(delta: float) -> void:
+	time += delta
 	if REWINDING:
 		if Globals.player != null:
 			Globals.player.aging_component.increase_age(delta, 500)
+		
+		
+		if (time>12):
+			AudioManager.play_2d(roll_back,0)
+			time = 0

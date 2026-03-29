@@ -7,9 +7,6 @@ class_name TimeLeech
 @onready var health_component: HealthComponent = $HealthComponent
 var previous_mem = false
 
-var nav_reset_timer : float = 0
-var nav_reset_threshold : float = 5
-
 func _physics_process(delta: float) -> void:
 	# Safety check: if player isn't loaded, don't do anything
 	if Globals.player == null:
@@ -23,22 +20,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
-func process_idle(delta: float) -> void:
-	
-	nav_reset_timer += delta
-	
-	if nav_reset_timer > nav_reset_threshold:
-		navigation_agent_3d.target_position = global_position + Vector3(randf_range(-5,5), 0, randf_range(-5,5))
-		nav_reset_timer = 0
-	if not navigation_agent_3d.is_navigation_finished():
-			var next_path_pos = navigation_agent_3d.get_next_path_position()
-			var direction = (next_path_pos - global_position).normalized()
-			_turn_towards(Vector3(next_path_pos.x, global_position.y, next_path_pos.z ))
-
-			velocity = direction * SPEED
-		
-
-func process_chase(_delta: float, distance_to_player: float) -> void:
+func process_chase(delta: float, distance_to_player: float) -> void:
 	var dist = global_position.distance_to(Globals.player.global_position)
 
 	# Only track if within 20 units
@@ -49,7 +31,7 @@ func process_chase(_delta: float, distance_to_player: float) -> void:
 		if not navigation_agent_3d.is_navigation_finished():
 			var next_path_pos = navigation_agent_3d.get_next_path_position()
 			var direction = (next_path_pos - global_position).normalized()
-			_turn_towards(Vector3(next_path_pos.x, global_position.y, next_path_pos.z ))
+			look_at(Vector3(next_path_pos.x, global_position.y, next_path_pos.z ), Vector3.UP)
 			velocity = direction * SPEED
 
 func _ready() -> void:
@@ -83,6 +65,4 @@ func _on_death() -> void:
 	# 4. Remove the object from the game
 	queue_free()
 
-
-	
 	

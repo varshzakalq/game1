@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://da52xw65ld11j"]
 
+[ext_resource type="Script" uid="uid://dbrxby6mw073r" path="res://ambience.gd" id="1_kp2hi"]
 [ext_resource type="PackedScene" uid="uid://3tljg6wtyi87" path="res://industrial_robot.glb" id="1_s3kti"]
 [ext_resource type="Texture2D" uid="uid://dot2s7oodga0t" path="res://_assets/textures/Industrial sci-fi metal ceiling design.png" id="2_gfiq0"]
 [ext_resource type="Texture2D" uid="uid://daqhan3gn5wws" path="res://_assets/textures/ceiling_normal_map.png" id="3_qbfqj"]
@@ -381,6 +382,7 @@ emission_energy_multiplier = 5.14
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1194007995]
 environment = SubResource("Environment_00gqm")
+script = ExtResource("1_kp2hi")
 
 [node name="Sketchfab_Scene" parent="." unique_id=481057906 instance=ExtResource("1_s3kti")]
 transform = Transform3D(5.2289877, 0, 0, 0, 5.2289877, 0, 0, 0, 5.2289877, -22.874687, 0.1492424, 19.115803)
@@ -2274,45 +2276,185 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.343687, 2.588217, -73.388
 
 [node name="Time leech" parent="." unique_id=1811181162 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 33.282326)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech2" parent="." unique_id=1246006326 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 28.852987)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech4" parent="." unique_id=1829931495 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5402665, 2.4701824, 8.12027)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech9" parent="." unique_id=572254305 instance=ExtResource("19_pletq")]
 transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, 15.910838, 2.4701824, 8.12027)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech6" parent="." unique_id=1994220989 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9206362, 2.4701824, -0.3667841)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech11" parent="." unique_id=1730908371 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.573412, 2.4701824, 3.9076805)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech12" parent="." unique_id=901836186 instance=ExtResource("19_pletq")]
 transform = Transform3D(-0.77789223, 0, -0.6283977, 0, 1, 0, 0.6283977, 0, -0.77789223, -16.660934, 2.4701824, 3.9076805)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech7" parent="." unique_id=1688926103 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.241911, 2.4701824, -0.3667841)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech13" parent="." unique_id=587610931 instance=ExtResource("19_pletq")]
 transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, -13.565242, 2.4701824, -34.36184)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech16" parent="." unique_id=407389305 instance=ExtResource("19_pletq")]
 transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, -13.565242, 2.4701824, -40.688553)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech17" parent="." unique_id=353133847 instance=ExtResource("19_pletq")]
 transform = Transform3D(0.66968817, 0, 0.7426424, 0, 1, 0, -0.7426424, 0, 0.66968817, -20.47446, 2.4701824, -28.284481)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech14" parent="." unique_id=128265754 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.555443, 2.4701824, -42.848892)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech15" parent="." unique_id=2001179167 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.619855, 2.4701824, -24.58506)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="Time leech8" parent="." unique_id=55496333 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.232853, 2.4701824, -0.3667841)
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
 
 [node name="doors" type="Node3D" parent="." unique_id=842733751]
 

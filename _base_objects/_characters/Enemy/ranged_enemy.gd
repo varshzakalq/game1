@@ -5,11 +5,6 @@ extends StandardEnemy
 
 @onready var target_dir = $Target_dir
 
-@export_category("Projectile Aesthetics")
-@export var proj_color : Color 
-@export var energy : float = 3.476
-@export var volumetric_energy : float = 2.333
-
 @export_category("Combat Setup")
 @export var projectile_scene: PackedScene
 @export var projectile_speed: float = 10
@@ -17,6 +12,7 @@ extends StandardEnemy
 
 @export_category("Effects")
 @export var explosion_scene: PackedScene
+const blast = preload("uid://cisc24go2238h")
 
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var health_component: HealthComponent = $HealthComponent
@@ -82,12 +78,6 @@ func launch_attack(age_component, age_damage: float) -> void:
 	
 	
 	if proj is TemporalProjectile:
-		
-		proj.proj_color = proj_color
-		proj.energy = energy
-		proj.volumetric_energy = volumetric_energy
-		
-		
 		proj.speed = projectile_speed
 		proj.target_dir = dir_vec
 		proj.damage = age_damage
@@ -97,6 +87,8 @@ func launch_attack(age_component, age_damage: float) -> void:
 
 func _on_death() -> void:
 	if explosion_scene != null:
+		AudioManager.play_3d(blast,position)
+		print("played")
 		var explosion = explosion_scene.instantiate()
 		get_tree().current_scene.add_child(explosion)
 		explosion.global_position = global_position
