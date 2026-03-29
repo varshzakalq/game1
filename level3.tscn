@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://cvgwmjy4wccia" path="res://_base_objects/_worldbuilding/double_door.tscn" id="20_igwu1"]
 [ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="21_1i5bd"]
 [ext_resource type="Texture2D" uid="uid://oup2ee5a7r0b" path="res://_assets/lift/asset2_SciFi-Tile1_diffuse.jpg" id="22_02rm5"]
+[ext_resource type="PackedScene" uid="uid://bg5t4kuhaanqw" path="res://_base_objects/_worldbuilding/billboard.tscn" id="23_kp2hi"]
 [ext_resource type="Texture2D" uid="uid://bx4hynr03jnwa" path="res://_assets/lift/asset2_SciFi-Tile1_metallic-SciFi-Tile1_roughness.png" id="23_qlbxx"]
 [ext_resource type="Texture2D" uid="uid://c3qhv7gv3cj4k" path="res://_assets/lift/asset2_SciFi-Tile1_normal.jpg" id="24_lwyuh"]
 [ext_resource type="PackedScene" uid="uid://brb3xap2p7ksy" path="res://mainlight.tscn" id="25_cpy65"]
@@ -258,6 +259,18 @@ normal_enabled = true
 normal_texture = ExtResource("7_1qwjn")
 heightmap_enabled = true
 uv1_scale = Vector3(2.265, 2.265, 2.265)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1qwjn"]
+size = Vector2(1.5, 0.9)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1vlh0"]
+size = Vector2(1.4, 0.9)
+orientation = 0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kp2hi"]
+size = Vector2(1.4, 0.9)
+orientation = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gfiq0"]
 size = Vector3(1.1132813, 1, 1.559021)
@@ -1388,11 +1401,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.37450695, 4.4281073, 36.152
 [node name="computer1" parent="NavigationRegion3D" unique_id=559007714 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, 0.6341419, 2.2673855, 41.94023)
 
+[node name="Billboard" parent="NavigationRegion3D/computer1" unique_id=335272926 instance=ExtResource("23_kp2hi")]
+transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1, -0.13561058, 1.8705821, 1.9428537)
+mesh = SubResource("PlaneMesh_1qwjn")
+initial_text = "CRITICAL ERROR...
+
+Must push forward..
+Rapid testing is necessary.."
+background_color = Color(0, 0, 0, 1)
+text_color = Color(1, 0, 0, 1)
+
 [node name="computer2" parent="NavigationRegion3D" unique_id=330461385 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.2673855, 17.528276)
 
+[node name="Billboard2" parent="NavigationRegion3D/computer2" unique_id=940651055 instance=ExtResource("23_kp2hi")]
+transform = Transform3D(1, 0, 0, 0, 1.0000023, 0, 0, 0, 1, -0.14729881, 1.8816749, 1.9528046)
+mesh = SubResource("PlaneMesh_1vlh0")
+skeleton = NodePath("../../computer1")
+initial_text = "FAILED OPERATOR COUNT:  57
+
+ALTERNATE SOLUTION NEEDED..."
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+text_color = Color(1, 0, 0, 1)
+
 [node name="computer3" parent="NavigationRegion3D" unique_id=1582045775 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.2673855, -13.654004)
+
+[node name="Billboard3" parent="NavigationRegion3D/computer3" unique_id=1263208534 instance=ExtResource("23_kp2hi")]
+transform = Transform3D(1, 0, 0, 0, 1.0000018, 0, 0, 0, 1, -0.13880682, 1.8816749, 1.9519396)
+mesh = SubResource("PlaneMesh_kp2hi")
+skeleton = NodePath("../../computer1")
+initial_text = "TIME ANOMALY NEEDED...
+
+REQUESTING LAST RESORT..."
+background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
+text_color = Color(1, 0, 0, 1)
 
 [node name="computer6" parent="NavigationRegion3D" unique_id=1401559601 instance=ExtResource("31_2a3go")]
 transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0, 0.02252261, -15.571686, 2.8905263, -51.321583)
