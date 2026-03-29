@@ -22,7 +22,6 @@
 [ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="21_vv254"]
 [ext_resource type="PackedScene" uid="uid://brb3xap2p7ksy" path="res://mainlight.tscn" id="25_k4no8"]
 [ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="26_2og7n"]
-[ext_resource type="PackedScene" uid="uid://dgil4u0yl5ijm" path="res://_base_objects/_characters/Enemy/test_enemy.tscn" id="27_5dsv4"]
 [ext_resource type="PackedScene" uid="uid://0exb67spbw5j" path="res://_base_objects/_worldbuilding/walls/asset3.glb" id="28_1wlbv"]
 [ext_resource type="PackedScene" uid="uid://ctncm243wkwha" path="res://_base_objects/harsh/asset4.1.glb" id="29_8kqvw"]
 [ext_resource type="PackedScene" uid="uid://c2633wxhc4p7x" path="res://_base_objects/harsh/computer1.glb" id="31_j3ey0"]
@@ -349,9 +348,6 @@ transform = Transform3D(0, 0.33378452, 0, 0, 0, -0.33378452, -0.33378452, 0, 0, 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1756447756]
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=208691863 instance=ExtResource("26_2og7n")]
-
-[node name="test_enemy" parent="." unique_id=1773575572 instance=ExtResource("27_5dsv4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.201677, 3.0763388, 39.789566)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=48358568]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0591812, -1.455407, -0.49607086)
