@@ -6,6 +6,8 @@ extends Control
 @onready var menu_cbox = $Menu
 @onready var settings = $Settings
 
+@onready var htplay = $How_to_play
+
 @onready var start_btn = menu_vbox.get_node("Start")
 @onready var how_to_play_btn = menu_vbox.get_node("How to play")
 @onready var settings_btn = menu_vbox.get_node("Settings")
@@ -29,8 +31,8 @@ func _on_start_pressed() -> void:
 	get_tree().change_scene_to_file("res://_main/Starting scenes/Starting scene.tscn")
 
 func _on_how_to_play_pressed() -> void:
-	# Toggle your tutorial popup visibility here
-	print("How to play clicked")
+	menu_cbox.hide()
+	htplay.show()
 
 func _on_settings_pressed() -> void:
 	menu_cbox.hide()

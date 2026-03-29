@@ -27,6 +27,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		rewinding.emit(false)
 		REWINDING = false
 
+
 func _process(delta: float) -> void:
 	time += delta
 	if REWINDING:

@@ -202,12 +202,15 @@ layout_mode = 2
 theme = ExtResource("1_1uk7d")
 text = "60"
 
-[node name="Controls" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=1060520148]
+[node name="Controls" type="ScrollContainer" parent="MarginContainer/VBoxContainer/TabContainer" unique_id=372791933]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Keybinds" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Controls" unique_id=954319461]
+[node name="Controls" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Controls" unique_id=1060520148]
+layout_mode = 2
+
+[node name="Keybinds" type="VBoxContainer" parent="MarginContainer/VBoxContainer/TabContainer/Controls/Controls" unique_id=954319461]
 layout_mode = 2
 
 [node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1384552410]

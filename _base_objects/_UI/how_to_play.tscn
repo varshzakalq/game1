@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dcu3ssqmofn1j"]
+
+[ext_resource type="Script" uid="uid://bpqepburmaxbl" path="res://_base_objects/_UI/how_to_play.gd" id="1_xjv0g"]
+[ext_resource type="Theme" uid="uid://dss77bd6nenau" path="res://_base_objects/_UI/Main_theme.tres" id="2_umbxd"]
+
+[node name="How_to_play" type="Control" unique_id=20292514]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_xjv0g")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=856055465]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.5
+offset_top = -307.5
+offset_right = 375.5
+offset_bottom = 307.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=986463813]
+layout_mode = 2
+theme = ExtResource("2_umbxd")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=111900618]
+layout_mode = 2
+theme = ExtResource("2_umbxd")
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer" unique_id=446028035]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/PanelContainer" unique_id=294990168]
+layout_mode = 2
+theme = ExtResource("2_umbxd")
+text = "How to play"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer" unique_id=612570370]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer/MarginContainer2" unique_id=315857051]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer2/PanelContainer" unique_id=708977189]
+layout_mode = 2
+size_flags_vertical = 1
+text = "
+Rebinds are configurable in the settings
+Rewinding moves the world backward…
+but you continue forward.
+
+Using time will age you rapidly
+Enemies and hazards will accelerate aging further
+
+As you age, movement becomes slower
+Aging is permanent. Use time carefully.
+
+Objective
+Navigate the facility
+Reach the exit
+"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1384552410]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="Back_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1623330030]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Back"

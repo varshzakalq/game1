@@ -3,6 +3,7 @@
 [ext_resource type="Theme" uid="uid://dss77bd6nenau" path="res://_base_objects/_UI/Main_theme.tres" id="1_wg7hw"]
 [ext_resource type="Script" uid="uid://c6y27vbd3tlo2" path="res://_base_objects/_UI/main_menu.gd" id="2_s15y6"]
 [ext_resource type="PackedScene" uid="uid://syuxycxadjjq" path="res://_base_objects/_UI/settings.tscn" id="3_6kdcf"]
+[ext_resource type="PackedScene" uid="uid://dcu3ssqmofn1j" path="res://_base_objects/_UI/how_to_play.tscn" id="4_6kdcf"]
 
 [node name="Main_menu" type="Control" unique_id=2028103142]
 process_mode = 3
@@ -93,5 +94,9 @@ layout_mode = 2
 text = "Exit"
 
 [node name="Settings" parent="." unique_id=20292514 instance=ExtResource("3_6kdcf")]
+visible = false
+layout_mode = 1
+
+[node name="How_to_play" parent="." unique_id=940692007 instance=ExtResource("4_6kdcf")]
 visible = false
 layout_mode = 1

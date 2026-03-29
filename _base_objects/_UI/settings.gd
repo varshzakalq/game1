@@ -15,7 +15,7 @@ extends Control
 @onready var back_button = $MarginContainer/VBoxContainer/Back_button
 
 # --- NEW KEYBINDING REFERENCES & VARIABLES ---
-@onready var keybind_list = $MarginContainer/VBoxContainer/TabContainer/Controls/Keybinds
+@onready var keybind_list = $MarginContainer/VBoxContainer/TabContainer/Controls/Controls/Keybinds
 
 # Put your exact Input Map action names in this array
 @export var actions_to_remap: Array[String] = [
@@ -24,7 +24,11 @@ extends Control
 	"Left",
 	"Right",
 	"Jump",
-	"Rewind"
+	"Rewind",
+	"Interact",
+	"Fire",
+	"Sprint",
+	"Pause"
 	]
 
 var is_remapping: bool = false
@@ -66,7 +70,7 @@ func _create_keybind_list() -> void:
 	for action in actions_to_remap:
 		var row = HBoxContainer.new()
 		var action_label = Label.new()
-		var key_button = Button.new()
+		var key_button : Button = Button.new()
 		
 		# Format the string to look nice (e.g., "ui_up" becomes "Ui Up")
 		action_label.text = action.capitalize()
@@ -83,6 +87,9 @@ func _create_keybind_list() -> void:
 		
 		# We bind the specific action string and the button node to the function
 		key_button.pressed.connect(_on_keybind_button_pressed.bind(action, key_button))
+		
+		#key_button.set_anchor(SIDE_RIGHT, 0)
+		#key_button.set_
 		
 		row.add_child(action_label)
 		row.add_child(key_button)
