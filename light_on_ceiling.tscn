@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://3hsbhd8rx2d2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jj8s7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8j3w"]
+emission_enabled = true
+emission = Color(0.61562806, 0.9053446, 0.41122323, 1)
+emission_energy_multiplier = 3.28
+
+[node name="light_on_ceiling" type="MeshInstance3D" unique_id=1579965070]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 0, 0, 0)
+mesh = SubResource("PlaneMesh_jj8s7")
+surface_material_override/0 = SubResource("StandardMaterial3D_q8j3w")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=271434380]
+transform = Transform3D(1, 0, 0, 0, -0.05887075, -0.9982656, 0, 0.9982656, -0.05887075, 0, 0, 0)
+light_color = Color(0.8098078, 0.9666676, 0.7112503, 1)
+light_energy = 100.0
+light_indirect_energy = 9.36
+light_volumetric_fog_energy = 15.022
+spot_range = 4.712711

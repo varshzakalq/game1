@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://brb3xap2p7ksy"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_8lc5p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cqq67"]
+emission_enabled = true
+emission = Color(0.5263692, 0.8639623, 0.26693112, 1)
+emission_energy_multiplier = 5.32
+
+[node name="Node3D" type="Node3D" unique_id=371051866]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1697791130]
+mesh = SubResource("SphereMesh_8lc5p")
+surface_material_override/0 = SubResource("StandardMaterial3D_cqq67")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D" unique_id=649545703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.010513723, 0, 0)
+light_color = Color(0.5886367, 0.81066185, 0.44677144, 1)
+light_energy = 6.487
+light_indirect_energy = 6.303
+light_size = 0.298
+light_specular = 3.556
+omni_range = 16.081
+omni_shadow_mode = 0
