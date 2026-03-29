@@ -193,3 +193,5 @@ script = ExtResource("2_uonmu")
 
 [node name="UI part" type="CanvasLayer" parent="." unique_id=380399896]
 script = SubResource("GDScript_uonmu")
+
+[node name="RewindSoundPlayer" type="AudioStreamPlayer3D" parent="." unique_id=2110888849]

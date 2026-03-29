@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://m2rp1iaxqk82" path="res://_assets/textures/prototype textures/Vector/texture_08.svg" id="2_3pb50"]
 
 [sub_resource type="GDScript" id="GDScript_l51hj"]
-script/source = "extends Time_Object
+script/source = "extends Time_Stationary
 
 enum Direction{
 	Left,
@@ -14,6 +14,10 @@ enum Direction{
 @export var Open_time : float = 2
 
 @onready var initial_pos = position
+
+
+@onready var area = $Area3D
+
 var target_pos = Vector3.ZERO
 var is_open = false
 
@@ -41,16 +45,8 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not is_open:
-		if event.is_action_pressed(\"Interact\") and player_inside:
+		if event.is_action_pressed(\"Interact\") and area.overlaps_body(Globals.player):
 			open()
-
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body is Time_Character: player_inside = true
-
-
-func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body is Time_Character: player_inside = false
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_wswdr"]
@@ -65,25 +61,19 @@ size = Vector3(0.5, 4, 2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pb50"]
 
-[node name="Door" type="RigidBody3D" unique_id=363720575]
-sleeping = true
-lock_rotation = true
-freeze = true
+[node name="Door" type="StaticBody3D" unique_id=506418827]
 script = SubResource("GDScript_l51hj")
-SNAPSHOT_PROPERTY_LIST = Array[String](["global_position", "$is_open"])
-metadata/_custom_type_script = "uid://b225tkl4td63l"
+SNAPSHOT_PROPERTY_LIST = Array[String](["global_position", "global_rotation", "$is_open"])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=335268049]
 shape = SubResource("BoxShape3D_wswdr")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=999207716]
 mesh = SubResource("BoxMesh_atq1g")
+skeleton = NodePath("")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=51410903]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=254462832]
 transform = Transform3D(2, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 shape = SubResource("BoxShape3D_3pb50")
-
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

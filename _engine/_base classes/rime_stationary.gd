@@ -1,25 +1,11 @@
-extends CharacterBody3D
-class_name Time_Character
-
-
-
-signal just_finished_rewinding
-
-
-
-@export_category("Movement")
-@export var SPEED : float = 2.0
-@export var GRAVITY : float = 10.0
-@export var JUMP_FORCE : float = 2.0
-@export var SPRINT_MULTIPLIER : float = 1.5
-
-var _is_sprinting = false
+extends StaticBody3D
+class_name Time_Stationary
 
 @export_category("Time Mechanics")
 @export var MAX_SNAPSHOT_COUNT : int = 10000
 @export var SNAPSHOT_PROPERTY_LIST : Array[String] = [
-	"velocity",
-	"position"
+	"global_position",
+	"global_rotation",
 ]
 
 #INTERVAL VARS
@@ -40,26 +26,12 @@ var _rewind_accumulator : float = 0.0
 var snapshots : Dictionary = {}
 var _is_rewinding : bool = false
 
-var movement_multiplier : float = 1.2
-var jump_multiplier : float = 1.2
-
-@onready var aging_component
-
-
-
 func _ready() -> void:
-	
-	aging_component = get_node("Aging Component")
-	if aging_component != null:
-		aging_component.age_increased.connect(_handle_age_increase)
-	
 	for prop in SNAPSHOT_PROPERTY_LIST:
 		snapshots[prop] = []
 	EventBus.rewinding.connect(_on_rewind_state)
 
 func _rollback(delta: float) -> void:
-	
-
 	if _reached_history_end or snapshots[SNAPSHOT_PROPERTY_LIST[0]].is_empty():
 		_reached_history_end = true
 		return
@@ -104,9 +76,15 @@ func _rollback(delta: float) -> void:
 			_rewind_tween.set_parallel(true)
 			
 			var tween_duration = SNAPSHOT_INTERVAL / _current_rewind_speed
-			
 			for key in target_values:
-				_rewind_tween.tween_property(self, key, target_values[key], tween_duration)
+				# Instantly set velocities to preserve exact physical momentum
+
+				if key[0] == '$':
+					var temp = key.substr(1)
+					set(temp, target_values[key])
+				
+				else:
+					_rewind_tween.tween_property(self, key, target_values[key], tween_duration)
 
 func _take_snapshot(delta: float) -> void:
 	if _is_rewinding: return
@@ -119,11 +97,18 @@ func _take_snapshot(delta: float) -> void:
 		_time_since_last_snapshot -= SNAPSHOT_INTERVAL 
 		
 		for property in SNAPSHOT_PROPERTY_LIST:
-			var value = get(property)
+			
+			var value
+			
+			if property[0] == '$':
+				var temp = property.substr(1)
+				value = get(temp)
+			
+			else: value = get(property)
+			
 			if value == null:
 				push_error("NON EXISTENT PROPERTY %s TO TAKE SNAPSHOT OF" % property)
 				continue
-			if not snapshots.has(property): snapshots[property] = []
 			snapshots[property].append(value)
 			
 			if MAX_SNAPSHOT_COUNT > 0 and snapshots[property].size() > MAX_SNAPSHOT_COUNT:
@@ -133,77 +118,16 @@ func _stop_rollback() -> void:
 	_is_rewinding = false
 	_current_rewind_speed = MIN_REWIND_SPEED 
 	_rewind_accumulator = 0.0 
-	
-	just_finished_rewinding.emit()
-
-func _move_self(direction: Vector2, delta: float) -> void:
-	if _is_rewinding: return 
-	
-	var speed = SPEED * movement_multiplier
-	if _is_sprinting: speed *= SPRINT_MULTIPLIER
-	
-	var movement_dir = Vector3(direction.y, 0, direction.x)
-	
-	var vertical_vel = velocity.y
-	velocity = lerp(velocity, speed*movement_dir.rotated(Vector3.UP, global_rotation.y), 5 * delta)
-	velocity.y = vertical_vel
-
-func _attempt_jump() -> void:
-	if _is_rewinding: return
-	if is_on_floor():
-		velocity.y = JUMP_FORCE*jump_multiplier
-
-func _get_gravity(delta : float) -> void:
-	if _is_rewinding: return
-	
-	if not is_on_floor():
-		velocity.y -= GRAVITY*delta
-
-
-#func _handle_stair_step_up(delta: float) -> void:
-	#pass
-
-
-
-
-
 
 func _on_rewind_state(value : bool):
 	_is_rewinding = value
 	if value == false:
 		_stop_rollback()
-	
-
-
-
-
 
 
 func _process_time_mechanics(delta: float) -> void:
 	if _is_rewinding: _rollback(delta)
 
-func _handle_age_increase(age : float):
-	if age < 20:
-		movement_multiplier = 1.2
-		jump_multiplier = 1.2
-	elif age < 50:
-		movement_multiplier = 1
-		jump_multiplier = 1
-	elif age < 70:
-		movement_multiplier = 0.9
-		jump_multiplier = 0.9
-	else:
-		movement_multiplier = 0.7
-		jump_multiplier = 0.7
-	
-	age_effects(age)
-
-func age_effects(_age : float):
-	pass
-
-
 func _physics_process(delta: float) -> void:
 	_process_time_mechanics(delta)
-	_get_gravity(delta)
 	_take_snapshot(delta)
-	#_handle_stair_step_up(delta)
