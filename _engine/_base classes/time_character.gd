@@ -46,6 +46,7 @@ var jump_multiplier : float = 1.2
 @onready var aging_component
 
 
+
 func _ready() -> void:
 	
 	aging_component = get_node("Aging Component")
@@ -58,8 +59,7 @@ func _ready() -> void:
 
 func _rollback(delta: float) -> void:
 	
-	
-	
+
 	if _reached_history_end or snapshots[SNAPSHOT_PROPERTY_LIST[0]].is_empty():
 		_reached_history_end = true
 		return

@@ -89,3 +89,4 @@ func on_player_detected() -> void:
 ## Triggered once the moment the player escapes. Good for confusion animations.
 func on_player_lost() -> void:
 	pass
+	

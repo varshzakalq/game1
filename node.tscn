@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddcovtcuvokvb" path="res://_assets/textures/concrete_barrier__drum_barrel__fences_1.jpg" id="9_wt6go"]
 [ext_resource type="ArrayMesh" uid="uid://b2ec2wnt0vmjm" path="res://_assets/Untitled.obj" id="11_436f3"]
 [ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="12_wt6go"]
+[ext_resource type="PackedScene" uid="uid://cqm64nxyotapa" path="res://_base_objects/_worldbuilding/level_transition.tscn" id="13_436f3"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_feppd"]
 rayleigh_coefficient = 2.48
@@ -161,380 +162,390 @@ light_specular = 0.1
 light_bake_mode = 1
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1026272134]
-transform = Transform3D(6.104504, 0, 0, 0, 6.104504, 0, 0, 0, 6.104504, -0.39603454, -5.319344, 45.194824)
+[node name="Player" parent="." unique_id=1091194407 instance=ExtResource("12_wt6go")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -1.4867451, -4.1500797, 57.69936)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="StaticBody3D" unique_id=38000612]
+[node name="Level_map" type="Node3D" parent="." unique_id=219036276]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Level_map" unique_id=1026272134]
+transform = Transform3D(6.104504, 0, 0, 0, 6.104504, 0, 0, 0, 6.104504, -0.39603496, -5.319344, 45.194828)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Level_map/StaticBody3D" unique_id=38000612]
 size = Vector3(1, 0.08898926, 6.3101807)
 material = SubResource("StandardMaterial3D_oaeeq")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D/CSGBox3D3" unique_id=1842851948]
+[node name="CSGBox3D" type="CSGBox3D" parent="Level_map/StaticBody3D/CSGBox3D3" unique_id=1842851948]
 transform = Transform3D(5.740809, 0, 0, 0, 5.740809, 0, 0, 0, 5.740809, 0.45528218, 0.29719126, -0.023627281)
 size = Vector3(0.0087890625, 0.083984375, 1.0975342)
 material = SubResource("StandardMaterial3D_jfkdj")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="StaticBody3D/CSGBox3D3" unique_id=301694737]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level_map/StaticBody3D/CSGBox3D3" unique_id=301694737]
 transform = Transform3D(5.740809, 0, 0, 0, 5.740809, 0, 0, 0, 5.740809, -0.502157, 0.29719126, -0.023627281)
 size = Vector3(0.0087890625, 0.083984375, 1.0975342)
 material = SubResource("StandardMaterial3D_wt6go")
 
-[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=809246904]
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="Level_map/StaticBody3D" unique_id=809246904]
 shape = SubResource("ConcavePolygonShape3D_wt6go")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="." unique_id=1900184581]
-transform = Transform3D(6.104505, 0, 0, 0, 6.104505, 0, 0, 0, 6.104505, -0.53501827, -2.992082, 20.094318)
+[node name="StaticBody3D2" type="StaticBody3D" parent="Level_map" unique_id=1900184581]
+transform = Transform3D(6.104505, 0, 0, 0, 6.104505, 0, 0, 0, 6.104505, -0.53501797, -2.992082, 20.094318)
 script = SubResource("GDScript_wt6go")
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="StaticBody3D2" unique_id=957630709]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Level_map/StaticBody3D2" unique_id=957630709]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -0.0359495, 0)
 
-[node name="CSGBox3D33" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1218276160]
+[node name="CSGBox3D33" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1218276160]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D23" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1827187148]
+[node name="CSGBox3D23" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1827187148]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.03519687, -0.11562252)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D34" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=411107324]
+[node name="CSGBox3D34" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=411107324]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.06933898, -0.23497057)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D24" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=901677907]
+[node name="CSGBox3D24" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=901677907]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.09931129, -0.35717654)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D35" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=734046029]
+[node name="CSGBox3D35" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=734046029]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.13345346, -0.4765246)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D25" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=707758060]
+[node name="CSGBox3D25" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=707758060]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.16865018, -0.5921471)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D36" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1829058686]
+[node name="CSGBox3D36" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1829058686]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.20279233, -0.7114954)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D26" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=186323863]
+[node name="CSGBox3D26" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=186323863]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.2313288, -0.8261199)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D37" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1971327203]
+[node name="CSGBox3D37" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1971327203]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.26547092, -0.9454684)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D44" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1028269775]
+[node name="CSGBox3D44" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1028269775]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.31358773, 1.0546372)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D45" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=895205238]
+[node name="CSGBox3D45" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=895205238]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.2794456, 0.9352915)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D46" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1385172263]
+[node name="CSGBox3D46" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1385172263]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.24947304, 0.81308436)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D47" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=615380755]
+[node name="CSGBox3D47" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=615380755]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.21533102, 0.6937349)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D48" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=940878723]
+[node name="CSGBox3D48" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=940878723]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.1801343, 0.5781138)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D49" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=641371682]
+[node name="CSGBox3D49" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=641371682]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.14599204, 0.4587643)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D50" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=488769172]
+[node name="CSGBox3D50" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=488769172]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.11745578, 0.34414172)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D51" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1615875053]
+[node name="CSGBox3D51" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1615875053]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.083313584, 0.22479153)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D27" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=536056902]
+[node name="CSGBox3D27" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=536056902]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.3006677, -1.0610919)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D38" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1273339360]
+[node name="CSGBox3D38" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1273339360]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.33480984, -1.1804392)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D28" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=479519494]
+[node name="CSGBox3D28" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=479519494]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.3647823, -1.302646)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D39" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=2035776536]
+[node name="CSGBox3D39" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=2035776536]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.39892432, -1.4219942)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D29" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1068310026]
+[node name="CSGBox3D29" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1068310026]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.43412107, -1.5376168)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D40" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1597048401]
+[node name="CSGBox3D40" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1597048401]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.46826327, -1.6569649)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D30" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=243430189]
+[node name="CSGBox3D30" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=243430189]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.5009684, -1.7686483)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D41" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=964052357]
+[node name="CSGBox3D41" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=964052357]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.53511053, -1.8879956)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D31" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=214646332]
+[node name="CSGBox3D31" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=214646332]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.565083, -2.0102024)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D42" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1913725851]
+[node name="CSGBox3D42" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1913725851]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.599225, -2.1295507)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D32" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1845722046]
+[node name="CSGBox3D32" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1845722046]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.63442177, -2.2451725)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D43" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=1843681647]
+[node name="CSGBox3D43" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=1843681647]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0.66856396, -2.3645205)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CSGBox3D22" type="CSGBox3D" parent="StaticBody3D2/CSGCombiner3D" unique_id=2120579791]
+[node name="CSGBox3D22" type="CSGBox3D" parent="Level_map/StaticBody3D2/CSGCombiner3D" unique_id=2120579791]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, -0.034142196, 0.11934805)
 material_override = SubResource("StandardMaterial3D_bnlop")
 size = Vector3(0.52301025, 0.05810547, 0.119384766)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2" unique_id=165791904]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level_map/StaticBody3D2" unique_id=165791904]
 transform = Transform3D(2.7008915, 0, 0, 0, 2.9596362, -1.090408, 0, 0.84285057, 3.8289254, -0.0023881271, 0.08720857, -0.522079)
 shape = SubResource("BoxShape3D_wt6go")
 
-[node name="Area3D" type="Area3D" parent="StaticBody3D2" unique_id=1607296820]
+[node name="Area3D" type="Area3D" parent="Level_map/StaticBody3D2" unique_id=1607296820]
 transform = Transform3D(0.99999976, 0, 0, 0, 0.99999976, 0, 0, 0, 0.99999976, 0, -0.2288698, 1.164613)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2/Area3D" unique_id=1052360834]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Level_map/StaticBody3D2/Area3D" unique_id=1052360834]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.02821827)
 shape = SubResource("BoxShape3D_436f3")
 
-[node name="scifi1" parent="." unique_id=868221428 instance=ExtResource("2_r657h")]
-transform = Transform3D(7.605, 0, 0, 0, 7.605, 0, 0, 0, 7.605, -0.08399868, 1.4213467, -1.2116232)
+[node name="scifi1" parent="Level_map" unique_id=868221428 instance=ExtResource("2_r657h")]
+transform = Transform3D(7.6050005, 0, 0, 0, 7.605, 0, 0, 0, 7.6050005, -0.08399868, 1.4213467, -1.2116222)
 
-[node name="Sketchfab_Scene" parent="scifi1" unique_id=265445526 instance=ExtResource("5_wt6go")]
+[node name="Sketchfab_Scene" parent="Level_map/scifi1" unique_id=265445526 instance=ExtResource("5_wt6go")]
 transform = Transform3D(0.13149244, 0, 0, 0, 0.13149244, 0, 0, 0, 0.13149244, 0.045187578, -0.8495739, 8.571318)
 
-[node name="Sketchfab_Scene2" parent="scifi1" unique_id=601180649 instance=ExtResource("5_wt6go")]
+[node name="Sketchfab_Scene2" parent="Level_map/scifi1" unique_id=601180649 instance=ExtResource("5_wt6go")]
 transform = Transform3D(0.07433054, 0, -0.10846765, 0, 0.13149244, 0, 0.10846765, 0, 0.07433054, -0.43744197, -0.853737, 8.473452)
 
-[node name="Sketchfab_Scene4" parent="scifi1" unique_id=1839495072 instance=ExtResource("5_wt6go")]
+[node name="Sketchfab_Scene4" parent="Level_map/scifi1" unique_id=1839495072 instance=ExtResource("5_wt6go")]
 transform = Transform3D(0.07433054, 0, -0.10846765, 0, 0.13149244, 0, 0.10846765, 0, 0.07433054, 0.034854665, -0.853737, 6.1900773)
 
-[node name="Sketchfab_Scene5" parent="scifi1" unique_id=1539264095 instance=ExtResource("5_wt6go")]
+[node name="Sketchfab_Scene5" parent="Level_map/scifi1" unique_id=1539264095 instance=ExtResource("5_wt6go")]
 transform = Transform3D(0.13130005, 0.0026895243, 0.00658244, -0.0026861513, 0.13146494, -0.0001346643, -0.0065838173, 0, 0.13132752, 0.00030945893, -0.853737, 4.342428)
 
-[node name="Sketchfab_Scene3" parent="scifi1" unique_id=183041802 instance=ExtResource("6_436f3")]
+[node name="Sketchfab_Scene3" parent="Level_map/scifi1" unique_id=183041802 instance=ExtResource("6_436f3")]
 transform = Transform3D(3.0938697, 0, 5.404389, 0, 6.227315, 0, -5.404389, 0, 3.0938697, -0.02285539, -0.8538371, 7.643262)
 
-[node name="Sketchfab_Scene" parent="." unique_id=1742775528 instance=ExtResource("7_bcos8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0700896, 0, 0.33853817)
+[node name="Sketchfab_Scene" parent="Level_map" unique_id=1742775528 instance=ExtResource("7_bcos8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0700898, 0, 0.33853912)
 
-[node name="Sketchfab_Scene2" parent="." unique_id=30413354 instance=ExtResource("7_bcos8")]
-transform = Transform3D(-5.6691513, 0, -229.02101, 0, 229.09116, 0, 229.02101, 0, -5.6691513, 1.9627856, 1.0384979, 36.835903)
+[node name="Sketchfab_Scene2" parent="Level_map" unique_id=30413354 instance=ExtResource("7_bcos8")]
+transform = Transform3D(-5.6691513, 0, -229.02103, 0, 229.09116, 0, 229.02103, 0, -5.6691513, 1.9627852, 1.0384979, 36.835907)
 
-[node name="Sketchfab_Scene3" parent="." unique_id=2112252812 instance=ExtResource("7_bcos8")]
-transform = Transform3D(-5.6691513, 0, -229.02101, 0, 229.09116, 0, 229.02101, 0, -5.6691513, 1.9627856, 1.0384979, -148.53506)
+[node name="Sketchfab_Scene3" parent="Level_map" unique_id=2112252812 instance=ExtResource("7_bcos8")]
+transform = Transform3D(-5.6691513, 0, -229.02103, 0, 229.09116, 0, 229.02103, 0, -5.6691513, 1.9627852, 1.0384979, -148.53505)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1680727443]
-transform = Transform3D(1.1911501, 0, 0, 0, 1.1911501, 0, 0, 0, 1.1911501, 6.4861727, -5.558328, 4.8187895)
+[node name="CSGBox3D" type="CSGBox3D" parent="Level_map" unique_id=1680727443]
+transform = Transform3D(1.1911502, 0, 0, 0, 1.1911501, 0, 0, 0, 1.1911502, 6.486173, -5.558328, 4.8187904)
 size = Vector3(5.3320313, 10.443237, 1)
 material = SubResource("StandardMaterial3D_bcos8")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=203055646]
-transform = Transform3D(1.1911501, 0, 0, 0, 1.1911501, 0, 0, 0, 1.1911501, -10.279769, -5.558328, 4.8187895)
+[node name="CSGBox3D2" type="CSGBox3D" parent="Level_map" unique_id=203055646]
+transform = Transform3D(1.1911502, 0, 0, 0, 1.1911501, 0, 0, 0, 1.1911502, -10.279768, -5.558328, 4.8187885)
 material_override = SubResource("StandardMaterial3D_cmsyx")
 size = Vector3(5.3320313, 10.443237, 1)
 
-[node name="Sketchfab_Scene4" parent="." unique_id=606635124 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 61.846596)
+[node name="Sketchfab_Scene4" parent="Level_map" unique_id=606635124 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 61.8466)
 
-[node name="Sketchfab_Scene5" parent="." unique_id=1321653827 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene5" parent="Level_map" unique_id=1321653827 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 60.252106)
 
-[node name="Sketchfab_Scene6" parent="." unique_id=545445833 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 57.525608)
+[node name="Sketchfab_Scene6" parent="Level_map" unique_id=545445833 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 57.52561)
 
-[node name="Sketchfab_Scene7" parent="." unique_id=742030221 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 55.032955)
+[node name="Sketchfab_Scene7" parent="Level_map" unique_id=742030221 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 55.03296)
 
-[node name="Sketchfab_Scene8" parent="." unique_id=1101924295 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 51.534706)
+[node name="Sketchfab_Scene8" parent="Level_map" unique_id=1101924295 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001127, -4.8037333, 51.534706)
 
-[node name="Sketchfab_Scene10" parent="." unique_id=168817387 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 46.662174)
+[node name="Sketchfab_Scene10" parent="Level_map" unique_id=168817387 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001132, -4.8037333, 46.662174)
 
-[node name="Sketchfab_Scene11" parent="." unique_id=988745287 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene11" parent="Level_map" unique_id=988745287 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 44.16952)
 
-[node name="Sketchfab_Scene12" parent="." unique_id=1851270138 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene12" parent="Level_map" unique_id=1851270138 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 40.671272)
 
-[node name="Sketchfab_Scene13" parent="." unique_id=1519655866 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 38.41364)
+[node name="Sketchfab_Scene13" parent="Level_map" unique_id=1519655866 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 38.413643)
 
-[node name="Sketchfab_Scene14" parent="." unique_id=820448753 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 35.920986)
+[node name="Sketchfab_Scene14" parent="Level_map" unique_id=820448753 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001127, -4.8037333, 35.92099)
 
-[node name="Sketchfab_Scene15" parent="." unique_id=1600794592 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 32.422737)
+[node name="Sketchfab_Scene15" parent="Level_map" unique_id=1600794592 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 32.42274)
 
-[node name="Sketchfab_Scene16" parent="." unique_id=1359889442 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001122, -4.8037333, 33.83627)
+[node name="Sketchfab_Scene16" parent="Level_map" unique_id=1359889442 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, 2.3001127, -4.8037333, 33.836273)
 
-[node name="Sketchfab_Scene17" parent="." unique_id=1477976677 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 31.343616)
+[node name="Sketchfab_Scene17" parent="Level_map" unique_id=1477976677 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 31.343618)
 
-[node name="Sketchfab_Scene19" parent="." unique_id=1075422314 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688497, -4.8037333, 42.600742)
+[node name="Sketchfab_Scene19" parent="Level_map" unique_id=1075422314 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688494, -4.8037333, 42.600742)
 
-[node name="Sketchfab_Scene20" parent="." unique_id=1983007957 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 40.10809)
+[node name="Sketchfab_Scene20" parent="Level_map" unique_id=1983007957 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688494, -4.8037333, 40.10809)
 
-[node name="Sketchfab_Scene21" parent="." unique_id=109993784 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 36.60984)
+[node name="Sketchfab_Scene21" parent="Level_map" unique_id=109993784 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688494, -4.8037333, 36.60984)
 
-[node name="Sketchfab_Scene22" parent="." unique_id=1631248910 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene22" parent="Level_map" unique_id=1631248910 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688497, -4.8037333, 34.352207)
 
-[node name="Sketchfab_Scene23" parent="." unique_id=917137112 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene23" parent="Level_map" unique_id=917137112 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 31.859554)
 
-[node name="Sketchfab_Scene24" parent="." unique_id=682313003 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 28.361305)
+[node name="Sketchfab_Scene24" parent="Level_map" unique_id=682313003 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 28.361307)
 
-[node name="Sketchfab_Scene25" parent="." unique_id=545378569 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688497, -4.8037333, 29.774837)
-
-[node name="Sketchfab_Scene26" parent="." unique_id=66298108 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene26" parent="Level_map" unique_id=66298108 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 27.282185)
 
-[node name="Sketchfab_Scene27" parent="." unique_id=504198666 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene28" parent="Level_map" unique_id=2066727063 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.46885, -4.8037333, 57.363914)
+
+[node name="Sketchfab_Scene27" parent="Level_map" unique_id=504198666 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688497, -4.8037333, 59.856567)
 
-[node name="Sketchfab_Scene28" parent="." unique_id=2066727063 instance=ExtResource("8_cmsyx")]
-transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 57.363914)
-
-[node name="Sketchfab_Scene29" parent="." unique_id=722083865 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene29" parent="Level_map" unique_id=722083865 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 53.865665)
 
-[node name="Sketchfab_Scene30" parent="." unique_id=1500921373 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene30" parent="Level_map" unique_id=1500921373 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688497, -4.8037333, 51.608032)
 
-[node name="Sketchfab_Scene31" parent="." unique_id=957530101 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene31" parent="Level_map" unique_id=957530101 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 49.11538)
 
-[node name="Sketchfab_Scene32" parent="." unique_id=1951324605 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene32" parent="Level_map" unique_id=1951324605 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 45.61713)
 
-[node name="Sketchfab_Scene33" parent="." unique_id=1737128444 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene33" parent="Level_map" unique_id=1737128444 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688497, -4.8037333, 47.030663)
 
-[node name="Sketchfab_Scene34" parent="." unique_id=1997691549 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene34" parent="Level_map" unique_id=1997691549 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, -3.4688497, -4.8037333, 44.53801)
 
-[node name="Sketchfab_Scene18" parent="." unique_id=1394521229 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene18" parent="Level_map" unique_id=1394521229 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 27.845367)
 
-[node name="Sketchfab_Scene9" parent="." unique_id=588045650 instance=ExtResource("8_cmsyx")]
+[node name="Sketchfab_Scene9" parent="Level_map" unique_id=588045650 instance=ExtResource("8_cmsyx")]
 transform = Transform3D(-0.10192445, 0, 0.99479216, 0, 1, 0, -0.99479216, 0, -0.10192445, 2.3001122, -4.8037333, 48.69749)
 
-[node name="rock" type="Node3D" parent="." unique_id=151929771]
+[node name="Sketchfab_Scene25" parent="Level_map" unique_id=545378569 instance=ExtResource("8_cmsyx")]
+transform = Transform3D(0.08649503, 0, 0.9962523, 0, 1, 0, -0.9962523, 0, 0.08649503, -3.4688497, -4.8037333, 29.774837)
+
+[node name="rock" type="Node3D" parent="Level_map" unique_id=151929771]
 transform = Transform3D(0.21235508, 0, 0, 0, 0.21235508, 0, 0, 0, 0.21235508, -1.8929831, -4.0892296, 57.837124)
 
-[node name="Cube" type="MeshInstance3D" parent="rock" unique_id=138891008]
+[node name="Cube" type="MeshInstance3D" parent="Level_map/rock" unique_id=138891008]
 transform = Transform3D(59.161842, 0, 0, 0, -7.052641e-06, 59.16184, 0, -59.16184, -7.052641e-06, -7.8917685, -4.1663227, 2.7583618)
 mesh = SubResource("ArrayMesh_prmx3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_feppd")
 
-[node name="Cube2" type="MeshInstance3D" parent="rock" unique_id=40218600]
+[node name="Cube2" type="MeshInstance3D" parent="Level_map/rock" unique_id=40218600]
 transform = Transform3D(48.425793, 33.986256, 4.0514783e-06, 2.9497784e-20, -7.052641e-06, 59.16184, 33.98626, -48.42579, -5.772805e-06, -7.8917685, -4.1663227, -64.64615)
 mesh = SubResource("ArrayMesh_prmx3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_feppd")
 
-[node name="Cube3" type="MeshInstance3D" parent="rock" unique_id=1130180476]
+[node name="Cube3" type="MeshInstance3D" parent="Level_map/rock" unique_id=1130180476]
 transform = Transform3D(52.56371, -27.151068, -3.2366593e-06, -2.8429613e-13, -7.0526403e-06, 59.16184, -27.151066, -52.5637, -6.266083e-06, -7.8917685, -4.1663227, -140.36029)
 mesh = SubResource("ArrayMesh_prmx3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_feppd")
 
-[node name="Cube4" type="MeshInstance3D" parent="rock" unique_id=46076906]
+[node name="Cube4" type="MeshInstance3D" parent="Level_map/rock" unique_id=46076906]
 transform = Transform3D(59.161842, 0, 0, 0, -7.052641e-06, 59.16184, 0, -59.16184, -7.052641e-06, 18.769203, -4.1663227, 2.7583618)
 mesh = SubResource("ArrayMesh_prmx3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_feppd")
 
-[node name="Cube5" type="MeshInstance3D" parent="rock" unique_id=1946209563]
+[node name="Cube5" type="MeshInstance3D" parent="Level_map/rock" unique_id=1946209563]
 transform = Transform3D(48.425793, 33.986256, 4.0514783e-06, 2.9497784e-20, -7.052641e-06, 59.16184, 33.986263, -48.425793, -5.772805e-06, 18.769203, -4.1663227, -64.64615)
 mesh = SubResource("ArrayMesh_prmx3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_feppd")
 
-[node name="Cube6" type="MeshInstance3D" parent="rock" unique_id=2025180685]
+[node name="Cube6" type="MeshInstance3D" parent="Level_map/rock" unique_id=2025180685]
 transform = Transform3D(52.56371, -27.151068, -3.2366593e-06, -2.8429613e-13, -7.0526407e-06, 59.16184, -27.151066, -52.5637, -6.266083e-06, 18.769203, -4.1663227, -140.36029)
 mesh = SubResource("ArrayMesh_prmx3")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_feppd")
 
-[node name="Untitled" type="MeshInstance3D" parent="." unique_id=729827087]
+[node name="Untitled" type="MeshInstance3D" parent="Level_map" unique_id=729827087]
 transform = Transform3D(0.36841002, 0, 0, 0, 0.54586524, 0, 0, 0, 0.37550285, 0.20731449, -13.67724, 53.042538)
 mesh = ExtResource("11_436f3")
+skeleton = NodePath("../..")
 
-[node name="Untitled2" type="MeshInstance3D" parent="." unique_id=2003702791]
+[node name="Untitled2" type="MeshInstance3D" parent="Level_map" unique_id=2003702791]
 transform = Transform3D(0.36841002, 0, 0, 0, 0.54586524, 0, 0, 0, 0.37550285, 0.20731449, -13.67724, 40.421986)
 mesh = ExtResource("11_436f3")
+skeleton = NodePath("../..")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=256176002]
+[node name="StaticBody3D3" type="StaticBody3D" parent="Level_map" unique_id=1555807161]
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Level_map/StaticBody3D3" unique_id=256176002]
 transform = Transform3D(11.3444605, 0, 0, 0, 11.3444605, 0, 0, 0, 11.3444605, -5.177849, -0.17536974, 0)
 size = Vector3(2.6276855, 0.29785156, 1)
 
-[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="." unique_id=885180362]
+[node name="CSGBakedCollisionShape3D3" type="CollisionShape3D" parent="Level_map/StaticBody3D3" unique_id=885180362]
 transform = Transform3D(11.3444605, 0, 0, 0, 11.3444605, 0, 0, 0, 11.3444605, -5.177849, -0.17536974, 0)
 shape = SubResource("ConcavePolygonShape3D_cmsyx")
 
-[node name="Player" parent="." unique_id=1091194407 instance=ExtResource("12_wt6go")]
-transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -1.4867451, -4.1500797, 57.69936)
+[node name="Level_transition" parent="." unique_id=1313540812 instance=ExtResource("13_436f3")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.6185459, 1.7845885, 4.1017303)
+Target_scene_path = "res://level1.tscn"
 
-[connection signal="body_entered" from="StaticBody3D2/Area3D" to="StaticBody3D2" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Level_map/StaticBody3D2/Area3D" to="Level_map/StaticBody3D2" method="_on_area_3d_body_entered"]

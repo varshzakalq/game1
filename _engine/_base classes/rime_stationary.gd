@@ -1,13 +1,11 @@
-extends RigidBody3D
-class_name Time_Object
+extends StaticBody3D
+class_name Time_Stationary
 
 @export_category("Time Mechanics")
 @export var MAX_SNAPSHOT_COUNT : int = 10000
 @export var SNAPSHOT_PROPERTY_LIST : Array[String] = [
 	"global_position",
 	"global_rotation",
-	"linear_velocity",
-	"angular_velocity"
 ]
 
 #INTERVAL VARS
@@ -80,10 +78,8 @@ func _rollback(delta: float) -> void:
 			var tween_duration = SNAPSHOT_INTERVAL / _current_rewind_speed
 			for key in target_values:
 				# Instantly set velocities to preserve exact physical momentum
-				if key == "linear_velocity" or key == "angular_velocity":
-					set(key, target_values[key])
-				
-				elif key[0] == '$':
+
+				if key[0] == '$':
 					var temp = key.substr(1)
 					set(temp, target_values[key])
 				
@@ -127,9 +123,7 @@ func _on_rewind_state(value : bool):
 	_is_rewinding = value
 	if value == false:
 		_stop_rollback()
-		freeze = false # Hand control back to the physics engine
-	else:
-		freeze = true # Stop physics interference while rewinding
+
 
 func _process_time_mechanics(delta: float) -> void:
 	if _is_rewinding: _rollback(delta)

@@ -2,3 +2,26 @@ extends Node
 
 
 var player : Player = null
+
+signal fade_complete
+signal level_change(trigger_id : String)
+func fade_to_black():
+	var rect : ColorRect = ColorRect.new()
+	var canvas_layer = CanvasLayer.new()
+	
+	var root = get_tree().root
+	root.add_child(canvas_layer)
+	canvas_layer.add_child(rect)
+	
+	rect.size = get_viewport().get_visible_rect().size
+	
+	rect.color = Color(0.0, 0.0, 0.0, 0.0)
+	
+	var tween = create_tween()
+	
+	tween.tween_property(rect, "color", Color(0.0, 0.0, 0.0, 1.0), 1.0)
+	
+	await tween.finished
+	fade_complete.emit()
+	
+	get_tree().create_timer(2.0).timeout.connect(canvas_layer.queue_free)
