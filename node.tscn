@@ -13,7 +13,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b2ec2wnt0vmjm" path="res://_assets/Untitled.obj" id="11_436f3"]
 [ext_resource type="PackedScene" uid="uid://bp6wjeidcmh6x" path="res://_base_objects/_characters/Player/player.tscn" id="12_wt6go"]
 [ext_resource type="PackedScene" uid="uid://cqm64nxyotapa" path="res://_base_objects/_worldbuilding/level_transition.tscn" id="13_436f3"]
-[ext_resource type="PackedScene" path="res://car.glb" id="14_bcos8"]
+[ext_resource type="PackedScene" uid="uid://tsv3qs5gtj5" path="res://_base_objects/harsh/car.glb" id="14_bcos8"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_feppd"]
 rayleigh_coefficient = 2.48
