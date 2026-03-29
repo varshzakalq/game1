@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://7dqivf3ttfyv" path="res://_base_objects/_characters/Enemy/time_leech.gd" id="1_55nn3"]
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_luwtv"]
 [ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://explosion.tscn" id="2_ppgfr"]
-[ext_resource type="Script" uid="uid://bkrjw4g0do2mr" path="res://_base_objects/_characters/Enemy/health.gd" id="3_hoct4"]
+[ext_resource type="Script" path="res://_base_objects/_characters/Enemy/health.gd" id="3_hoct4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_luwtv"]
 

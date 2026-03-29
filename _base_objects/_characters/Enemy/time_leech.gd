@@ -32,6 +32,8 @@ func _ready() -> void:
 	# 2. Connect the "died" signal to our local function
 	# This says: "When the health hits 0, run the _on_death function"
 	health_component.died.connect(_on_death)
+	
+	super._ready()
 
 func _on_death() -> void:
 	# 3. Handle the destruction
