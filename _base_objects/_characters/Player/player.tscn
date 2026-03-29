@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cwjcjftukvpnn" path="res://_base_objects/_characters/Player/player.gd" id="1_dmsef"]
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_uonmu"]
-[ext_resource type="PackedScene" uid="uid://ceau2sw3wntw0" path="res://node_3d.tscn" id="3_x2vq2"]
+[ext_resource type="PackedScene" path="res://node_3d.tscn" id="3_x2vq2"]
+[ext_resource type="Texture2D" uid="uid://bo0stprtfxuf6" path="res://_assets/sprites/human-heart-circulatory-system-3d-computer-graphics-visualization-heart-22c9f1989f97d7ff15afd8cc0957e8cd.png" id="4_f4rpb"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dmsef"]
 
@@ -74,13 +75,165 @@ func _unhandled_input(event: InputEvent) -> void:
 		player.camera_rotation = rotation.x
 "
 
+[sub_resource type="GDScript" id="GDScript_f4rpb"]
+script/source = "class_name HUDManager
+extends CanvasLayer
+
+@export_category(\"HUD Visuals\")
+# Assign your heart/portrait image in the inspector here!
+@export var player_portrait: Texture2D 
+# Adds a nice slider in the Inspector from 0.0 (invisible) to 1.0 (solid light)
+@export_range(0.0, 1.0) var hologram_opacity: float = 0.8
+
+# --- INTERNAL TRACKING ---
+var _aging_component: Component = null
+
+# Portrait Tracking
+var _portrait_rect: TextureRect
+var _portrait_mat: ShaderMaterial
+var _current_portrait_time: float = 0.0
+
+func _ready() -> void:
+	_setup_portrait()
+	
+	# Wait one frame for the player to fully spawn before searching
+	call_deferred(\"_scan_for_aging_component\")
+
+func _setup_portrait() -> void:
+	if player_portrait == null:
+		push_warning(\"HUD: No player_portrait assigned in the inspector!\")
+		return
+		
+	_portrait_rect = TextureRect.new()
+	_portrait_rect.texture = player_portrait
+	
+	_portrait_rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	_portrait_rect.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	_portrait_rect.custom_minimum_size = Vector2(128.0, 128.0)
+	_portrait_rect.size = Vector2(128.0, 128.0) 
+	
+	var margin = MarginContainer.new()
+	margin.set_anchors_preset(Control.PRESET_TOP_LEFT)
+	margin.add_theme_constant_override(\"margin_left\", 30)
+	margin.add_theme_constant_override(\"margin_top\", 30)
+	margin.mouse_filter = Control.MOUSE_FILTER_IGNORE 
+	
+	add_child(margin)
+	margin.add_child(_portrait_rect)
+	
+	_portrait_rect.pivot_offset = _portrait_rect.size / 2.0
+	
+	_portrait_mat = ShaderMaterial.new()
+	var shader = Shader.new()
+	
+	shader.code = \"\"\"
+	shader_type canvas_item;
+	render_mode blend_add; 
+	
+	uniform float aging_severity : hint_range(0.0, 1.0) = 0.0;
+	
+	// NEW: The global opacity control
+	uniform float base_opacity : hint_range(0.0, 1.0) = 0.8;
+	
+	// Bumped the default alpha of the colors back to 1.0
+	uniform vec4 healthy_color : source_color = vec4(0.0, 0.8, 1.0, 1.0); 
+	uniform vec4 sick_color : source_color = vec4(1.0, 0.1, 0.1, 1.0);    
+	
+	void fragment() {
+		vec4 tex_color = texture(TEXTURE, UV);
+		float gray = dot(tex_color.rgb, vec3(0.299, 0.587, 0.114));
+		
+		vec4 current_color = mix(healthy_color, sick_color, aging_severity);
+		
+		float scanline = sin(SCREEN_UV.y * 800.0 - TIME * 10.0) * 0.1;
+		float grid = sin(UV.x * 150.0) * sin(UV.y * 150.0) * 0.05;
+		
+		float glitch = 1.0;
+		if (aging_severity > 0.7) {
+			float noise = fract(sin(dot(UV + TIME, vec2(12.9898, 78.233))) * 43758.5453);
+			if (noise > (1.5 - aging_severity)) {
+				glitch = 0.2; 
+			}
+		}
+		
+		vec3 final_rgb = (vec3(gray) * current_color.rgb) + scanline + grid;
+		
+		// Multiplied the final alpha by your new base_opacity variable
+		COLOR = vec4(final_rgb, tex_color.a * current_color.a * glitch * base_opacity);
+	}
+	\"\"\"
+	_portrait_mat.shader = shader
+	_portrait_rect.material = _portrait_mat
+	
+	# Pass your chosen Inspector value into the shader immediately!
+	_portrait_mat.set_shader_parameter(\"base_opacity\", hologram_opacity)
+
+func _scan_for_aging_component() -> void:
+	if Globals.player == null:
+		return
+		
+	# Look directly for the one specific component we care about
+	for child in Globals.player.get_children():
+		if child is Component and child.Component_Type == Component.Component_type.Aging:
+			_aging_component = child
+			break
+
+func _process(delta: float) -> void:
+	# If we haven't found the component or the UI hasn't built, do nothing
+	if _aging_component == null or _portrait_rect == null: 
+		return
+	
+	var current_age = _aging_component.get(\"current_age\")
+	
+	if current_age != null:
+		_animate_portrait(current_age, delta)
+
+
+
+func _animate_portrait(age: float, delta: float) -> void:
+	var normalized_age = clamp(age / 100.0, 0.0, 1.0)
+	
+	# 1. DESATURATION
+	var saturation = 1.0 - pow(normalized_age, 2.0)
+	#_portrait_mat.set_shader_parameter(\"saturation\", saturation)
+	# Send the normalized age directly into the shader to drive the color shift and glitching
+	_portrait_mat.set_shader_parameter(\"aging_severity\", normalized_age)
+	
+	# 2. COLOR SHIFT
+	var healthy_color = Color.WHITE
+	var sick_color = Color(0.7, 0.75, 0.85, 1.0)
+	_portrait_rect.modulate = healthy_color.lerp(sick_color, normalized_age)
+	
+	# 3. HEARTBEAT ANIMATION
+	# Speed: Starts at a healthy 6.0, drops to a sluggish 1.5 at max age
+	var pulse_speed = lerp(6.0, 1.5, normalized_age) 
+	
+	# Strength: Kept relatively consistent so the visual read is always clear
+	var pulse_strength = lerp(0.08, 0.04, normalized_age) 
+	
+	_current_portrait_time += delta * pulse_speed
+	
+	# Wrapping the sine wave in max() ensures the heart only expands outward 
+	# and has a slight visual \"rest\" at its base size between beats
+	var pulse = max(0.0, sin(_current_portrait_time)) * pulse_strength
+	
+	# 4. LOCK THE PIVOT AND APPLY SCALE
+	# Forcing the pivot to the center right here guarantees it never wobbles off-axis
+	_portrait_rect.pivot_offset = _portrait_rect.size / 2.0
+	
+	var target_scale = Vector2.ONE + Vector2(pulse, pulse)
+	_portrait_rect.scale = _portrait_rect.scale.lerp(target_scale, 15.0 * delta)
+	
+	# Explicitly kill any residual rotation just to be safe
+	_portrait_rect.rotation = 0.0
+"
+
 [node name="Player" type="CharacterBody3D" unique_id=1091194407]
 script = ExtResource("1_dmsef")
 SPEED = 4.0
 GRAVITY = 25.0
 JUMP_FORCE = 7.0
 SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "position", "camera_rotation", "global_rotation"])
-REWIND_ACCELERATION = 0.5
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=993622367]
@@ -100,3 +253,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13656974, -0.59513986)
 
 [node name="Aging Component" type="Node" parent="." unique_id=1652178798]
 script = ExtResource("2_uonmu")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=565065867]
+script = SubResource("GDScript_f4rpb")
+player_portrait = ExtResource("4_f4rpb")
+hologram_opacity = 0.84
+
+[node name="RewindSoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1562837906]
+
+[connection signal="took_age_damage" from="Aging Component" to="." method="_on_age_damage"]

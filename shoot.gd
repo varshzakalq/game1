@@ -15,7 +15,7 @@ func shoot() -> void:
 		var hit_object = ray.get_collider()
 		
 		# 1. Look for the child named "HealthComponent"
-		var health = hit_object.get_node_or_null("health")
+		var health = hit_object.get_node_or_null("HealthComponent")
 		
 		# 2. If it exists, call the take_damage function
 		if health:

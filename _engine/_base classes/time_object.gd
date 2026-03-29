@@ -15,9 +15,9 @@ class_name Time_Object
 var _time_since_last_snapshot : float = 0.0
 
 #REWIND VARS
-@export var MIN_REWIND_SPEED : float = 0.25
-@export var MAX_REWIND_SPEED : float = 3.0
-@export var REWIND_ACCELERATION : float = 1.5
+var MIN_REWIND_SPEED =  Globals.MIN_REWIND_SPEED
+var MAX_REWIND_SPEED = Globals.MAX_REWIND_SPEED 
+var REWIND_ACCELERATION = Globals.REWIND_ACCELERATION
 
 var _reached_history_end : bool = false
 var _rewind_tween : Tween

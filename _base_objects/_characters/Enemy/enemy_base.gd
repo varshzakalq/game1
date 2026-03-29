@@ -31,7 +31,6 @@ func _physics_process(delta: float) -> void:
 		return
 		
 	_handle_detection_and_combat(delta)
-	move_and_slide()
 
 func _handle_detection_and_combat(delta: float) -> void:
 	var distance_to_player = global_position.distance_to(Globals.player.global_position)
