@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://cwjcjftukvpnn" path="res://_base_objects/_characters/Player/player.gd" id="1_dmsef"]
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_uonmu"]
-[ext_resource type="PackedScene" uid="uid://058h2skin3nh" path="res://_base_objects/harsh/gun1.glb" id="3_c2huh"]
 [ext_resource type="PackedScene" uid="uid://dgdauxu88wqm8" path="res://Gun.tscn" id="3_x2vq2"]
 [ext_resource type="Texture2D" uid="uid://bo0stprtfxuf6" path="res://_assets/sprites/human-heart-circulatory-system-3d-computer-graphics-visualization-heart-22c9f1989f97d7ff15afd8cc0957e8cd.png" id="4_f4rpb"]
 
@@ -250,10 +249,7 @@ current = true
 script = SubResource("GDScript_x2vq2")
 
 [node name="gun" parent="Camera" unique_id=1988051927 instance=ExtResource("3_x2vq2")]
-transform = Transform3D(0.55662626, 0, 0, 0, 0.5557289, -0.0315955, 0, 0.0315955, 0.5557289, -0.190121, -0.24269146, -0.11741489)
-
-[node name="gun1" parent="Camera/gun" unique_id=1380426673 instance=ExtResource("3_c2huh")]
-transform = Transform3D(0.6462907, 0, 0, 0, 0.6462907, 0, 0, 0, 0.6462907, 0, 0.010602057, 0.18647861)
+transform = Transform3D(0.55662626, 0, 0, 0, 0.5557289, -0.0315955, 0, 0.0315955, 0.5557289, -0.190121, -0.24269146, -0.15977699)
 
 [node name="Aging Component" type="Node" parent="." unique_id=1652178798]
 script = ExtResource("2_uonmu")

@@ -2,16 +2,22 @@
 
 [ext_resource type="Script" uid="uid://ndoku853oqe8" path="res://shoot.gd" id="1_fry05"]
 [ext_resource type="PackedScene" uid="uid://qscc3d23xe3g" path="res://_base_objects/_characters/Enemy/projectile/Projectile.tscn" id="2_7c1qe"]
+[ext_resource type="PackedScene" uid="uid://058h2skin3nh" path="res://_base_objects/harsh/gun1.glb" id="3_7c1qe"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_noarx"]
 
 [node name="gun" type="Node3D" unique_id=1988051927]
 script = ExtResource("1_fry05")
 projectile_scene = ExtResource("2_7c1qe")
+bullet_speed = 30.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=925327023]
-transform = Transform3D(0.034722596, 0, 0, 0, 0.043571994, 0, 0, 0, 0.4723386, 0, 0, 0)
+transform = Transform3D(0.034722596, 0, 0, 0, 0.043571994, 0, 0, 0, 0.4723386, 0, 0.073477335, -0.39505488)
+visible = false
 mesh = SubResource("BoxMesh_noarx")
 
 [node name="Target" type="Node3D" parent="." unique_id=934546689]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.637)
+
+[node name="gun1" parent="." unique_id=288839449 instance=ExtResource("3_7c1qe")]
+transform = Transform3D(0.6462907, 0, 0, 0, 0.6462907, 0, 0, 0, 0.6462907, 0, -0.07478236, 0.18647861)

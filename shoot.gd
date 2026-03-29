@@ -4,6 +4,7 @@ extends Node3D
 @export var projectile_scene: PackedScene
 @export var fire_rate: float = 0.2 # Cooldown between shots
 @export var damage: float = 25.0
+@export var bullet_speed: float = 10
 
 
 
@@ -32,9 +33,11 @@ func shoot() -> void:
 	if proj is TemporalProjectile:
 		
 		var diff = target.global_position - global_position
-		
+		diff = -diff
+		proj.scale = 0.5*Vector3.ONE
 		proj.target_dir = diff
 		proj.damage = damage
+		proj.speed = bullet_speed
 		proj.target = TemporalProjectile.targets.Enemy
-		add_child(proj)
+		target.add_child(proj)
 	
