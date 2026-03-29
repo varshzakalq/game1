@@ -24,6 +24,7 @@ config/icon="res://icon.svg"
 EventBus="*uid://bfhy40f4rjxe2"
 Globals="*uid://dd6tscqqe53fa"
 GlobalSettings="*uid://cyp3qnkwv0w4t"
+AudioManager="*uid://c44xyjgl7ab24"
 
 [display]
 
@@ -87,3 +88,7 @@ Fire={
 [physics]
 
 3d/enable_gravity=true
+
+[rendering]
+
+anti_aliasing/quality/msaa_3d=2

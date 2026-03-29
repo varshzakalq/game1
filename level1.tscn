@@ -103,6 +103,7 @@ metallic = 0.16
 metallic_specular = 0.48
 roughness = 0.15
 normal_enabled = true
+normal_scale = 0.2
 normal_texture = ExtResource("7_n8vhr")
 heightmap_enabled = true
 heightmap_texture = ExtResource("7_n8vhr")
