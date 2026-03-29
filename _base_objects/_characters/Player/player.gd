@@ -465,7 +465,7 @@ func apply_rollback_penalty(age : float) -> void:
 
 
 
-#
+
 #func death_aniamtion():
 	#
 	#camera.current = false

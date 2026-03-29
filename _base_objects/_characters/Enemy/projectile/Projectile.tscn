@@ -2,6 +2,23 @@
 
 [ext_resource type="Script" uid="uid://c1l78te4ybdn4" path="res://_base_objects/_characters/Enemy/projectile/projectile.gd" id="1_70x7f"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_70x7f"]
+radius = 0.4037096
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gjrlu"]
+
 [node name="Projectile" type="CharacterBody3D" unique_id=499678368]
 script = ExtResource("1_70x7f")
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=961919256]
+shape = SubResource("SphereShape3D_70x7f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=394922935]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1800268020]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1997638053]
+shape = SubResource("BoxShape3D_gjrlu")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_hitbox_body_entered"]
