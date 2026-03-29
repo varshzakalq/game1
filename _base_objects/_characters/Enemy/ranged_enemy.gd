@@ -7,7 +7,7 @@ extends StandardEnemy
 
 @export_category("Combat Setup")
 @export var projectile_scene: PackedScene
-@export var fire_point: Marker3D
+@export var projectile_speed: float = 10
 @export var speed: float = 5.0
 
 @export_category("Effects")
@@ -65,7 +65,9 @@ func process_chase(delta: float, distance_to_player: float) -> void:
 
 # Using your exact signature from the base class
 func launch_attack(age_component, age_damage: float) -> void:
-	if projectile_scene == null or fire_point == null:
+	
+	print("ATTEMPTING ATTACK")
+	if projectile_scene == null:
 		push_warning("Enemy: Missing projectile or fire_point!")
 		return
 		
@@ -75,7 +77,8 @@ func launch_attack(age_component, age_damage: float) -> void:
 	
 	
 	if proj is TemporalProjectile:
-		proj.target = dir_vec
+		proj.speed = projectile_speed
+		proj.target_dir = dir_vec
 		proj.damage = age_damage
 		proj.target = TemporalProjectile.targets.Player
 		target_dir.add_child(proj)

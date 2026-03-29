@@ -14,7 +14,7 @@
 script = ExtResource("1_28yh6")
 projectile_scene = ExtResource("2_nq3wi")
 explosion_scene = ExtResource("2_voep5")
-age_damage_per_hit = 100.0
+age_damage_per_hit = 20.0
 attack_range = 20.0
 detection_radius = 40.0
 attack_cooldown = 4.0
@@ -38,3 +38,6 @@ metadata/_custom_type_script = "uid://bkrjw4g0do2mr"
 
 [node name="Target_dir" type="Node3D" parent="." unique_id=108980937]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.7922618)
+
+[node name="RayCast3D" type="RayCast3D" parent="Target_dir" unique_id=1306820206]
+target_position = Vector3(0, 0, 1)

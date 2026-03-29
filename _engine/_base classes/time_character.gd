@@ -45,7 +45,7 @@ var jump_multiplier : float = 1.2
 
 var _gravity_affected = true
 
-@onready var aging_component
+@onready var aging_component : AgingComponent
 
 
 
