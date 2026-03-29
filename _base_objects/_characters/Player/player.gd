@@ -355,6 +355,10 @@ func _rollback(delta: float) -> void:
 		if not rewind_sfx.playing:
 			rewind_sfx.play()
 		rewind_sfx.pitch_scale = 1.0 + (intensity * 0.8)
+		
+		
+		
+		
 func _on_rollback_finish() -> void:
 	# 1. Trigger the age penalty so it starts the exact frame the rewind ends
 	if aging_component != null:
@@ -366,25 +370,27 @@ func _on_rollback_finish() -> void:
 		_rewind_cleanup_tween.kill()
 		
 	_rewind_cleanup_tween = create_tween()
-	_rewind_cleanup_tween.set_parallel(true) # Make all following tweens happen simultaneously
+	_rewind_cleanup_tween.set_parallel(true) 
 	
 	# A. Melt the VHS shader away smoothly
 	if _active_rewind_rect != null:
-		# Grabs whatever intensity it ended at, and fades it to 0 over 0.6 seconds
 		var current_intensity = _active_rewind_mat.get_shader_parameter("intensity")
 		_rewind_cleanup_tween.tween_property(_active_rewind_mat, "shader_parameter/intensity", 0.0, 0.6).from(current_intensity).set_ease(Tween.EASE_OUT)
 		
-	# B. Smoothly snap the camera FOV back to normal
+	# B. Smoothly snap the camera FOV back to the player's custom setting
 	if camera != null:
-		_rewind_cleanup_tween.tween_property(camera, "fov", 75.0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+		var base_fov = GlobalSettings.settings["fov"]
+		_rewind_cleanup_tween.tween_property(camera, "fov", base_fov, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 		
-	# C. Wind down the audio (like a record player stopping)
+	# C. Wind down the audio
 	if rewind_sfx != null and rewind_sfx.playing:
 		_rewind_cleanup_tween.tween_property(rewind_sfx, "pitch_scale", 0.1, 0.5)
 		_rewind_cleanup_tween.tween_property(rewind_sfx, "volume_db", -40.0, 0.5)
 		
 	# 3. After the 0.6 second fade out is completely finished, run the hard resets
 	_rewind_cleanup_tween.chain().tween_callback(_hard_reset_rewind_state)
+
+
 
 # A small helper function to reset everything once the tweens are done
 func _hard_reset_rewind_state() -> void:
@@ -422,15 +428,12 @@ func age_effects(delta: float) -> void:
 
 func _on_age_damage(amount: float) -> void:
 	last_hit_severity = amount
-	# Ensure the rewind UI actually exists before we try to glitch it
+	
 	if _active_rewind_rect == null:
 		_setup_active_rewind_ui()
 		
-	# 1. Calculate Severity
-	# 10 years of damage pushes the VHS glitch to a maximum 1.0 intensity
 	var hit_severity = clamp(amount / age_damage_reducing_factor, 0.4, 1.0)
 	
-	# 2. The Time-Glitch Visual Spike
 	_active_rewind_rect.visible = true
 	
 	if _damage_tween and _damage_tween.is_valid():
@@ -439,25 +442,23 @@ func _on_age_damage(amount: float) -> void:
 	_damage_tween = create_tween()
 	_damage_tween.set_parallel(true)
 	
-	# Instantly snap the VHS shader to a violent tear, then fade it out over 0.5s
 	_active_rewind_mat.set_shader_parameter("intensity", hit_severity)
 	_damage_tween.tween_property(_active_rewind_mat, "shader_parameter/intensity", 0.0, 0.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
 	
-	# Violently kick the camera FOV backwards to simulate a physical blow
+	# Violently kick the camera FOV backwards based on the player's custom FOV
 	if camera != null:
-		var target_fov = 75.0 + (30.0 * hit_severity)
-		camera.fov = target_fov
-		# Elastic ease makes the camera physically bounce back into place
-		_damage_tween.tween_property(camera, "fov", 75.0, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+		var base_fov = GlobalSettings.settings["fov"]
+		var target_fov = base_fov + (30.0 * hit_severity)
 		
-	# 3. Cleanup
-	# Only hide the VHS effect if the player isn't actively holding the rewind button!
+		camera.fov = target_fov
+		# Elastic ease makes the camera physically bounce back into their custom setting
+		_damage_tween.tween_property(camera, "fov", base_fov, 0.5).set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+		
 	_damage_tween.chain().tween_callback(func():
 		if not _is_rewinding:
 			_active_rewind_rect.visible = false
 	)
 	
-	# 4. Inject Camera Trauma (Screen Shake)
 	_camera_trauma = clamp(_camera_trauma + hit_severity, 0.0, 1.0)
 
 func apply_rollback_penalty(age : float) -> void:

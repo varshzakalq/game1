@@ -13,6 +13,7 @@ script/source = "extends MeshInstance3D
 
 @export_category(\"Terminal Settings\")
 @export_multiline var initial_text: String = \"SYSTEM INITIALIZED...\"
+		
 @export var background_color: Color = Color(0.05, 0.05, 0.05, 1.0)
 @export var text_color: Color = Color(0.0, 0.8, 0.2, 1.0) # Hacker Green
 @export var padding: int = 20

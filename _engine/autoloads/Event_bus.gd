@@ -3,11 +3,21 @@ extends Node
 signal sensitivity_changed(value : float)
 signal fov_changed(value : float)
 
+signal player_dead
 signal rewinding(value : bool)
 signal ambient_aging(value : float)
 var roll_back = preload("uid://bpeb1uwni7a0q")
 var time = 12.3
 var REWINDING = false
+
+func _ready() -> void:
+	player_dead.connect(_on_player_dead)
+
+
+
+func _on_player_dead():
+	pass
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Rewind"):

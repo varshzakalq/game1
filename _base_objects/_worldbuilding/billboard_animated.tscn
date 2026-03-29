@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://bqxoxfswnbnr5"]
+
+[ext_resource type="PackedScene" uid="uid://dy7n06bsrtug6" path="res://_base_objects/_worldbuilding/text_board.tscn" id="1_hnqp1"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ycug4"]
+orientation = 0
+
+[sub_resource type="GDScript" id="GDScript_m4mtc"]
+script/source = "class_name TerminalMesh
+extends MeshInstance3D
+
+@onready var viewport = $SubViewport
+
+@export_category(\"Terminal Display\")
+@export_multiline var text_to_display: String = \"SYSTEM INITIALIZED...\\nCONNECTING TO SERVER...\"
+@export var characters_per_second: float = 30.0
+
+@export_category(\"Style Override\")
+@export var background_color: Color = Color(0.05, 0.05, 0.05, 1.0)
+@export var text_color: Color = Color(0.0, 0.8, 0.2, 1.0)
+
+@export_category(\"Audio\")
+@export var typing_sound: AudioStream
+
+var _type_tween: Tween
+var _last_char_count: int = 0
+
+func _ready() -> void:
+	# 1. Wait exactly one frame for the SubViewport to finish its own _ready() 
+	#    and spawn the UI nodes so we don't get null errors.
+	await get_tree().process_frame
+	
+	# 2. Safely override the colors without duplicating nodes
+	if viewport.get(\"_bg_rect\"):
+		viewport._bg_rect.color = background_color
+	if viewport.get(\"_label\"):
+		viewport._label.add_theme_color_override(\"font_color\", text_color)
+		
+	# 3. Start the animated typing sequence
+	play_terminal_animation()
+
+# ==========================================
+# ANIMATION & AUDIO LOGIC
+# ==========================================
+func play_terminal_animation() -> void:
+	if not viewport.get(\"_label\"): return
+	
+	var label = viewport._label
+	label.text = text_to_display
+	label.visible_characters = 0
+	_last_char_count = 0
+	
+	var total_chars = text_to_display.length()
+	var duration = total_chars / characters_per_second
+	
+	if _type_tween and _type_tween.is_valid():
+		_type_tween.kill()
+		
+	_type_tween = create_tween()
+	
+	# By using tween_method instead of tween_property, we can run custom logic 
+	# (like playing a sound) every time the integer goes up!
+	_type_tween.tween_method(_on_character_typed.bind(label), 0, total_chars, duration)
+
+func _on_character_typed(current_chars: int, label: Label) -> void:
+	label.visible_characters = current_chars
+	
+	# If the number went up, a new letter just appeared!
+	if current_chars > _last_char_count:
+		_last_char_count = current_chars
+		
+		# Don't play the mechanical click for empty spaces or line breaks.
+		# This makes the audio cadence sound like a real human typing!
+		var current_char_string = text_to_display.substr(current_chars - 1, 1)
+		if current_char_string != \" \" and current_char_string != \"\\n\":
+			if typing_sound != null:
+				# Play the sound in 3D space directly at the screen's location
+				# (Lowering the volume slightly so the rapid clicking isn't deafening)
+				AudioManager.play_3d(typing_sound, global_position, -10.0, 1.0)
+"
+
+[node name="Billboard_animated" type="MeshInstance3D" unique_id=335272926]
+mesh = SubResource("PlaneMesh_ycug4")
+script = SubResource("GDScript_m4mtc")
+
+[node name="SubViewport" parent="." unique_id=1102201971 instance=ExtResource("1_hnqp1")]
