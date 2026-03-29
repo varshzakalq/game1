@@ -148,8 +148,11 @@ func _setup_age_ui() -> void:
 # ===============================
 var _damage_rect : ColorRect
 var _damage_tween : Tween
+@export var age_damage_reducing_factor : float = 10
+
 
 # Camera Shake
+var last_hit_severity : float = 1
 var _camera_trauma : float = 0.0
 @export var max_shake_offset : float = 0.3 # How far the camera violently jerks (in meters)
 
@@ -224,6 +227,7 @@ func _setup_active_rewind_ui() -> void:
 # ==========================================
 # CORE LOOP
 # ==========================================
+
 func _physics_process(delta: float) -> void:
 	
 	_gather_inputs()
@@ -247,7 +251,7 @@ func _process(delta: float) -> void:
 		
 		# Squaring the trauma is the golden rule of screen shake: 
 		# It makes the camera snap violently at the start, then settle very smoothly.
-		var shake_power = _camera_trauma * _camera_trauma
+		var shake_power = _camera_trauma * _camera_trauma * last_hit_severity * 0.01
 		
 		if camera != null:
 			camera.h_offset = randf_range(-1.0, 1.0) * max_shake_offset * shake_power
@@ -396,13 +400,14 @@ func age_effects(delta: float) -> void:
 
 
 func _on_age_damage(amount: float) -> void:
+	last_hit_severity = amount
 	# Ensure the rewind UI actually exists before we try to glitch it
 	if _active_rewind_rect == null:
 		_setup_active_rewind_ui()
 		
 	# 1. Calculate Severity
 	# 10 years of damage pushes the VHS glitch to a maximum 1.0 intensity
-	var hit_severity = clamp(amount / 10.0, 0.4, 1.0)
+	var hit_severity = clamp(amount / age_damage_reducing_factor, 0.4, 1.0)
 	
 	# 2. The Time-Glitch Visual Spike
 	_active_rewind_rect.visible = true

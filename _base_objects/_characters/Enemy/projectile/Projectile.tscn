@@ -13,7 +13,8 @@ size = Vector3(0.1547699, 0.13305664, 1)
 
 [node name="Projectile" type="CharacterBody3D" unique_id=499678368]
 script = ExtResource("1_70x7f")
-SPEED = 0.1
+damage = 1.0
+SPEED = 0.0
 SNAPSHOT_PROPERTY_LIST = Array[String](["velocity", "$global_position", "$_alive_timer"])
 metadata/_custom_type_script = "uid://b37pyy3cyklrv"
 
