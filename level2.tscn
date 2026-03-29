@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://3hsbhd8rx2d2" path="res://light_on_ceiling.tscn" id="34_d4uwr"]
 [ext_resource type="PackedScene" uid="uid://tkeurlyqe34q" path="res://_assets/lift/asset2.glb" id="34_nv8dg"]
 [ext_resource type="PackedScene" uid="uid://ehywh0akeyo5" path="res://_base_objects/_characters/Enemy/ranged_enemy.tscn" id="34_wooj1"]
+[ext_resource type="PackedScene" uid="uid://cqm64nxyotapa" path="res://_base_objects/_worldbuilding/level_transition.tscn" id="35_1i48b"]
 [ext_resource type="PackedScene" uid="uid://bjwyv3bvf8r2a" path="res://_base_objects/harsh/box.glb" id="35_wooj1"]
 [ext_resource type="PackedScene" uid="uid://b5xyrgbetoqxv" path="res://_base_objects/harsh/conveyerbelt.glb" id="36_1i48b"]
 
@@ -2091,3 +2092,7 @@ transform = Transform3D(0.11254193, 0.014099559, -0.99354684, 0.012559261, 0.999
 
 [node name="Ranged_enemy17" parent="." unique_id=189787691 instance=ExtResource("34_wooj1")]
 transform = Transform3D(-0.99022007, 0.010266444, 0.13913634, 0.012559261, 0.99979925, 0.015610908, -0.13894814, 0.017205687, -0.9901502, -16.902426, 2.2921472, -34.998856)
+
+[node name="Level_transition" parent="." unique_id=1313540812 instance=ExtResource("35_1i48b")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.1822052, 2.3607607, -46.486855)
+Target_scene_path = "res://level3.tscn"

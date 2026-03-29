@@ -14,6 +14,7 @@ signal took_age_damage(severity : float)
 		
 		current_age = value
 		if current_age > max_age:
+			max_age_reached.emit()
 			current_age = max_age
 
 

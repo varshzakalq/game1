@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://i5l1ecsct7tj"]
 
 [ext_resource type="Texture2D" uid="uid://m2rp1iaxqk82" path="res://_assets/textures/prototype textures/Vector/texture_08.svg" id="2_3pb50"]
-[ext_resource type="Material" uid="uid://bpbv0kvj1ndth" path="res://_assets/lift/MATCAP.tres" id="2_hlnp7"]
+[ext_resource type="Material" path="res://_assets/lift/MATCAP.tres" id="2_hlnp7"]
 
 [sub_resource type="GDScript" id="GDScript_l51hj"]
 script/source = "extends Time_Stationary
@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if is_open: 
-		position = lerp(position, target_pos, 10*delta)
+		position = lerp(position, target_pos, 2*delta/Open_time)
 	
 	super._physics_process(delta)
 	

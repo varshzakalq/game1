@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://co8puvvoocrqj" path="res://_base_objects/harsh/asset5.glb" id="29_8652m"]
 [ext_resource type="PackedScene" uid="uid://bg5t4kuhaanqw" path="res://_base_objects/_worldbuilding/billboard.tscn" id="30_jy3fw"]
 [ext_resource type="PackedScene" uid="uid://tkeurlyqe34q" path="res://_assets/lift/asset2.glb" id="32_6wmxb"]
+[ext_resource type="PackedScene" uid="uid://cqm64nxyotapa" path="res://_base_objects/_worldbuilding/level_transition.tscn" id="33_8652m"]
 [ext_resource type="PackedScene" uid="uid://3hsbhd8rx2d2" path="res://light_on_ceiling.tscn" id="33_t8chk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6wmxb"]
@@ -1267,7 +1268,7 @@ transform = Transform3D(-0.7198408, 0, -1.0039068, 0, 1.2353135, 0, 1.0039068, 0
 transform = Transform3D(-0.4106084, 0, -0.57264405, 0, 0.70464206, 0, 0.57264405, 0, -0.4106084, -13.158055, 2.5301728, -44.77237)
 
 [node name="Time leech26" parent="." unique_id=875529014 instance=ExtResource("14_1idop")]
-transform = Transform3D(-0.6399665, 0, -0.8925122, 0, 1.0982417, 0, 0.8925122, 0, -0.6399665, -1.7474976, 2.5301728, -44.77237)
+transform = Transform3D(-0.6399665, 0, -0.8925122, 0, 1.0982417, 0, 0.8925122, 0, -0.6399665, -16.310123, 2.5301728, -44.77237)
 
 [node name="Time leech16" parent="." unique_id=1331150110 instance=ExtResource("14_1idop")]
 transform = Transform3D(-0.6214364, 0, 0.76301634, 0, 0.98406154, 0, -0.76301634, 0, -0.6214364, 6.470805, 2.5301728, -21.845133)
@@ -1457,9 +1458,9 @@ transform = Transform3D(0.02252261, 0, 1.7136502, 0, 1.7137983, 0, -1.7136502, 0
 transform = Transform3D(1, 0, 0, 0, 1.000002, 0, 0, 0, 1, -0.13435555, 1.8705821, 1.9104065)
 mesh = SubResource("PlaneMesh_jy3fw")
 skeleton = NodePath("../../computer1")
-initial_text = "Human operator required..."
+initial_text = "w"
 background_color = Color(0, 0, 0, 1)
-text_color = Color(6.738305e-07, 0.72753006, 0.17838582, 1)
+text_color = Color(0, 0.7294118, 0.9843137, 1)
 
 [node name="bigasscapsule" parent="." unique_id=1470422774 instance=ExtResource("28_6wmxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.657295, 2.2887197, -3.7576494)
@@ -1698,3 +1699,7 @@ transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9
 
 [node name="light_on_ceiling47" parent="." unique_id=71076085 instance=ExtResource("33_t8chk")]
 transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 17.322834, 7.5776024, -21.74893)
+
+[node name="Level_transition" parent="." unique_id=1313540812 instance=ExtResource("33_8652m")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 3.1822052, 2.3607607, -46.486855)
+Target_scene_path = "res://level2.tscn"
