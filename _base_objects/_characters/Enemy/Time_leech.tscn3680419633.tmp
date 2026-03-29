@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c2xk0wt3gl2er"]
+
+[ext_resource type="Script" uid="uid://7dqivf3ttfyv" path="res://_base_objects/_characters/Enemy/time_leech.gd" id="1_55nn3"]
+[ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_luwtv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_luwtv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hoct4"]
+
+[node name="Time leech" type="CharacterBody3D" unique_id=1811181162]
+script = ExtResource("1_55nn3")
+age_damage_per_hit = null
+attack_range = null
+detection_radius = null
+attack_cooldown = null
+SPEED = null
+GRAVITY = null
+JUMP_FORCE = null
+SPRINT_MULTIPLIER = null
+MAX_SNAPSHOT_COUNT = null
+SNAPSHOT_PROPERTY_LIST = null
+SNAPSHOT_INTERVAL = null
+MIN_REWIND_SPEED = null
+MAX_REWIND_SPEED = null
+REWIND_ACCELERATION = null
+metadata/_custom_type_script = "uid://dmouge7gwx0yx"
+
+[node name="Aging Component" type="Node" parent="." unique_id=1831119095]
+script = ExtResource("2_luwtv")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=401482528]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=402885002]
+shape = SubResource("CapsuleShape3D_luwtv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1951931865]
+mesh = SubResource("CapsuleMesh_hoct4")

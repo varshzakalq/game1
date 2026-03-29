@@ -1,0 +1,31 @@
+extends Node
+class_name HealthComponent
+
+# Signals allow other nodes (like UI or the Enemy) to react
+signal health_changed(current_health, max_health)
+signal died
+
+@export var max_health: float = 100.0
+@onready var current_health: float = max_health
+
+func _ready() -> void:
+	current_health = max_health
+	# Emit initial health so UI can sync up
+	health_changed.emit(current_health, max_health)
+
+func take_damage(amount: float) -> void:
+	if current_health <= 0:
+		return
+		
+	current_health -= amount
+	# Clamp ensures we don't go below zero
+	current_health = max(current_health, 0)
+	
+	health_changed.emit(current_health, max_health)
+	print("Entity took damage. Current Health: ", current_health)
+	
+	if current_health <= 0:
+		die()
+
+func die() -> void:
+	died.emit()

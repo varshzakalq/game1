@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ceau2sw3wntw0"]
+
+[ext_resource type="Script" uid="uid://ndoku853oqe8" path="res://shoot.gd" id="1_a202f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+
+[node name="gun" type="Node3D" unique_id=1988051927]
+script = ExtResource("1_a202f")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=925327023]
+transform = Transform3D(0.067031994, 0, 0, 0, 0.08411576, 0, 0, 0, 0.9118499, 0, 0, 0)
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="RayCast3D" type="RayCast3D" parent="." unique_id=1786176346]
+transform = Transform3D(1, 0, 0, 0, -0.0018151234, -0.99999833, 0, 0.99999833, -0.0018151234, 0, 0, 0)
+target_position = Vector3(0, -4.755, 0)
+debug_shape_custom_color = Color(0.6246164, 0.72346556, 0.4295387, 1)

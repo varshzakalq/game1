@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cwjcjftukvpnn" path="res://_base_objects/_characters/Player/player.gd" id="1_dmsef"]
 [ext_resource type="Script" uid="uid://ch2pk0foo6x5a" path="res://_engine/_base classes/Components/Aging_component.gd" id="2_uonmu"]
+[ext_resource type="PackedScene" uid="uid://ceau2sw3wntw0" path="res://node_3d.tscn" id="3_x2vq2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dmsef"]
 
@@ -93,6 +94,9 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.58896637, 0)
 current = true
 script = SubResource("GDScript_x2vq2")
+
+[node name="gun" parent="Camera" unique_id=1988051927 instance=ExtResource("3_x2vq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.13656974, -0.59513986)
 
 [node name="Aging Component" type="Node" parent="." unique_id=1652178798]
 script = ExtResource("2_uonmu")
