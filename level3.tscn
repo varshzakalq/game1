@@ -314,6 +314,19 @@ normal_texture = ExtResource("30_joel0")
 heightmap_enabled = true
 uv1_scale = Vector3(7.63, 1, 1)
 
+[sub_resource type="GDScript" id="GDScript_1vlh0"]
+resource_name = "deathslide"
+script/source = "extends CSGBox3D
+
+func _ready() -> void:
+	position.y -= 20
+	EventBus.rip_bossada.connect(raise_self)
+
+func raise_self():
+	var tween = create_tween()
+	tween.tween_property(self, \"position:y\", position.y+20, 2)
+"
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tnnie"]
 data = PackedVector3Array(-0.5, -0.069, 1.2427363, -0.5, -0.069, -1.2427363, -0.5, 0.069, -1.2427363, 0.5, -0.069, -1.2427363, -0.5, -0.069, -1.2427363, -0.5, -0.069, 1.2427363, -0.5, 0.069, -1.2427363, -0.5, -0.069, -1.2427363, 0.5, -0.069, -1.2427363, -0.5, 0.069, -1.2427363, -0.5, 0.069, 1.2427363, -0.5, -0.069, 1.2427363, -0.5, -0.069, 1.2427363, -0.5, 0.069, 1.2427363, 0.5, 0.069, 1.2427363, 0.5, 0.069, 1.2427363, -0.5, 0.069, 1.2427363, -0.5, 0.069, -1.2427363, -0.5, -0.069, 1.2427363, 0.5, -0.069, 1.2427363, 0.5, -0.069, -1.2427363, 0.5, 0.069, 1.2427363, 0.5, -0.069, 1.2427363, -0.5, -0.069, 1.2427363, 0.5, -0.069, -1.2427363, 0.5, -0.069, 1.2427363, 0.5, 0.069, 1.2427363, 0.5, -0.069, -1.2427363, 0.5, 0.069, -1.2427363, -0.5, 0.069, -1.2427363, -0.5, 0.069, -1.2427363, 0.5, 0.069, -1.2427363, 0.5, 0.069, 1.2427363, 0.5, 0.069, 1.2427363, 0.5, 0.069, -1.2427363, 0.5, -0.069, -1.2427363)
 
@@ -2318,6 +2331,7 @@ light_energy = 7.921
 transform = Transform3D(5.9298105, 0, 0, 0, 4.9966984, 3.1930647, 0, -3.1930647, 4.9966984, 22.436716, 5.733845, -56.81237)
 size = Vector3(1, 0.138, 2.8003535)
 material = SubResource("StandardMaterial3D_5bamp")
+script = SubResource("GDScript_1vlh0")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/SLIDE_TO_DEATH" unique_id=2100189094]
 

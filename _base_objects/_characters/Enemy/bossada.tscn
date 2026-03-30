@@ -18,10 +18,10 @@ height = 2.230713
 script = ExtResource("1_61ph8")
 explosion_scene2 = ExtResource("2_o2nfp")
 explosion_scene = ExtResource("3_t68cj")
-projectile_speed = 30.0
+projectile_speed = 40.0
 age_damage_per_hit = 50.0
-attack_range = 15.0
-detection_radius = 40.0
+attack_range = 30.0
+detection_radius = 50.0
 attack_cooldown = 2.0
 metadata/_custom_type_script = "uid://dmouge7gwx0yx"
 

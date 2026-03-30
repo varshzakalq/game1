@@ -66,12 +66,11 @@ func _process(delta: float) -> void:
 	
 	
 	
-	# 4. Remove the object from the game
 
 		
 	if is_in_burst_fire:
 		for gun in guns:
-			gun.shoot(Globals.player.global_position, age_damage_per_hit/10., 0.1, 0.6)
+			gun.shoot(Globals.player.global_position, age_damage_per_hit/10., 0.1, 0.7)
 		
 		burst_time -= delta
 		if burst_time < 0: is_in_burst_fire = false
@@ -116,6 +115,7 @@ func _on_death() -> void:
 	
 	
 	# 4. Remove the object from the game
+	EventBus.rip_bossada.emit()
 	queue_free()
 
 

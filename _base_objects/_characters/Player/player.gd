@@ -33,6 +33,69 @@ var _input_jump_requested : bool = false
 var _input_sprint_held : bool = false
 
 
+var dead : bool = false
+
+# ===============================
+# DEATH SEQUENCE VARIABLES
+# ===============================
+var _death_timer: float = 0.0
+var _death_rect: ColorRect
+var _death_mat: ShaderMaterial
+
+
+func _setup_death_ui() -> void:
+	if _death_rect != null: return
+	
+	var canvas = CanvasLayer.new()
+	canvas.layer = 100 # Put this above absolutely EVERYTHING
+	add_child(canvas)
+	
+	_death_rect = ColorRect.new()
+	canvas.add_child(_death_rect)
+	
+	# THE FIX: Tell the rect exactly how big the player's screen is
+	_death_rect.size = get_viewport().get_visible_rect().size
+	
+	_death_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_death_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	
+	_death_mat = ShaderMaterial.new()
+	var shader = Shader.new()
+	
+	# This shader violently tears the screen apart while crushing the brightness to pitch black
+	shader.code = """
+	shader_type canvas_item;
+
+	uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap;
+	uniform float fade : hint_range(0.0, 1.0) = 0.0;
+	uniform float distortion : hint_range(0.0, 1.0) = 0.0;
+	uniform float time;
+
+	void fragment() {
+		vec2 uv = SCREEN_UV;
+		
+		// Violent horizontal tearing and vertical jitter
+		float tear = sin(uv.y * 30.0 + time * 40.0) * 0.1 * distortion;
+		float jitter = cos(uv.x * 20.0 - time * 60.0) * 0.05 * distortion;
+		
+		// Extreme RGB split that gets pulled apart as distortion increases
+		float r = texture(screen_texture, vec2(uv.x + tear + (0.15 * distortion), uv.y + jitter)).r;
+		float g = texture(screen_texture, vec2(uv.x + tear, uv.y + jitter)).g;
+		float b = texture(screen_texture, vec2(uv.x + tear - (0.15 * distortion), uv.y + jitter)).b;
+		
+		vec3 color = vec3(r, g, b);
+		
+		// Crush the colors to pitch black based on the fade multiplier
+		color *= (1.0 - fade);
+		
+		COLOR = vec4(color, 1.0);
+	}
+	"""
+	_death_mat.shader = shader
+	_death_rect.material = _death_mat
+
+
+
 # ===============================
 # PENALTY UI STUFF
 # ===============================
@@ -244,6 +307,10 @@ func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 
 func _process(delta: float) -> void:
+	
+	if dead:
+		dead_effects(delta)
+	
 	age_effects(delta)
 	
 	# --- CAMERA SHAKE LOGIC ---
@@ -277,8 +344,11 @@ func _ready() -> void:
 	super._ready()
 	if Globals.player_age != -1:
 		aging_component.current_age = Globals.player_age
-
+	aging_component.max_age_reached.connect(die)
+	
+	
 func _gather_inputs() -> void:
+	if dead: return
 	# Capture movement vector (Normalized automatically by get_vector)
 	_input_direction = Input.get_vector("Forward", "Backward", "Left", "Right")
 	
@@ -485,4 +555,46 @@ func apply_rollback_penalty(age : float) -> void:
 	
 	# Godot 4 allows us to tween shader parameters directly using this exact string path
 	_penalty_tween.tween_property(_penalty_mat, "shader_parameter/intensity", 0.0, penalty_fade_duration)
+
+
+
+
+
+
+func die():
+	dead = true
+	Globals.player_age = -1
+
+
+func dead_effects(delta: float) -> void:
+	Globals.player_age = -1
 	
+	if _death_rect == null:
+		_setup_death_ui()
+		
+	# Accumulate time
+	_death_timer += delta
+	
+	# 1. Fade to Black (Scales smoothly from 0.0 to 1.0 over 3 seconds)
+	var fade_amount = clamp(_death_timer / 3.0, 0.0, 1.0)
+	
+	# 2. Distortion Curve 
+	# Using pow(x, 3.0) makes the distortion stay low for the first 2 seconds, 
+	# and then exponentially explode into chaos in the final second.
+	var distortion_amount = pow(clamp(_death_timer / 3.5, 0.0, 1.0), 3.0) 
+	
+	# Push the math to the shader
+	_death_mat.set_shader_parameter("fade", fade_amount)
+	_death_mat.set_shader_parameter("distortion", distortion_amount)
+	_death_mat.set_shader_parameter("time", Time.get_ticks_msec() / 1000.0)
+	
+	# 3. Scene Swap (Triggers exactly at 4 seconds)
+	if _death_timer >= 4.0:
+		# Safety lock: Turn off processing so this doesn't run twice while the scene loads
+		set_process(false)
+		set_physics_process(false)
+		
+		# I am not assuming your file structure! 
+		# You MUST replace this string with the actual path to your Game Over or Respawn scene.
+		Globals.player_age = -1
+		get_tree().change_scene_to_file("res://_main/Starting scenes/Starting scene.tscn")
