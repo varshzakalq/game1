@@ -19,7 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://cvgwmjy4wccia" path="res://_base_objects/_worldbuilding/double_door.tscn" id="13_n8vhr"]
 [ext_resource type="Texture2D" uid="uid://uf1jy6l3jqcw" path="res://_assets/textures/Gemini_Generated_Image_yskqrxyskqrxyskq.png" id="13_qiqrj"]
 [ext_resource type="PackedScene" uid="uid://c2xk0wt3gl2er" path="res://_base_objects/_characters/Enemy/Time_leech.tscn" id="14_1idop"]
-[ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="16_beq0j"]
 [ext_resource type="Texture2D" uid="uid://qpg02tcows4o" path="res://_assets/textures/Screenshot 2026-03-28 152455.png" id="17_6wmxb"]
 [ext_resource type="PackedScene" uid="uid://bses8r5qko2b3" path="res://_assets/lift/box.tscn" id="21_6wmxb"]
 [ext_resource type="PackedScene" uid="uid://b5xyrgbetoqxv" path="res://_base_objects/harsh/conveyerbelt.glb" id="21_jy3fw"]
@@ -1301,9 +1300,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.8524456, 2.5000005, -23.64
 
 [node name="DoubleDoor4" parent="doors" unique_id=92908096 instance=ExtResource("13_n8vhr")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -3.8524456, 2.5000005, -46.681717)
-
-[node name="Node3D" parent="doors" unique_id=327031414 instance=ExtResource("16_beq0j")]
-transform = Transform3D(33.645, 0, 0, 0, 33.645, 0, 0, 0, 33.645, 0, 3.3266554, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1756447756]
 

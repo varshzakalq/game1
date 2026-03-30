@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://3bjs034bdhpo"]
+[gd_scene format=3 uid="uid://yeb47xkjr0m8"]
 
-[ext_resource type="Script" uid="uid://c48tt4tq8i7a8" path="res://_base_objects/harsh/explosion_cleaner.gd" id="1_q7epf"]
+[ext_resource type="Script" uid="uid://c48tt4tq8i7a8" path="res://_base_objects/harsh/explosion_cleaner.gd" id="1_4jkbr"]
 
 [sub_resource type="Curve" id="Curve_7rj46"]
 _limits = [0.0, 1.0, 0.99, 1.0]
@@ -12,6 +12,7 @@ curve = SubResource("Curve_7rj46")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7rj46"]
 particle_flag_align_y = true
+emission_shape_offset = Vector3(0, 3.82, 0)
 inherit_velocity_ratio = 0.564
 direction = Vector3(1, 0.815, 0)
 spread = 180.0
@@ -67,6 +68,7 @@ point_count = 2
 curve = SubResource("Curve_vxas0")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7epf"]
+emission_shape_offset = Vector3(0, 3.385, 0)
 emission_shape = 1
 emission_sphere_radius = 0.1
 gravity = Vector3(0, 0.2, 0)
@@ -97,7 +99,7 @@ material = SubResource("StandardMaterial3D_m5xho")
 
 [node name="Node3D" type="Node3D" unique_id=327031414]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-script = ExtResource("1_q7epf")
+script = ExtResource("1_4jkbr")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1434751262]
 explosiveness = 0.77

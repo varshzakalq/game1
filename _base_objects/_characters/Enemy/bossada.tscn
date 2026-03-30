@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqfcd4naefeut" path="res://_base_objects/_characters/Enemy/bossada.gd" id="1_61ph8"]
 [ext_resource type="ArrayMesh" uid="uid://dmm22o26nw0mc" path="res://_assets/enemy/new_array_mesh.tres" id="2_ltugx"]
-[ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="2_o2nfp"]
+[ext_resource type="PackedScene" uid="uid://yeb47xkjr0m8" path="res://_base_objects/harsh/explosionB.tscn" id="2_t68cj"]
 [ext_resource type="Script" uid="uid://clma5adb12gh8" path="res://_base_objects/_characters/Enemy/Bosda_gun.gd" id="3_61ph8"]
 [ext_resource type="PackedScene" uid="uid://0qyjmm3swbq0" path="res://_base_objects/harsh/explosionL.tscn" id="3_t68cj"]
 [ext_resource type="Script" uid="uid://bkrjw4g0do2mr" path="res://_base_objects/_characters/Enemy/health.gd" id="4_o2nfp"]
@@ -16,7 +16,7 @@ height = 2.230713
 
 [node name="Bossada" type="CharacterBody3D" unique_id=2079433493]
 script = ExtResource("1_61ph8")
-explosion_scene2 = ExtResource("2_o2nfp")
+explosion_scene2 = ExtResource("2_t68cj")
 explosion_scene = ExtResource("3_t68cj")
 projectile_speed = 30.0
 age_damage_per_hit = 50.0

@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://da52xw65ld11j"]
 
-[ext_resource type="Script" path="res://ambience.gd" id="1_kp2hi"]
+[ext_resource type="Script" uid="uid://dbrxby6mw073r" path="res://ambience.gd" id="1_kp2hi"]
 [ext_resource type="PackedScene" uid="uid://3tljg6wtyi87" path="res://industrial_robot.glb" id="1_s3kti"]
 [ext_resource type="Texture2D" uid="uid://dot2s7oodga0t" path="res://_assets/textures/Industrial sci-fi metal ceiling design.png" id="2_gfiq0"]
 [ext_resource type="Texture2D" uid="uid://daqhan3gn5wws" path="res://_assets/textures/ceiling_normal_map.png" id="3_qbfqj"]
@@ -59,7 +59,11 @@ ambient_light_color = Color(0.3830193, 0.54235214, 0.1835387, 1)
 ambient_light_sky_contribution = 0.75
 ambient_light_energy = 2.02
 tonemap_mode = 3
-ssao_enabled = true
+ssr_enabled = true
+ssr_max_steps = 32
+ssr_fade_in = 0.3567618
+ssr_fade_out = 0.36602175
+ssr_depth_tolerance = 71.51
 glow_enabled = true
 glow_normalized = true
 glow_intensity = 0.19
@@ -78,8 +82,7 @@ fog_sky_affect = 0.675
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0166
 volumetric_fog_albedo = Color(0.14622876, 0.14622876, 0.14622873, 1)
-volumetric_fog_emission = Color(0.36730197, 0.2204336, 0.09790524, 1)
-volumetric_fog_emission_energy = 0.0
+volumetric_fog_emission = Color(0.2960702, 0.37755495, 0.1849767, 1)
 volumetric_fog_gi_inject = 1.19
 volumetric_fog_anisotropy = -0.57
 volumetric_fog_detail_spread = 2.9281704
@@ -123,11 +126,13 @@ uv1_scale = Vector3(15.475, 15.475, 15.475)
 [sub_resource type="BoxMesh" id="BoxMesh_3l65w"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_beq0j"]
-albedo_color = Color(0.14911404, 0.14911404, 0.14911404, 1)
-roughness = 0.0
+albedo_color = Color(0.30249542, 0.3024954, 0.3024954, 1)
+metallic = 0.63
+metallic_specular = 0.65
+roughness = 0.29
 normal_enabled = true
+normal_scale = 0.52
 normal_texture = ExtResource("7_1qwjn")
-heightmap_enabled = true
 heightmap_texture = ExtResource("7_1qwjn")
 uv1_scale = Vector3(63.83, 22.585, 1)
 
@@ -144,10 +149,13 @@ uv1_offset = Vector3(0, -0.21, 0)
 [sub_resource type="BoxMesh" id="BoxMesh_pieet"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xm42n"]
+albedo_color = Color(0.6125778, 0.61257786, 0.6125778, 1)
 albedo_texture = ExtResource("4_gr4vk")
-metallic = 0.47
-roughness = 0.15
+metallic = 0.35
+metallic_specular = 0.51
+roughness = 0.12
 normal_enabled = true
+normal_scale = 0.84
 normal_texture = ExtResource("6_kp2hi")
 heightmap_enabled = true
 heightmap_texture = ExtResource("6_kp2hi")
@@ -1622,7 +1630,6 @@ mesh = SubResource("PlaneMesh_5hmwf")
 initial_text = "ERROR *&#@%&%$#&@*(#$^#)@*%^@#*&(%^#&*@%^@#*&(%^#@&^%*#!^&$*^#!^$)))#^%#!^%*&#%^*&)#!^%*&#@^%*&#$^%*$#@^%*#&%#%#%\":>\"#!<%\"#!>%:^#<\"!:>\"#$%#+%+["
 text_color = Color(1, 0, 0, 1)
 
-
 [node name="asset5" parent="NavigationRegion3D" unique_id=1370549756 instance=ExtResource("33_amagp")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 29.24524, 2.9659243, 6.9068413)
 
@@ -2326,6 +2333,42 @@ material = SubResource("StandardMaterial3D_5bamp")
 transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_tnnie")
 
+[node name="light_on_ceiling" parent="NavigationRegion3D" unique_id=1579965070 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 4.9168453, 8.63911, -21.757523)
+
+[node name="light_on_ceiling2" parent="NavigationRegion3D" unique_id=186915915 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 4.9168453, 8.63911, -21.757523)
+
+[node name="light_on_ceiling3" parent="NavigationRegion3D" unique_id=2126791222 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 4.9168453, 8.63911, -21.757523)
+
+[node name="light_on_ceiling4" parent="NavigationRegion3D" unique_id=1819744749 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, -1.2457786, 8.63911, -38.378117)
+
+[node name="light_on_ceiling5" parent="NavigationRegion3D" unique_id=506861642 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, -1.2457786, 8.63911, -38.378117)
+
+[node name="light_on_ceiling6" parent="NavigationRegion3D" unique_id=699587924 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, -1.2457786, 8.63911, -34.682034)
+
+[node name="light_on_ceiling7" parent="NavigationRegion3D" unique_id=1740034783 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, -1.2457786, 8.63911, -41.01149)
+
+[node name="light_on_ceiling8" parent="NavigationRegion3D" unique_id=893437896 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 13.8489895, 8.63911, -41.01149)
+
+[node name="light_on_ceiling9" parent="NavigationRegion3D" unique_id=1397114084 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 21.748138, 8.63911, -41.01149)
+
+[node name="light_on_ceiling10" parent="NavigationRegion3D" unique_id=231113627 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 28.239357, 8.63911, -41.01149)
+
+[node name="light_on_ceiling11" parent="NavigationRegion3D" unique_id=891515221 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 28.239357, 8.63911, -31.320187)
+
+[node name="light_on_ceiling12" parent="NavigationRegion3D" unique_id=2080878302 instance=ExtResource("34_svm0g")]
+transform = Transform3D(1, 0, 0, 0, -0.9999564, 0.00933744, 0, -0.00933744, -0.9999564, 28.239357, 8.63911, -15.392172)
+
 [node name="Player" parent="." unique_id=1091194407 instance=ExtResource("18_h58rs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.890697, 2.5302265, -55.631245)
 
@@ -2666,7 +2709,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2339993, 0.32727122, -47.8
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=208691863 instance=ExtResource("26_78nq5")]
 
-[node name="light_on_ceiling" parent="." unique_id=1579965070 instance=ExtResource("34_svm0g")]
+[node name="light_on_ceiling" parent="." unique_id=1895551675 instance=ExtResource("34_svm0g")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -11.351498, 7.510978, 25.877869)
 
 [node name="light_on_ceiling2" parent="." unique_id=946439258 instance=ExtResource("34_svm0g")]
