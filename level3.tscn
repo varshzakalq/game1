@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://da52xw65ld11j"]
 
-[ext_resource type="Script" uid="uid://dbrxby6mw073r" path="res://ambience.gd" id="1_kp2hi"]
+[ext_resource type="Script" path="res://ambience.gd" id="1_kp2hi"]
 [ext_resource type="PackedScene" uid="uid://3tljg6wtyi87" path="res://industrial_robot.glb" id="1_s3kti"]
 [ext_resource type="Texture2D" uid="uid://dot2s7oodga0t" path="res://_assets/textures/Industrial sci-fi metal ceiling design.png" id="2_gfiq0"]
 [ext_resource type="Texture2D" uid="uid://daqhan3gn5wws" path="res://_assets/textures/ceiling_normal_map.png" id="3_qbfqj"]
@@ -30,7 +30,6 @@
 [ext_resource type="PackedScene" uid="uid://bno1ropo2f72l" path="res://_base_objects/_characters/Enemy/bossada.tscn" id="25_1qwjn"]
 [ext_resource type="PackedScene" uid="uid://brb3xap2p7ksy" path="res://mainlight.tscn" id="25_cpy65"]
 [ext_resource type="PackedScene" uid="uid://we6yok6api8s" path="res://_base_objects/_UI/pause_menu.tscn" id="26_78nq5"]
-[ext_resource type="PackedScene" uid="uid://dgil4u0yl5ijm" path="res://_base_objects/_characters/Enemy/test_enemy.tscn" id="27_52kmu"]
 [ext_resource type="PackedScene" uid="uid://0exb67spbw5j" path="res://_base_objects/_worldbuilding/walls/asset3.glb" id="28_gsgxg"]
 [ext_resource type="PackedScene" uid="uid://ctncm243wkwha" path="res://_base_objects/harsh/asset4.1.glb" id="29_ctdyy"]
 [ext_resource type="Texture2D" uid="uid://cqlq8ogj2ifk2" path="res://_base_objects/harsh/bigasscapsule_SciFi-Tile1_normal.jpg" id="30_joel0"]
@@ -1623,9 +1622,6 @@ mesh = SubResource("PlaneMesh_5hmwf")
 initial_text = "ERROR *&#@%&%$#&@*(#$^#)@*%^@#*&(%^#&*@%^@#*&(%^#@&^%*#!^&$*^#!^$)))#^%#!^%*&#%^*&)#!^%*&#@^%*&#$^%*$#@^%*#&%#%#%\":>\"#!<%\"#!>%:^#<\"!:>\"#$%#+%+["
 text_color = Color(1, 0, 0, 1)
 
-[node name="Bossada" parent="NavigationRegion3D/bigasscapsule" unique_id=2079433493 instance=ExtResource("25_1qwjn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.830801, -1.4271102, -71.862885)
-
 [node name="asset5" parent="NavigationRegion3D" unique_id=1370549756 instance=ExtResource("33_amagp")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 29.24524, 2.9659243, 6.9068413)
 
@@ -2669,9 +2665,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2339993, 0.32727122, -47.8
 
 [node name="Pause menu" parent="CanvasLayer" unique_id=208691863 instance=ExtResource("26_78nq5")]
 
-[node name="test_enemy" parent="." unique_id=1773575572 instance=ExtResource("27_52kmu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.201677, 3.0763388, 39.789566)
-
 [node name="light_on_ceiling" parent="." unique_id=1579965070 instance=ExtResource("34_svm0g")]
 transform = Transform3D(-0.9996675, -0.025625605, 0.0028585517, 0.02563114, -0.99966985, 0.0019091592, 0.0028086856, 0.001981795, 0.99999434, -11.351498, 7.510978, 25.877869)
 
@@ -2848,3 +2841,6 @@ transform = Transform3D(2.5769262, 0, 0, 0, 2.5769262, 0, 0, 0, 2.5769262, 12.63
 Target_scene_path = "res://_main/Starting scenes/Start menu.tscn"
 Trigger = 1
 Input_as_string = "Interact"
+
+[node name="Bossada" parent="." unique_id=2079433493 instance=ExtResource("25_1qwjn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1480665, 0.86160994, -76.40134)

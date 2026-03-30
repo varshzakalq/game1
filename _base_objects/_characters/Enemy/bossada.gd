@@ -67,7 +67,6 @@ func _process(delta: float) -> void:
 	
 	
 	# 4. Remove the object from the game
-	queue_free()
 
 		
 	if is_in_burst_fire:

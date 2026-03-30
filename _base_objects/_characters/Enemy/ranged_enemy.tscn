@@ -14,14 +14,11 @@ radius = 0.84903586
 
 [node name="Ranged_enemy" type="CharacterBody3D" unique_id=1126345886]
 script = ExtResource("1_28yh6")
-proj_color = Color(0.9269972, 0.00040588662, 0.19975212, 1)
-energy = 20.0
-volumetric_energy = 4.0
 projectile_scene = ExtResource("2_nq3wi")
 projectile_speed = 30.0
 speed = 2.0
 explosion_scene = ExtResource("2_voep5")
-age_damage_per_hit = 20.0
+age_damage_per_hit = 5.0
 attack_range = 20.0
 detection_radius = 40.0
 attack_cooldown = 4.0

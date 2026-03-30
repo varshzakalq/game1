@@ -12,7 +12,6 @@ func _physics_process(delta: float) -> void:
 	if Globals.player == null:
 		return
 		
-
 	
 	
 	super._physics_process(delta)
@@ -33,6 +32,10 @@ func process_chase(delta: float, distance_to_player: float) -> void:
 			var direction = (next_path_pos - global_position).normalized()
 			look_at(Vector3(next_path_pos.x, global_position.y, next_path_pos.z ), Vector3.UP)
 			velocity = direction * SPEED
+
+
+func launch_attack(age_component, age_damage: float) -> void:
+	_on_death()
 
 func _ready() -> void:
 	# 2. Connect the "died" signal to our local function
@@ -58,7 +61,7 @@ func _on_death() -> void:
 		explosion.emitting = true
 	if dist < 2.: 
 		print("damaged")
-		var damage = 100./(dist)
+		var damage = 30./(dist)
 		Globals.player.aging_component.age_damage(damage)
 	
 	
