@@ -208,16 +208,16 @@ func _setup_active_rewind_ui() -> void:
 	void fragment() {
 		vec2 uv = SCREEN_UV;
 		
-		// 1. Violent horizontal VHS tearing
-		float tear = sin(uv.y * 40.0 + time * 25.0) * 0.015 * intensity;
+		// 1. VIOLENT horizontal VHS tearing (Increased from 0.015 to 0.05)
+		float tear = sin(uv.y * 40.0 + time * 35.0) * 0.05 * intensity;
 		
-		// 2. Extreme Chromatic Aberration (RGB Split) pulling outward
-		float r = texture(screen_texture, vec2(uv.x + tear + (0.04 * intensity), uv.y)).r;
+		// 2. EXTREME Chromatic Aberration pulling outward (Increased from 0.04 to 0.1)
+		float r = texture(screen_texture, vec2(uv.x + tear + (0.1 * intensity), uv.y)).r;
 		float g = texture(screen_texture, vec2(uv.x + tear, uv.y)).g;
-		float b = texture(screen_texture, vec2(uv.x + tear - (0.04 * intensity), uv.y)).b;
+		float b = texture(screen_texture, vec2(uv.x + tear - (0.1 * intensity), uv.y)).b;
 		
 		// 3. Fast rolling scanlines
-		float scanline = sin(uv.y * 600.0 - time * 40.0) * 0.05 * intensity;
+		float scanline = sin(uv.y * 600.0 - time * 50.0) * 0.08 * intensity;
 		
 		COLOR = vec4(r - scanline, g - scanline, b - scanline, 1.0);
 	}
@@ -325,17 +325,16 @@ func _rollback(delta: float) -> void:
 	# 1. Base rewind speed percentage (0.0 to 1.0)
 	var rewind_percentage = clamp((_current_rewind_speed - MIN_REWIND_SPEED) / (MAX_REWIND_SPEED - MIN_REWIND_SPEED), 0.0, 1.0)
 	
-	# 2. Calculate the exact severity the age penalty WILL be
+	# 2. Calculate Age Severity
 	var age = 0.0
 	if aging_component != null:
 		age = aging_component.current_age
 		
 	var normalized_age = clamp(age / 100.0, 0.0, 1.0)
-	var penalty_severity = pow(normalized_age, 1.5)
 	
-	# 3. Set the ceiling for the visuals
-	# We use max(0.2, penalty_severity) so healthy players still get a *little* bit of visual feedback!
-	var target_max_intensity = max(0.2, penalty_severity)
+	# 3. Raise the absolute minimum intensity! 
+	# Even at 0 age, it now hits at 0.6 intensity minimum. At max age, it hits 1.2 (overdrive)
+	var target_max_intensity = max(0.6, normalized_age * 1.2)
 	
 	# 4. Final blended intensity
 	var intensity = rewind_percentage * target_max_intensity
@@ -345,7 +344,7 @@ func _rollback(delta: float) -> void:
 	# Camera FOV "Woosh" 
 	camera.fov = lerp(camera.fov, 120.0 + (90.0 * intensity), 10.0 * delta)
 	
-	# Update the Shader
+	# Update the Shader (THIS BRINGS THE TEARING BACK)
 	_active_rewind_rect.visible = true
 	_active_rewind_mat.set_shader_parameter("intensity", intensity)
 	_active_rewind_mat.set_shader_parameter("time", Time.get_ticks_msec() / 1000.0)
@@ -389,7 +388,6 @@ func _on_rollback_finish() -> void:
 		
 	# 3. After the 0.6 second fade out is completely finished, run the hard resets
 	_rewind_cleanup_tween.chain().tween_callback(_hard_reset_rewind_state)
-
 
 
 # A small helper function to reset everything once the tweens are done

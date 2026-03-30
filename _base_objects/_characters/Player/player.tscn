@@ -55,14 +55,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		#else:
 			#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
+	if player._is_rewinding:
+		return		
+		
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		# The math remains the same, but mouse_sensitivity is now correctly scaled
 		player.rotate_y(-event.relative.x * mouse_sensitivity)
 		rotate_x(-event.relative.y * mouse_sensitivity)
 			
-	if player._is_rewinding:
-		return		
+	
 			
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		

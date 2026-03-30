@@ -65,7 +65,9 @@ func launch_attack(_age_component, age_damage: float) -> void:
 func _process(delta: float) -> void:
 	
 	
-	
+
+	# 4. Remove the object from the game
+
 
 		
 	if is_in_burst_fire:
