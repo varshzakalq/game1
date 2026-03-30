@@ -1635,6 +1635,7 @@ mesh = SubResource("PlaneMesh_5hmwf")
 initial_text = "ERROR *&#@%&%$#&@*(#$^#)@*%^@#*&(%^#&*@%^@#*&(%^#@&^%*#!^&$*^#!^$)))#^%#!^%*&#%^*&)#!^%*&#@^%*&#$^%*$#@^%*#&%#%#%\":>\"#!<%\"#!>%:^#<\"!:>\"#$%#+%+["
 text_color = Color(1, 0, 0, 1)
 
+
 [node name="asset5" parent="NavigationRegion3D" unique_id=1370549756 instance=ExtResource("33_amagp")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 29.24524, 2.9659243, 6.9068413)
 
