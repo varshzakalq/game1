@@ -28,8 +28,7 @@ func _process(_delta: float) -> void:
 	if not overlaps_body(Globals.player): return
 	if transition_happening: return
 	
-	if Target_scene_path == \"res://_main/Starting scenes/Start menu.tscn\":
-		Input.mouse_mode= Input.MOUSE_MODE_VISIBLE
+
 	match Trigger:
 		Condition.Unconditional:
 			swap_to_level(Target_scene_path)

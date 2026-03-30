@@ -8,6 +8,10 @@ signal rewinding(value : bool)
 signal ambient_aging(value : float)
 
 
+
+
+signal rip_bossada
+
 var roll_back = preload("uid://bpeb1uwni7a0q")
 
 
