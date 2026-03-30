@@ -1420,8 +1420,9 @@ transform = Transform3D(-1.1865091, 0, 0.074628025, 0, 1.188854, 0, -0.074628025
 [node name="Billboard" parent="computer5" unique_id=2145476204 instance=ExtResource("30_jy3fw")]
 transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1, -0.13561058, 1.8705821, 1.9428537)
 mesh = SubResource("PlaneMesh_jy3fw")
-initial_text = "interact??....
-but.. where is the door..."
+initial_text = "Interaction is very important
+
+Stay in control"
 background_color = Color(0, 0, 0, 1)
 text_color = Color(2.4065375e-06, 0.9147114, 0.23421153, 1)
 

@@ -417,7 +417,7 @@ emission_enabled = true
 emission = Color(1, 0, 0, 1)
 emission_energy_multiplier = 5.14
 
-[node name="Node3D" type="Node3D" unique_id=665478732]
+[node name="Node3D2" type="Node3D" unique_id=665478732]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1194007995]
 environment = SubResource("Environment_00gqm")
@@ -1635,7 +1635,6 @@ mesh = SubResource("PlaneMesh_5hmwf")
 initial_text = "ERROR *&#@%&%$#&@*(#$^#)@*%^@#*&(%^#&*@%^@#*&(%^#@&^%*#!^&$*^#!^$)))#^%#!^%*&#%^*&)#!^%*&#@^%*&#$^%*$#@^%*#&%#%#%\":>\"#!<%\"#!>%:^#<\"!:>\"#$%#+%+["
 text_color = Color(1, 0, 0, 1)
 
-
 [node name="asset5" parent="NavigationRegion3D" unique_id=1370549756 instance=ExtResource("33_amagp")]
 transform = Transform3D(1.7675862, 0, 0, 0, 1.7675862, 0, 0, 0, 1.7675862, 29.24524, 2.9659243, 6.9068413)
 
@@ -2341,7 +2340,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_tnnie")
 
 [node name="Player" parent="." unique_id=1091194407 instance=ExtResource("18_h58rs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.890697, 2.5302265, -55.631245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.978956, 2.5302265, 46.16827)
 
 [node name="Time leech" parent="." unique_id=1811181162 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 33.282326)
@@ -2800,13 +2799,12 @@ transform = Transform3D(-0.22128649, 0, 1.1232361, 0, 1.144826, 0, -1.1232361, 0
 [node name="Billboard" parent="computer1" unique_id=131938978 instance=ExtResource("23_kp2hi")]
 transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1, -0.13561058, 1.8705821, 1.9428537)
 mesh = SubResource("PlaneMesh_1qwjn")
-initial_text = "ohh glad to see you here subject 0352
-i thought nobody could breach the facility this machine can make you free from the field at the
- same time it could also bring back your 
-loved ones but you will have to scrifice your time 
-for that press E to continue "
+initial_text = " subject 0352
+This machine can make you free from the field at the same time it could also bring back your 
+loved ones back
+But you will have to scrifice your time, or rather,  our life for that. Do you wish to proceed?"
 background_color = Color(0, 0, 0, 1)
-text_color = Color(1, 0, 0, 1)
+text_color = Color(0.82660496, 0.39511997, 0, 1)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="computer1/Billboard" unique_id=649641972]
 
