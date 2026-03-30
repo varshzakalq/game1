@@ -3,7 +3,7 @@ class_name HealthComponent
 var damage_audio = preload("uid://cq8xfv8qmfql2")
 var blast_audio= preload("uid://cisc24go2238h")
 @onready var enemy: CollisionShape3D = $"../CollisionShape3D"
-
+signal damage 
 # Signals allow other nodes (like UI or the Enemy) to react
 signal health_changed(current_health, max_health)
 signal died
@@ -21,6 +21,7 @@ func take_damage(amount: float) -> void:
 		return
 	AudioManager.play_3d(damage_audio,enemy.position,10)
 	current_health -= amount
+	damage.emit()
 	# Clamp ensures we don't go below zero
 	current_health = max(current_health, 0)
 	

@@ -4,6 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dmm22o26nw0mc" path="res://_assets/enemy/new_array_mesh.tres" id="2_ltugx"]
 [ext_resource type="PackedScene" uid="uid://3bjs034bdhpo" path="res://_base_objects/harsh/explosion.tscn" id="2_o2nfp"]
 [ext_resource type="Script" uid="uid://clma5adb12gh8" path="res://_base_objects/_characters/Enemy/Bosda_gun.gd" id="3_61ph8"]
+[ext_resource type="PackedScene" uid="uid://0qyjmm3swbq0" path="res://_base_objects/harsh/explosionL.tscn" id="3_t68cj"]
 [ext_resource type="Script" uid="uid://bkrjw4g0do2mr" path="res://_base_objects/_characters/Enemy/health.gd" id="4_o2nfp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_61ph8"]
@@ -15,7 +16,8 @@ height = 2.230713
 
 [node name="Bossada" type="CharacterBody3D" unique_id=2079433493]
 script = ExtResource("1_61ph8")
-explosion_scene = ExtResource("2_o2nfp")
+explosion_scene2 = ExtResource("2_o2nfp")
+explosion_scene = ExtResource("3_t68cj")
 projectile_speed = 30.0
 age_damage_per_hit = 50.0
 attack_range = 15.0
@@ -73,3 +75,5 @@ max_health = 1000.0
 metadata/_custom_type_script = "uid://bkrjw4g0do2mr"
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=807902901]
+
+[connection signal="damage" from="HealthComponent" to="." method="_on_health_component_damage"]

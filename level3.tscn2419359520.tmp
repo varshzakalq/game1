@@ -33,7 +33,6 @@
 [ext_resource type="PackedScene" uid="uid://dgil4u0yl5ijm" path="res://_base_objects/_characters/Enemy/test_enemy.tscn" id="27_52kmu"]
 [ext_resource type="PackedScene" uid="uid://0exb67spbw5j" path="res://_base_objects/_worldbuilding/walls/asset3.glb" id="28_gsgxg"]
 [ext_resource type="PackedScene" uid="uid://ctncm243wkwha" path="res://_base_objects/harsh/asset4.1.glb" id="29_ctdyy"]
-[ext_resource type="Texture2D" uid="uid://cqlq8ogj2ifk2" path="res://_base_objects/harsh/bigasscapsule_SciFi-Tile1_normal.jpg" id="30_joel0"]
 [ext_resource type="PackedScene" uid="uid://c2633wxhc4p7x" path="res://_base_objects/harsh/computer1.glb" id="31_2a3go"]
 [ext_resource type="PackedScene" uid="uid://ca67u4r353eh1" path="res://_base_objects/harsh/bigasscapsule.glb" id="32_i604k"]
 [ext_resource type="PackedScene" uid="uid://co8puvvoocrqj" path="res://_base_objects/harsh/asset5.glb" id="33_amagp"]
@@ -43,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://cpwsmi0prncax" path="res://prop.glb" id="38_qbfqj"]
 [ext_resource type="PackedScene" uid="uid://v0dmuysnyip5" path="res://_base_objects/harsh/asset7 (1).glb" id="39_tnnie"]
 [ext_resource type="PackedScene" uid="uid://dwlxcxr751sey" path="res://_base_objects/harsh/asset7.glb" id="40_kp2hi"]
+[ext_resource type="Script" uid="uid://dq7ou60fovlrf" path="res://_base_objects/harsh/end_choice.gd" id="43_1vlh0"]
 [ext_resource type="PackedScene" uid="uid://cqm64nxyotapa" path="res://_base_objects/_worldbuilding/level_transition.tscn" id="44_joel0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1i48b"]
@@ -160,9 +160,6 @@ data = PackedVector3Array(-30, -0.5, 50, -30, -0.5, -50, -30, 0.5, -50, 30, -0.5
 [sub_resource type="BoxShape3D" id="BoxShape3D_qbfqj"]
 size = Vector3(9.836548, 1, 11.36377)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5bamp"]
-size = Vector3(13.37793, 1, 30.327728)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nauge"]
 albedo_texture = ExtResource("9_joel0")
 normal_enabled = true
@@ -256,10 +253,6 @@ uv1_scale = Vector3(4.78, -0.91, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_arvy8"]
 albedo_texture = ExtResource("16_xe0u0")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vlh0"]
-albedo_texture = ExtResource("11_5hmwf")
-uv1_scale = Vector3(1, 3.515, 1)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf678"]
 albedo_texture = ExtResource("17_atljw")
 
@@ -305,15 +298,6 @@ size = Vector3(1.8937683, 1, 9.715942)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1qwjn"]
 radius = 0.21533203
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bamp"]
-albedo_color = Color(0.3570951, 0.29071075, 0.13816157, 1)
-metallic = 0.5
-roughness = 0.0
-normal_enabled = true
-normal_texture = ExtResource("30_joel0")
-heightmap_enabled = true
-uv1_scale = Vector3(7.63, 1, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tnnie"]
 data = PackedVector3Array(-0.5, -0.069, 1.2427363, -0.5, -0.069, -1.2427363, -0.5, 0.069, -1.2427363, 0.5, -0.069, -1.2427363, -0.5, -0.069, -1.2427363, -0.5, -0.069, 1.2427363, -0.5, 0.069, -1.2427363, -0.5, -0.069, -1.2427363, 0.5, -0.069, -1.2427363, -0.5, 0.069, -1.2427363, -0.5, 0.069, 1.2427363, -0.5, -0.069, 1.2427363, -0.5, -0.069, 1.2427363, -0.5, 0.069, 1.2427363, 0.5, 0.069, 1.2427363, 0.5, 0.069, 1.2427363, -0.5, 0.069, 1.2427363, -0.5, 0.069, -1.2427363, -0.5, -0.069, 1.2427363, 0.5, -0.069, 1.2427363, 0.5, -0.069, -1.2427363, 0.5, 0.069, 1.2427363, 0.5, -0.069, 1.2427363, -0.5, -0.069, 1.2427363, 0.5, -0.069, -1.2427363, 0.5, -0.069, 1.2427363, 0.5, 0.069, 1.2427363, 0.5, -0.069, -1.2427363, 0.5, 0.069, -1.2427363, -0.5, 0.069, -1.2427363, -0.5, 0.069, -1.2427363, 0.5, 0.069, -1.2427363, 0.5, 0.069, 1.2427363, 0.5, 0.069, 1.2427363, 0.5, 0.069, -1.2427363, 0.5, -0.069, -1.2427363)
@@ -1284,10 +1268,6 @@ transform = Transform3D(1, 0, 0, 0, -0.005497813, 0.99998486, 0, -0.99998486, -0
 transform = Transform3D(6.74652, 0, 0, 0, 6.74652, 0, 0, 0, 6.74652, 9.405145, 13.377273, -68.793045)
 shape = SubResource("BoxShape3D_qbfqj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D2" unique_id=869552505]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.222666, 15.969435, -63.11925)
-shape = SubResource("BoxShape3D_5bamp")
-
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=136481335]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9294815, 1.4828528, 0.10402298)
 
@@ -1370,7 +1350,7 @@ size = Vector3(33.80591, 6.9560547, 1)
 material = SubResource("StandardMaterial3D_6wmxb")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D/CSGBox3D22" unique_id=528921256]
-transform = Transform3D(0.9999933, 0, 2.0489097e-08, 0, 1, 0, -2.0489097e-08, 0, 0.9999933, -12.905852, -0.39585876, 0.031879425)
+transform = Transform3D(0.9999934, 0, 2.0489097e-08, 0, 1, 0, -2.0489097e-08, 0, 0.9999934, -12.905854, -0.39585876, 0.03188324)
 operation = 2
 size = Vector3(4.980957, 6.2953796, 1.1503906)
 
@@ -1426,7 +1406,6 @@ size = Vector3(1, 3.4701538, 3.0964355)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.791668, 5.637402, 46.643715)
 material_override = SubResource("StandardMaterial3D_arvy8")
 size = Vector3(1, 3.4227257, 5.623291)
-material = SubResource("StandardMaterial3D_1vlh0")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="NavigationRegion3D/StaticBody3D/CSGCombiner3D" unique_id=1019520751]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.799341, 2.1858907, 49.81301)
@@ -1555,18 +1534,6 @@ transform = Transform3D(-0.022520771, -0.021894567, -1.7135104, 0.00028773682, -
 
 [node name="computer11" parent="NavigationRegion3D" unique_id=516191210 instance=ExtResource("31_2a3go")]
 transform = Transform3D(-0.022520771, -0.021894567, -1.7135104, 0.00028773682, -1.7136587, 0.021892678, -1.7136502, 0, 0.02252261, -2.5847697, 15.58743, -51.321583)
-
-[node name="Billboard5" parent="NavigationRegion3D/computer11" unique_id=795748188 instance=ExtResource("23_kp2hi")]
-transform = Transform3D(-0.99960667, 0.00016789445, 0.028007861, 0.00018996597, -0.99991864, 0.01277405, 0.028007705, 0.012774364, 0.99952585, -1.5015793, 6.052102, 12.627021)
-mesh = SubResource("PlaneMesh_joel0")
-skeleton = NodePath("../../computer1")
-initial_text = "WARNING 
-MASTER ORB not listening 
-seal the inner core 
-Dangerouse to go inside
-DATA MISSING..."
-background_color = Color(0.050980393, 0.050980393, 0.050980393, 1)
-text_color = Color(1, 0, 0, 1)
 
 [node name="computer12" parent="NavigationRegion3D" unique_id=1451633706 instance=ExtResource("31_2a3go")]
 transform = Transform3D(-0.022520771, -0.021894567, -1.7135104, 0.00028773682, -1.7136587, 0.021892678, -1.7136502, 0, 0.02252261, -5.679788, 15.626973, -51.321583)
@@ -2319,9 +2286,8 @@ light_color = Color(0.9882353, 0.50980395, 0.09411765, 1)
 light_energy = 7.921
 
 [node name="SLIDE_TO_DEATH" type="CSGBox3D" parent="NavigationRegion3D" unique_id=179603400]
-transform = Transform3D(5.9298105, 0, 0, 0, 4.9966984, 3.1930647, 0, -3.1930647, 4.9966984, 22.436716, 5.733845, -56.81237)
-size = Vector3(1, 0.138, 2.8003535)
-material = SubResource("StandardMaterial3D_5bamp")
+transform = Transform3D(5.9298105, 0, 0, 0, 4.9966984, 3.1930647, 0, -3.1930647, 4.9966984, 22.436716, 5.561332, -56.05394)
+size = Vector3(1, 0.138, 2.4854727)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/SLIDE_TO_DEATH" unique_id=2100189094]
 
@@ -2330,7 +2296,7 @@ transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_tnnie")
 
 [node name="Player" parent="." unique_id=1091194407 instance=ExtResource("18_h58rs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.890697, 2.5302265, -55.631245)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.271364, 10.33536, -41.62109)
 
 [node name="Time leech" parent="." unique_id=1811181162 instance=ExtResource("19_pletq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1174407, 2.4701824, 33.282326)
@@ -2520,7 +2486,7 @@ SNAPSHOT_PROPERTY_LIST = null
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, -26.20339, 2.5000005, 19.086533)
 
 [node name="DoubleDoor5" parent="doors" unique_id=1095070557 instance=ExtResource("20_igwu1")]
-transform = Transform3D(-1.9963648, 0, 0.120529115, 0, 2, 0, -0.120529115, 0, -1.9963648, -22.061968, 0.1054678, 48.529556)
+transform = Transform3D(-1.9963648, 0, 0.120529115, 0, 2, 0, -0.120529115, 0, -1.9963648, -22.061968, 2.0985174, 48.529556)
 
 [node name="DoubleDoor2" parent="doors" unique_id=1172928182 instance=ExtResource("20_igwu1")]
 transform = Transform3D(-8.742278e-08, 0, 2, 0, 2, 0, -2, 0, -8.742278e-08, 25.943739, 2.5000005, -11.849744)
@@ -2788,6 +2754,7 @@ transform = Transform3D(-0.43219814, 0, 0.68148196, 0, 0.8069778, 0, -0.68148196
 
 [node name="computer1" parent="." unique_id=815421308 instance=ExtResource("31_2a3go")]
 transform = Transform3D(-0.22128649, 0, 1.1232361, 0, 1.144826, 0, -1.1232361, 0, -0.22128649, 9.964601, 8.845525, -34.389236)
+script = ExtResource("43_1vlh0")
 
 [node name="Billboard" parent="computer1" unique_id=131938978 instance=ExtResource("23_kp2hi")]
 transform = Transform3D(1, 0, 0, 0, 1.0000012, 0, 0, 0, 1, -0.13561058, 1.8705821, 1.9428537)

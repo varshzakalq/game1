@@ -1,7 +1,7 @@
 extends StandardEnemy
 class_name Bossada
 
-
+@export var explosion_scene2: PackedScene
 @export var explosion_scene: PackedScene
 @onready var navigation_agent_3d: NavigationAgent3D = $NavigationAgent3D
 @onready var health_component: HealthComponent = $HealthComponent
@@ -13,6 +13,7 @@ class_name Bossada
 @export var projectile_scene: PackedScene
 @export var projectile_speed: float = 10
 @export var speed: float = 5.0
+const blast_sound = preload("uid://cisc24go2238h")
 
 
 var is_in_burst_fire : bool = false
@@ -62,6 +63,13 @@ func launch_attack(_age_component, age_damage: float) -> void:
 			burst_time = attack_cooldown
 
 func _process(delta: float) -> void:
+	
+	
+	
+	# 4. Remove the object from the game
+	queue_free()
+
+		
 	if is_in_burst_fire:
 		for gun in guns:
 			gun.shoot(Globals.player.global_position, age_damage_per_hit/10., 0.1, 0.6)
@@ -95,7 +103,7 @@ func _on_death() -> void:
 		
 		# 4. Add it to the level (the enemy's parent)
 	get_parent().add_child(explosion)
-		
+	#AudioManager.play_3d(blast_sound,position,70)
 		# 5. Move it to the enemy's current position
 	explosion.global_position = global_position
 		
@@ -114,3 +122,19 @@ func _on_death() -> void:
 
 	
 	
+
+
+func _on_health_component_damage() -> void:
+	var explosion = explosion_scene2.instantiate()
+	#AudioManager.play_3d(blast_sound,position,40)	
+		# 4. Add it to the level (the enemy's parent)
+	get_parent().add_child(explosion)
+		
+		# 5. Move it to the enemy's current position
+	explosion.global_position = global_position
+		
+		# 6. If it's a particle system, ensure it starts emitting
+	if explosion is GPUParticles3D or explosion is CPUParticles3D:
+		explosion.emitting = true
+	
+	pass # Replace with function body.
