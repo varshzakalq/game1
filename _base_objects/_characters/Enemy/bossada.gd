@@ -66,8 +66,6 @@ func _process(delta: float) -> void:
 	
 	
 	
-	# 4. Remove the object from the game
-	queue_free()
 
 		
 	if is_in_burst_fire:
@@ -126,7 +124,7 @@ func _on_death() -> void:
 
 func _on_health_component_damage() -> void:
 	var explosion = explosion_scene2.instantiate()
-	#AudioManager.play_3d(blast_sound,position,40)	
+	AudioManager.play_3d(blast_sound,position,90)	
 		# 4. Add it to the level (the enemy's parent)
 	get_parent().add_child(explosion)
 		

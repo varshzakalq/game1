@@ -12,6 +12,7 @@ curve = SubResource("Curve_7rj46")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7rj46"]
 particle_flag_align_y = true
+emission_shape_offset = Vector3(0, 5.48, 0)
 emission_shape = 1
 emission_sphere_radius = 2.3
 inherit_velocity_ratio = 0.564
@@ -69,6 +70,7 @@ point_count = 2
 curve = SubResource("Curve_vxas0")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7epf"]
+emission_shape_offset = Vector3(0, 6.645, 0)
 emission_shape_scale = Vector3(1.105, 1, 1)
 emission_shape = 1
 emission_sphere_radius = 3.64
