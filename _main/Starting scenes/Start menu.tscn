@@ -161,6 +161,7 @@ data = PackedVector3Array(-1.3138428, -0.14892578, 0.5, -1.3138428, -0.14892578,
 script = SubResource("GDScript_yn12q")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=250685517]
+visible = false
 
 [node name="Main_menu" parent="CanvasLayer" unique_id=2028103142 instance=ExtResource("2_mnxpj")]
 
